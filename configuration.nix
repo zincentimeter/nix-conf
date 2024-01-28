@@ -42,8 +42,9 @@
   };
 
   services.v2raya.enable = true;
+  
   services.fprintd.enable = true;
-
+  security.pam.services.fprintd.fprintAuth = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -101,6 +102,10 @@
   # };
 
   programs.ssh.startAgent = true;
+
+  programs.bash.shellAliases = {
+    git-bare = "git --git-dir=/home/shinri/nix-conf --work-tree=/etc/nixos";
+  };
 
   # List services that you want to enable:
 
