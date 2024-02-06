@@ -16,9 +16,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, lanzaboote, disko, ...}: {
+  outputs = { self, nixpkgs, lanzaboote, disko, home-manager, ...}: {
     nixosConfigurations = {
       "thinkpad-p16v" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,6 +34,13 @@
 
           lanzaboote.nixosModules.lanzaboote
           disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+            };
+          }
 
           ({ pkgs, lib, ... }: {
 

@@ -23,7 +23,7 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
-
+  time.hardwareClockInLocalTime = true;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -38,21 +38,30 @@
 
   i18n.inputMethod.enabled = "fcitx5";
   i18n.inputMethod.fcitx5 = {
-    addons = with pkgs; [fcitx5-rime fcitx5-gtk fcitx5-mozc];
+    addons = with pkgs; [fcitx5-rime fcitx5-mozc fcitx5-gtk];
   };
 
   services.v2raya.enable = true;
-  
+
   services.fprintd.enable = true;
   security.pam.services.fprintd.fprintAuth = true;
+
+  # Configure GUI here
+  # programs.hyprland.enable = true;
+  # hint electron apps to use wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # services.pipewire.enable = true;
+  # programs.waybar.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.gc = {
     automatic = true;
-    options = "--delete-older-than 7d";
+    options = "--delete-old";
   };
+
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -91,7 +100,80 @@
     wget
     git
     tldr
+
+    # Hyprland
+    # kitty
+    # mako
+    # xdg-desktop-portal-hyprland
+    # hyprpaper
+    # dolphin
+    # wofi
+    
+    # Font
+    redhat-official-fonts
+    nerdfonts
+    noto-fonts-cjk
+
+    # Processes output of Nix commands to show helpful and pretty information
+    nix-output-monitor
+    # Language Server for Nix
+    nil
+
+    # Shell (mainly for `fish`) plugins
+    # A utility tool powered by fzf for using git interactively.
+    fishPlugins.forgit
+    # A command-line fuzzy finder written in Go
+    fzf
+
   ];
+
+  # Editor configuration
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    defaultEditor = true;
+
+    configure = {
+      customRC = ''
+        set number relativenumber
+	lua require 'lspconfig'.nil_ls.setup{}
+      '';
+      packages.myVimPackage.start = with pkgs.vimPlugins; [
+        nvim-lspconfig
+      ];
+    };
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  # Program configured with home-manager
+  home-manager.users.shinri = {
+    # Home Manager needs a bit of information about you and the
+    # paths it should manage.
+    home.username = "shinri";
+    home.homeDirectory = "/home/shinri";
+
+    programs.vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        bbenoist.nix
+      ];
+    };
+
+    # This value determines the home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update home Manager without changing this value. See
+    # the home Manager release notes for a list of state version
+    # changes in each release.
+    home.stateVersion = "23.11";
+
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -103,7 +185,13 @@
 
   programs.ssh.startAgent = true;
 
-  programs.bash.shellAliases = {
+  # Shell
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  # users.users.shinri.shell = pkgs.fish;
+
+  # Shell aliases
+  environment.shellAliases = {
     git-bare = "git --git-dir=/home/shinri/nix-conf --work-tree=/etc/nixos";
   };
 
