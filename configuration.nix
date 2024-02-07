@@ -44,7 +44,36 @@
   services.v2raya.enable = true;
 
   services.fprintd.enable = true;
-  security.pam.services.fprintd.fprintAuth = true;
+  security.pam.services = 
+    builtins.mapAttrs (n: v: v // {
+        nodelay = true;
+	fprintAuth = config.services.fprintd.enable; 
+      }
+    ) {
+      chfn = {}; chpasswd = {}; chsh = {};
+      fprintd = {};
+      groupadd = {}; groupdel = {}; groupmems = {}; groupmod = {};
+      i3lock = {}; i3lock-color = {};
+      kde = {};
+      login = {};
+      other = {};
+      passwd = {};
+      # polkit-1 = {};
+      runuser = {}; runuser-l = {};
+      su = {}; sudo = {};
+      systemd-user = {};
+      useradd = {}; userdel = {}; usermod = {};
+      vlock = {}; xlock = {}; xscreensaver = {};
+    } //
+    builtins.mapAttrs (n: v: v // {
+        nodelay = true;
+	fprintAuth = false;
+      }
+    ) {
+      # Always disable fprintAuth on polkit-1, sddm
+      polkit-1 = {};
+      sddm = {}; sddm-autologin = {}; sddm-greeter = {};
+    };
 
   # Configure GUI here
   # programs.hyprland.enable = true;
