@@ -58,7 +58,6 @@
       login = {};
       other = {};
       passwd = {};
-      # polkit-1 = {};
       runuser = {}; runuser-l = {};
       su = {}; sudo = {};
       systemd-user = {};
@@ -166,7 +165,7 @@
     configure = {
       customRC = ''
         set number relativenumber
-	lua require 'lspconfig'.nil_ls.setup{}
+        lua require 'lspconfig'.nil_ls.setup{}
       '';
       packages.myVimPackage.start = with pkgs.vimPlugins; [
         nvim-lspconfig
