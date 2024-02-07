@@ -47,7 +47,7 @@
   security.pam.services = 
     builtins.mapAttrs (n: v: v // {
         nodelay = true;
-	fprintAuth = config.services.fprintd.enable; 
+        fprintAuth = config.services.fprintd.enable; 
       }
     ) {
       chfn = {}; chpasswd = {}; chsh = {};
@@ -67,7 +67,7 @@
     } //
     builtins.mapAttrs (n: v: v // {
         nodelay = true;
-	fprintAuth = false;
+        fprintAuth = false;
       }
     ) {
       # Always disable fprintAuth on polkit-1, sddm
