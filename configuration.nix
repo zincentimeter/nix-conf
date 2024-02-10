@@ -54,12 +54,9 @@
       fprintd = {};
       groupadd = {}; groupdel = {}; groupmems = {}; groupmod = {};
       i3lock = {}; i3lock-color = {};
-      kde = {};
-      login = {};
       other = {};
       passwd = {};
       runuser = {}; runuser-l = {};
-      su = {}; sudo = {};
       systemd-user = {};
       useradd = {}; userdel = {}; usermod = {};
       vlock = {}; xlock = {}; xscreensaver = {};
@@ -72,6 +69,9 @@
       # Always disable fprintAuth on polkit-1, sddm
       polkit-1 = {};
       sddm = {}; sddm-autologin = {}; sddm-greeter = {};
+      kde = {};
+      login = {};
+      su = {}; sudo = {};
     };
 
   # Configure GUI here
@@ -87,7 +87,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.gc = {
     automatic = true;
-    options = "--delete-old";
+    options = "--delete-older-than 7d";
   };
 
   # Enable the Plasma 5 Desktop Environment.
