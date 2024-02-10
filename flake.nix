@@ -21,9 +21,37 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
   };
 
-  outputs = { self, nixpkgs, lanzaboote, disko, home-manager, ...}: {
+  outputs = { self, nixpkgs, ...} @ inputs: {
+    # # Standalone Home Manager Setup:
+    # homeConfigurations.shinri =
+    #   inputs.home-manager.lib.homeManagerConfiguration {
+    #     # Ensure Plasma Manager is available:
+    #     extraModules = [
+    #       inputs.plasma-manager.homeManagerModules.plasma-manager
+    #     ];
+
+    #     # Specify the path to my home manager configuration
+    #     configuration = import ./home.nix;
+
+    #     homeDirectory = "/home/shinri";
+    #   };
+
+    # # A shell where Home Manager can be used:
+    # devShells."x86_64-linux".default =
+    #   nixpkgs.mkShell {
+    #     buildInputs = [
+    #       inputs.home-manager.packages."x86_64-linux".home-manager
+    #     ];
+    #   };
+      
     nixosConfigurations = {
       "thinkpad-p16v" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -32,9 +60,9 @@
           # This is not a complete NixOS configuration and you need to reference
           # your normal configuration here.
 
-          lanzaboote.nixosModules.lanzaboote
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
+          inputs.lanzaboote.nixosModules.lanzaboote
+          inputs.disko.nixosModules.disko
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
