@@ -91,7 +91,10 @@
   };
 
   # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    autoNumlock = true;
+  };
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;  
 
@@ -255,9 +258,11 @@
       ];
       userSettings = {
         "nix.serverPath" = "nil";
-        "nix.enableLanguageServer" = "true";
-        # "workbench.colorTheme" = "Default Light Modern";
+        "nix.enableLanguageServer" = true;
+        "workbench.colorTheme" = "Default Light Modern";
         "files.autoSave" = "afterDelay";
+        "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
+        "gitlens.plusFeatures.enabled" = false;
       };
     };
 

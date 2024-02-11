@@ -30,27 +30,28 @@
   };
 
   outputs = { self, nixpkgs, ...} @ inputs: {
-    # # Standalone Home Manager Setup:
-    # homeConfigurations.shinri =
-    #   inputs.home-manager.lib.homeManagerConfiguration {
-    #     # Ensure Plasma Manager is available:
-    #     extraModules = [
-    #       inputs.plasma-manager.homeManagerModules.plasma-manager
-    #     ];
+    # Standalone Home Manager Setup:
+    homeConfigurations.shinri =
+      inputs.home-manager.lib.homeManagerConfiguration {
 
-    #     # Specify the path to my home manager configuration
-    #     configuration = import ./home.nix;
+        # Ensure Plasma Manager is available:
+        extraModules = [
+          inputs.plasma-manager.homeManagerModules.plasma-manager
+        ];
 
-    #     homeDirectory = "/home/shinri";
-    #   };
+        homeDirectory = "/home/shinri";
+        # Specify the path to my home manager configuration
+        configuration = import ./home.nix;
 
-    # # A shell where Home Manager can be used:
-    # devShells."x86_64-linux".default =
-    #   nixpkgs.mkShell {
-    #     buildInputs = [
-    #       inputs.home-manager.packages."x86_64-linux".home-manager
-    #     ];
-    #   };
+      };
+
+    # A shell where Home Manager can be used:
+    devShells."x86_64-linux".default =
+      nixpkgs.mkShell {
+        buildInputs = [
+          inputs.home-manager.packages."x86_64-linux".home-manager
+        ];
+      };
       
     nixosConfigurations = {
       "thinkpad-p16v" = nixpkgs.lib.nixosSystem {
