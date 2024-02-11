@@ -254,7 +254,13 @@
       extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
         maximedenes.vscoq
-        eamodio.gitlens
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "gitless";
+          publisher = "maattdd";
+          version = "11.7.2";
+          sha256 = "rYeZNBz6HeZ059ksChGsXbuOao9H5m5lHGXJ4ELs6xc=";
+        }
       ];
       userSettings = {
         "nix.serverPath" = "nil";
@@ -262,7 +268,6 @@
         "workbench.colorTheme" = "Default Dark Modern";
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
-        "gitlens.plusFeatures.enabled" = false;
       };
     };
 
