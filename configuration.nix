@@ -259,7 +259,7 @@
       userSettings = {
         "nix.serverPath" = "nil";
         "nix.enableLanguageServer" = true;
-        "workbench.colorTheme" = "Default Light Modern";
+        "workbench.colorTheme" = "Default Dark Modern";
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
         "gitlens.plusFeatures.enabled" = false;
@@ -297,7 +297,7 @@
 
   # Shell aliases
   environment.shellAliases = {
-    git-bare = "git --git-dir=/home/shinri/nix-conf --work-tree=/etc/nixos";
+    git-bare = "git --work-tree=/home/shinri/nix-conf";
   };
 
   # List services that you want to enable:
