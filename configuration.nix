@@ -297,7 +297,7 @@
 
   # Shell aliases
   environment.shellAliases = {
-    git-bare = "git --work-tree=/home/shinri/nix-conf";
+    gnix = "git --work-tree=/home/shinri/nix-conf";
   };
 
   # List services that you want to enable:
