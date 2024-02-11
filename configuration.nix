@@ -268,6 +268,7 @@
         "workbench.colorTheme" = "Default Dark Modern";
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
+        "git.confirmSync" = false;
       };
     };
 
