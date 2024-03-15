@@ -85,6 +85,7 @@
   services.xserver.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "shinri" ];
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 7d";
@@ -95,7 +96,7 @@
     enable = true;
     autoNumlock = true;
   };
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;  
 
   # Configure keymap in X11
@@ -107,7 +108,7 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  services.pipewire.enable = true;
 
   # Graphic settings
   # Enable OpenGL
@@ -188,6 +189,29 @@
     ];
   };
 
+  # game: steam
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    # Open ports in the firewall for Steam Remote Play
+    remotePlay.openFirewall = true;
+    # Open ports in the firewall for Source Dedicated Server
+    dedicatedServer.openFirewall = true;
+    # missing dependency packages (use if required)
+    # package = pkgs.steam.override {
+    #   withPrimus = true;
+    #   withJava = true;
+    #   extraPkgs = with pkgs; [
+    #     bumblebee
+    #     glxinfo
+    #   ];
+    # };
+
+  };
+
+  # programs.java.enable = true;
+  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -203,10 +227,6 @@
     # hyprpaper
     # dolphin
     # wofi
-    
-    # Font
-    redhat-official-fonts
-    nerdfonts
     noto-fonts-cjk
 
     # Processes output of Nix commands to show helpful and pretty information
@@ -221,6 +241,19 @@
     fzf
 
   ];
+
+  # Font
+  fonts.fonts = with pkgs; [
+    redhat-official-fonts
+    nerdfonts
+  ];
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "Red Hat Mono"
+      "DejaVu Sans Mono"
+    ];
+  };
 
   # Editor configuration
   programs.neovim = {
@@ -244,6 +277,7 @@
 
   # Program configured with home-manager
   home-manager.users.shinri = {
+
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
     home.username = "shinri";
@@ -269,6 +303,7 @@
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
         "git.confirmSync" = false;
+        "nix.serverSettings"."nil"."formatting"."command" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
       };
     };
 
@@ -283,7 +318,7 @@
     home.stateVersion = "23.11";
 
     # Let Home Manager install and manage itself.
-    programs.home-manager.enable = true;
+    # programs.home-manager.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
