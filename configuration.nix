@@ -93,10 +93,12 @@
 
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm = {
+    wayland.enable = true;
     enable = true;
     autoNumlock = true;
   };
-  services.xserver.desktopManager.plasma6.enable = true;
+   
+  services.desktopManager.plasma6.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;  
 
   # Configure keymap in X11
