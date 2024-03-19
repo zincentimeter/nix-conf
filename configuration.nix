@@ -123,6 +123,7 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  hardware.bluetooth.enable = true;
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -188,6 +189,9 @@
       # game
       # minecraft
       prismlauncher
+
+      # email
+      thunderbird
     ];
   };
 
@@ -305,7 +309,7 @@
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
         "git.confirmSync" = false;
-        "nix.serverSettings"."nil"."formatting"."command" = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+        "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
       };
     };
 
