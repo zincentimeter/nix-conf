@@ -246,13 +246,6 @@
     git
     tldr
 
-    # Hyprland
-    # kitty
-    # mako
-    # xdg-desktop-portal-hyprland
-    # hyprpaper
-    # dolphin
-    # wofi
     noto-fonts-cjk
 
     # Processes output of Nix commands to show helpful and pretty information
@@ -342,9 +335,6 @@
     # the home Manager release notes for a list of state version
     # changes in each release.
     home.stateVersion = "23.11";
-
-    # Let Home Manager install and manage itself.
-    # programs.home-manager.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
