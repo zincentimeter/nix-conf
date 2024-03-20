@@ -48,6 +48,13 @@ in
         version = "1.6.2024032009";
         sha256 = "tCMWfhnL7+rC9IQV3Umi/IyMvefd/KPud+oigtkBEJU=";
       }
+      # C-related
+      {
+        name = "cpptools";
+        publisher = "ms-vscode";
+        version = "1.19.8";
+        sha256 = "TyjsIinjU+SJMRyismfuQ1zpCI+vCZRZpUokw91tmq8=";
+      }
     ];
 
     userSettings = {
