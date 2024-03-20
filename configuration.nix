@@ -109,7 +109,7 @@
 
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm = {
-    wayland.enable = true;
+    wayland.enable = false;
     enable = true;
     autoNumlock = true;
   };

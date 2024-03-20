@@ -6,4 +6,4 @@
 - [ ] numlock
 - [ ] chinese plasma 6
 - [x] manage secrets with sops-nix
-- [ ] laptop caps cannot be identified correctly on login screen
+- [x] laptop caps cannot be identified correctly on login screen
