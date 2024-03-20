@@ -1,6 +1,6 @@
 # Shinri's NixOS Configuration
 
-## Unconvinence
+## Points of inconvenience
 
 - [ ] vscode cannot input chinese
 - [ ] numlock
