@@ -132,6 +132,12 @@
     pulse.enable = true;
   };
 
+  # Enable trackpoint
+  hardware.trackpoint = {
+    enable = true;
+    emulateWheel = true;
+  };
+
   # Graphic settings
   # Enable OpenGL
   hardware.opengl = {
