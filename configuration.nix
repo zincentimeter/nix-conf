@@ -12,13 +12,27 @@
       ./disko.nix
     ];
 
+  sops = {
+    defaultSopsFile = ./secrets.json;
+    defaultSopsFormat = "json";
+    age = {
+      sshKeyPaths = [ "/home/shinri/.ssh/thinkpad_nixos" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+    secrets.github_access_token = {};
+
+    templates."nix_access_token.nix".content = ''
+      github.com=${config.sops.placeholder.github_access_token}
+    '';
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "thinkpad-p16v"; # Define your hostname.
   # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -78,7 +92,6 @@
   # programs.hyprland.enable = true;
   # hint electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  # services.pipewire.enable = true;
   # programs.waybar.enable = true;
 
   # Enable the X11 windowing system.
@@ -86,6 +99,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "shinri" ];
+  nix.settings.access-tokens = config.sops.templates."nix_access_token.nix".content;
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 7d";
