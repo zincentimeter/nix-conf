@@ -22,8 +22,8 @@
     };
     secrets.github_access_token = {};
 
-    templates."nix_access_token.nix".content = ''
-      github.com=${config.sops.placeholder.github_access_token}
+    templates."nix_access_token.conf".content = ''
+      access-token = github.com=${config.sops.placeholder.github_access_token}
     '';
   };
 
@@ -99,7 +99,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "shinri" ];
-  nix.settings.access-tokens = config.sops.templates."nix_access_token.nix".content;
+  nix.extraOptions = ''
+    !include ${config.sops.templates."nix_access_token.conf".path}
+  '';
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 7d";
@@ -113,7 +115,6 @@
   };
    
   services.desktopManager.plasma6.enable = true;
-  services.xserver.libinput.touchpad.naturalScrolling = true;  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -122,9 +123,14 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  services.pipewire.enable = true;
+  # Sound configuration
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Graphic settings
   # Enable OpenGL
@@ -263,7 +269,7 @@
   ];
 
   # Font
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     redhat-official-fonts
     nerdfonts
   ];
