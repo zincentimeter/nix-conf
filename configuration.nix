@@ -91,7 +91,7 @@
   # Configure GUI here
   # programs.hyprland.enable = true;
   # hint electron apps to use wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # programs.waybar.enable = true;
 
   # Enable the X11 windowing system.
@@ -310,6 +310,7 @@
 
     programs.vscode = {
       enable = true;
+      package = pkgs.vscode;
       extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
         maximedenes.vscoq
