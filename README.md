@@ -2,7 +2,7 @@
 
 ## Points of inconvenience
 
-- [ ] vscode cannot input chinese
+- [x] vscode cannot input chinese
 - [ ] numlock
 - [ ] chinese plasma 6
 - [x] manage secrets with sops-nix
