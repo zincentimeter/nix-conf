@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   vscode-utils = pkgs.vscode-utils;
