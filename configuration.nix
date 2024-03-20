@@ -308,30 +308,9 @@
     home.username = "shinri";
     home.homeDirectory = "/home/shinri";
 
-    programs.vscode = {
-      enable = true;
-      package = pkgs.vscode;
-      extensions = with pkgs.vscode-extensions; [
-        bbenoist.nix
-        maximedenes.vscoq
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "gitless";
-          publisher = "maattdd";
-          version = "11.7.2";
-          sha256 = "rYeZNBz6HeZ059ksChGsXbuOao9H5m5lHGXJ4ELs6xc=";
-        }
-      ];
-      userSettings = {
-        "nix.serverPath" = "nil";
-        "nix.enableLanguageServer" = true;
-        "workbench.colorTheme" = "Default Dark Modern";
-        "files.autoSave" = "afterDelay";
-        "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
-        "git.confirmSync" = false;
-        "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
-      };
-    };
+    imports = [
+      ./vscode.nix
+    ];
 
     # This value determines the home Manager release that your
     # configuration is compatible with. This helps avoid breakage
