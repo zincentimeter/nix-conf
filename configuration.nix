@@ -356,7 +356,6 @@
   # Shell
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
-  # users.users.shinri.shell = pkgs.fish;
 
   # Shell aliases
   environment.shellAliases = {
