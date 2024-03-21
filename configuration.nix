@@ -149,6 +149,8 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   hardware.nvidia = {
 
     # Modesetting is required.
