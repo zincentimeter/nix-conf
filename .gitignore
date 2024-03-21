@@ -1,2 +1,5 @@
 # Fubuki's reference
 .fubuki
+
+# Private ssh nix configuration
+ssh.nix
