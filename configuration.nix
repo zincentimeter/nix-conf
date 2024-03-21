@@ -23,7 +23,7 @@
     secrets.github_access_token = {};
 
     templates."nix_access_token.conf".content = ''
-      access-token = github.com=${config.sops.placeholder.github_access_token}
+      access-tokens = github.com=${config.sops.placeholder.github_access_token}
     '';
   };
 
