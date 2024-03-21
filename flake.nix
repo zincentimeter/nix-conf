@@ -4,6 +4,11 @@
   # Flake inputs
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -13,18 +18,29 @@
   };
 
   # Flake outputs
-  outputs = { self, nixpkgs }:
+  outputs = { self, ... } @ inputs:
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
+    pkgs = import inputs.nixpkgs { inherit system; };
   in
   {
+    homeConfigurations = {
+      "chenmeng" = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
+      };
+    };
+
     devShells.${system}.default = pkgs.mkShell {
       # The Nix packages provided in the environment
       packages = with pkgs; [
-        boost # The Boost libraries
+        gnumake
         gcc # The GNU Compiler Collection
       ];
+
+      shellHook = ''
+        fish
+      '';
     };
   };
 }
