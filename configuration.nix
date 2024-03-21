@@ -16,7 +16,7 @@
     defaultSopsFile = ./secrets.json;
     defaultSopsFormat = "json";
     age = {
-      sshKeyPaths = [ "/home/shinri/.ssh/thinkpad_nixos" ];
+      sshKeyPaths = [ "${config.users.users.shinri.home}/.ssh/thinkpad_nixos" ];
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
@@ -312,13 +312,13 @@
 
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
-    home.username = "shinri";
-    home.homeDirectory = "/home/shinri";
+    home.username = config.users.users.shinri.name;
+    home.homeDirectory = config.users.users.shinri.home;
 
     imports = [
       ./vscode.nix
-    ];
-
+    ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
+  
     # This value determines the home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new home Manager release introduces backwards
@@ -346,7 +346,7 @@
 
   # Shell aliases
   environment.shellAliases = {
-    gnix = "git --work-tree=/home/shinri/nix-conf";
+    gnix = "git --work-tree=${config.users.users.shinri.home}/nix-conf";
   };
 
   # List services that you want to enable:
