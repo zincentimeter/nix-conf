@@ -299,6 +299,12 @@
     };
   };
 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+    openFirewall = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # Program configured with home-manager
