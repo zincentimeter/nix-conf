@@ -19,6 +19,8 @@
       # Sound / Graphic cards / Printers / Peripherals / etc.
       # (./hardware/default.nix will be imported)
       ./hardware
+      # Graphic Interface Configuration
+      ./gui.nix
     ];
 
   sops = {
@@ -62,38 +64,6 @@
 
   # Proxy
   services.v2raya.enable = true;
-
-  # Fingerprint
-  services.fprintd.enable = true;
-  security.pam.services = 
-    builtins.mapAttrs (n: v: v // {
-        nodelay = true;
-        fprintAuth = config.services.fprintd.enable; 
-      }
-    ) {
-      chfn = {}; chpasswd = {}; chsh = {};
-      fprintd = {};
-      groupadd = {}; groupdel = {}; groupmems = {}; groupmod = {};
-      i3lock = {}; i3lock-color = {};
-      other = {};
-      passwd = {};
-      runuser = {}; runuser-l = {};
-      systemd-user = {};
-      useradd = {}; userdel = {}; usermod = {};
-      vlock = {}; xlock = {}; xscreensaver = {};
-    } //
-    builtins.mapAttrs (n: v: v // {
-        nodelay = true;
-        fprintAuth = false;
-      }
-    ) {
-      # Always disable fprintAuth on polkit-1, sddm
-      polkit-1 = {};
-      sddm = {}; sddm-autologin = {}; sddm-greeter = {};
-      kde = {};
-      login = {};
-      su = {}; sudo = {};
-    };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "shinri" ];
