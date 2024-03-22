@@ -6,10 +6,16 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      # Lanzaboote for SecureBoot
+      ./lanzaboote.nix
+      # Disko
       # "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
       ./disko.nix
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      # Home
+      ./home.nix
     ];
 
   sops = {
@@ -52,7 +58,7 @@
 
   i18n.inputMethod.enabled = "fcitx5";
   i18n.inputMethod.fcitx5 = {
-    addons = with pkgs; [fcitx5-rime fcitx5-mozc fcitx5-gtk];
+    addons = with pkgs; [ fcitx5-rime fcitx5-mozc fcitx5-gtk ];
   };
 
   services.v2raya.enable = true;
@@ -108,6 +114,7 @@
   };
 
   # Enable the Plasma 6 Desktop Environment.
+  # services.xserver.desktopManager.plasma5.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.xserver.displayManager.sddm = {
     wayland.enable = false;
@@ -216,9 +223,6 @@
       # game
       # minecraft
       prismlauncher
-
-      # email
-      thunderbird
     ];
   };
 
@@ -306,29 +310,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  # Program configured with home-manager
-  home-manager.users.shinri = {
-
-    # Home Manager needs a bit of information about you and the
-    # paths it should manage.
-    home.username = config.users.users.shinri.name;
-    home.homeDirectory = config.users.users.shinri.home;
-
-    imports = [
-      ./vscode.nix
-    ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
-  
-    # This value determines the home Manager release that your
-    # configuration is compatible with. This helps avoid breakage
-    # when a new home Manager release introduces backwards
-    # incompatible changes.
-    #
-    # You can update home Manager without changing this value. See
-    # the home Manager release notes for a list of state version
-    # changes in each release.
-    home.stateVersion = "23.11";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
