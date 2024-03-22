@@ -12,3 +12,13 @@
 
 - [ ] Declarative Plasma 6
 - [ ] Declarative _2raya config (or sin_box?)
+
+## Note
+
+- Private items are skipped by
+
+    ```fish
+    git update-index --skip-worktree $file
+    ```
+
+    To cancel, `--no-skip-worktree`
