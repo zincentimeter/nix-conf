@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./finderprint.nix
+    ./fingerprint.nix
     ./graphic.nix
   ];
   # Enable CUPS to print documents.
