@@ -7,8 +7,8 @@
 {
   imports =
     [
-      # Lanzaboote for SecureBoot
-      ./lanzaboote.nix
+      # Boot options and Lanzaboote for SecureBoot
+      ./boot.nix
       # Disko
       # "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
       ./disko.nix
@@ -35,10 +35,6 @@
       access-tokens = github.com=${config.sops.placeholder.github_access_token}
     '';
   };
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "thinkpad-p16v"; # Define your hostname.
   # Pick only one of the below networking options.

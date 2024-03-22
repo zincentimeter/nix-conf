@@ -16,4 +16,7 @@
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.efi.canTouchEfiVariables = true;
 }
