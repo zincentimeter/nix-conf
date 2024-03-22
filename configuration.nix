@@ -95,15 +95,6 @@
       su = {}; sudo = {};
     };
 
-  # Configure GUI here
-  # programs.hyprland.enable = true;
-  # hint electron apps to use wayland
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  # programs.waybar.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "shinri" ];
   nix.extraOptions = ''
@@ -112,15 +103,6 @@
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 7d";
-  };
-
-  # Enable the Plasma 6 Desktop Environment.
-  # services.xserver.desktopManager.plasma5.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.xserver.displayManager.sddm = {
-    wayland.enable = false;
-    enable = true;
-    autoNumlock = true;
   };
 
   # Configure keymap in X11
