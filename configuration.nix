@@ -14,8 +14,8 @@
       ./disko.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Home
-      ./home.nix
+      # Home folder (the ./home/default.nix will be imported)
+      ./home
     ];
 
   sops = {
