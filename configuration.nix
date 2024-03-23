@@ -7,20 +7,17 @@
 {
   imports =
     [
-      # Boot options and Lanzaboote for SecureBoot
-      ./boot.nix
-      # Disko
-      # "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
-      ./disko.nix
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # Home folder (./home/default.nix will be imported)
+      # Home folder
+      # (./home/default.nix will be imported)
       ./home
+
       # Sound / Graphic cards / Printers / Peripherals / etc.
       # (./hardware/default.nix will be imported)
       ./hardware
-      # Graphic Interface Configuration
-      ./gui.nix
+
+      # Boot / Disk (Disko) / GUI / Hardware scan
+      # (./system/default.nix will be imported)
+      ./system
     ];
 
   sops = {
