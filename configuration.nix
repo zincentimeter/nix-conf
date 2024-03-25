@@ -12,10 +12,11 @@
       ./home
 
       # Sound / Graphic cards / Printers / Peripherals / etc.
+      # Hardware scan (hardware-configuration.nix is also included in it)
       # (./hardware/default.nix will be imported)
       ./hardware
 
-      # Boot / Disk (Disko) / GUI / Hardware scan
+      # Boot / Disk (Disko) / GUI
       # (./system/default.nix will be imported)
       ./system
 
@@ -82,6 +83,9 @@
       # game
       # minecraft
       prismlauncher
+
+      # remote desktop
+      remmina
     ];
   };
 
