@@ -53,7 +53,7 @@ in
         name = "cpptools";
         publisher = "ms-vscode";
         version = "1.19.8";
-        sha256 = "TyjsIinjU+SJMRyismfuQ1zpCI+vCZRZpUokw91tmq8=";
+        sha256 = "fY9ada+pQpk+RgzbmPe5FgOSdsxz0GpHwRnjjvd8CrI=";
       }
     ];
 
@@ -62,7 +62,7 @@ in
       "nix.serverPath" = "nil";
       "nix.enableLanguageServer" = true;
       "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
-      "workbench.colorTheme" = "Default Dark Modern";
+      "workbench.colorTheme" = "Default Light Modern";
       "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
       "files.autoSave" = "afterDelay";
     };
