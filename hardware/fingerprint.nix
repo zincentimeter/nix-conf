@@ -1,4 +1,4 @@
-{ config, ...}:
+{ config, ... }:
 
 {
   # Fingerprint
@@ -6,7 +6,7 @@
   security.pam.services = 
     builtins.mapAttrs (n: v: v // {
         nodelay = true;
-        fprintAuth = config.services.fprintd.enable; 
+        fprintAuth = config.services.fprintd.enable;
       }
     ) {
       chfn = {}; chpasswd = {}; chsh = {};

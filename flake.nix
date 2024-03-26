@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -26,12 +27,21 @@
 
   };
 
-  outputs = { self, nixpkgs, ...} @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, ... } @ inputs:
   {
     nixosConfigurations = {
-      "thinkpad-p16v" = nixpkgs.lib.nixosSystem {
+      # Use `rec` to use `system` variable inside overlays
+      "thinkpad-p16v" = nixpkgs.lib.nixosSystem rec {
+
         system = "x86_64-linux";
         modules = [
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                fprintd = nixpkgs-stable.legacyPackages.${system}.fprintd;
+              })
+            ];
+          }
           # This is not a complete NixOS configuration and you need to reference
           # your normal configuration here.
           {
