@@ -10,6 +10,9 @@
   # Enable the Plasma 6 Desktop Environment.
   # services.xserver.desktopManager.plasma5.enable = true;
   services.desktopManager.plasma6.enable = true;
+  # Use x11 as default since I meet a wierd numlock problem
+  # Resembling https://github.com/wez/wezterm/issues/1869#user-content-its-a-mutter-problem
+  services.xserver.displayManager.defaultSession = "plasmax11";
   services.xserver.displayManager.sddm = {
     wayland.enable = false;
     enable = true;
