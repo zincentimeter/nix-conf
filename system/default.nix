@@ -10,6 +10,6 @@
     ./disko.nix
 
     # Graphic Interface Configuration
-    ./gui.nix
+    ./gui
   ];
 }
