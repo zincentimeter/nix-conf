@@ -3,8 +3,8 @@
 ## Points of inconvenience
 
 - [x] vscode cannot input chinese
-- [ ] numlock
-- [ ] chinese plasma 6
+- [x] numlock and capslock (change to Keyboard(Chinese) fix that)
+- [ ] chinese plasma 6 (Bad Locale may also trigger the problem of numlock)
 - [x] manage secrets with sops-nix
 - [x] laptop caps cannot be identified correctly on login screen
 

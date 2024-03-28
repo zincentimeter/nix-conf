@@ -37,6 +37,7 @@
 
   # Select internationalisation properties.
   i18n.supportedLocales = [ "all" ];
+  services.xserver.xkb.layout = "cn";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
