@@ -22,6 +22,9 @@
 
       # Secret-related configure
       ./secret
+
+      # Applications
+      ./service
     ];
 
   networking.hostName = "thinkpad-p16v"; # Define your hostname.
@@ -165,12 +168,6 @@
         nvim-lspconfig
       ];
     };
-  };
-
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "client";
-    openFirewall = true;
   };
 
   nixpkgs.config.allowUnfree = true;
