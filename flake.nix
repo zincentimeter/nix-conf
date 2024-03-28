@@ -39,9 +39,7 @@
             nixpkgs.overlays = [
               # Overlay function below
               (final: prev: {
-                # Substitute unstable fprintd due to
-                # https://github.com/NixOS/nixpkgs/pull/298491
-                fprintd = nixpkgs-stable.legacyPackages.${system}.fprintd;
+                # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
               })
             ];
           }
