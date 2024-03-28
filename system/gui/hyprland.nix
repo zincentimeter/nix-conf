@@ -9,7 +9,7 @@
     xwayland.enable = true;
   };
 
-  programs.waybar.enable = true;
+  programs.waybar.enable = false;
 
   # SDDM requires services.xserver.enable to be true
   services.xserver.enable = true;
