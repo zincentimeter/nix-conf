@@ -31,6 +31,6 @@
     4. stash pop
     5. edit on private branch
     6. commit
-    7. git checkout back
-    8. git checkout private <file>
+    7. `git checkout main`
+    8. `git checkout private <file>`
     9. update-index with `skip-worktree`
