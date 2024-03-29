@@ -40,4 +40,8 @@
       };
     };
   };
+
+  # fwupd, for firmware updates
+  services.fwupd.enable = true;
+
 }
