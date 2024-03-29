@@ -44,6 +44,8 @@
         system = "x86_64-linux";
         modules = [
           {
+            # Patching nixpkgs with customized packages
+            # e.g. apps from other sources or stable branch
             nixpkgs.overlays = [
               # Overlay function below
               (final: prev: {
