@@ -11,5 +11,7 @@
 
     # Graphic Interface Configuration
     ./gui
+
+    ./locale.nix
   ];
 }
