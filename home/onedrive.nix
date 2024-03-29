@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   # The mount path of my OneDrive
-  mountPath = "/home/shinri/OneDrive";
+  mountPath = "${config.home.homeDirectory}/OneDrive";
 in 
 {
   # To use, 
@@ -10,9 +10,9 @@ in
   # > https://github.com/oxalica/onedrive-fuse/blob/main/doc/register_app.md
   # 2. Login to follow
   # > https://github.com/oxalica/onedrive-fuse/blob/main/README.md
-  environment.systemPackages = [
-    pkgs.onedrive-fuse
-    pkgs.fuse
+  home.packages = with pkgs; [
+    onedrive-fuse
+    fuse
   ];
 
   # The cookie may outdate, I have placed the azure token under ./secret/ with sops-nix
@@ -23,12 +23,14 @@ in
 
   # "onedrive-fuse" is the name of the new service we'll be creating
   systemd.user.services."onedrive-fuse" = {
-    enable = true;
-    after = ["network.target" "sound.target"];
+    # enable = true;
+    Unit = {
+      After = ["network.target" "sound.target"];
+      Description = "Mount Microsoft OneDrive storage as FUSE filesystem";
+    };
     # set it to ["default.target"] to make a unit start by default when the user <name> logs on.
-    wantedBy = [ "default.target" ];
-    description = "Mount Microsoft OneDrive storage as FUSE filesystem";
-    serviceConfig = {
+    Install.WantedBy = [ "default.target" ];
+    Service = {
       # see systemd man pages for more information on the various options for "Type": "notify"
       # specifies that this is a service that waits for notification from its predecessor (declared in
       # `after=`) before starting
