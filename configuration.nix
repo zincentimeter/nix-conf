@@ -52,28 +52,6 @@
   users.users.shinri = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      firefox
-      tree
-      telegram-desktop
-      cinny-desktop
-      obs-studio
-      
-      # For coq, a language used in software foundation book
-      coq
-      coqPackages.vscoq-language-server
-
-      # game
-      # minecraft
-      prismlauncher
-
-      # remote desktop
-      remmina
-
-      # watchalong
-      syncplay
-      vlc
-    ];
   };
 
   # game: steam

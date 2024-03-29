@@ -1,7 +1,7 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  # Program configured with home-manager
+  # Program configured with home-manager, but as a NixOS module!
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -10,6 +10,28 @@
       # paths it should manage.
       home.username = config.users.users.shinri.name;
       home.homeDirectory = config.users.users.shinri.home;
+      home.packages = with pkgs; [
+        firefox
+        tree
+        telegram-desktop
+        cinny-desktop
+        obs-studio
+        
+        # For coq, a language used in software foundation book
+        coq
+        coqPackages.vscoq-language-server
+
+        # game
+        # minecraft
+        prismlauncher
+
+        # remote desktop
+        remmina
+
+        # watchalong
+        syncplay
+        vlc
+      ];
 
       imports = [
         ./vscode.nix
