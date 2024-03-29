@@ -48,6 +48,7 @@
               # Overlay function below
               (final: prev: {
                 # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
+                onedrive-fuse = inputs.onedrive-fuse.packages.${system}.default;
               })
             ];
           }
