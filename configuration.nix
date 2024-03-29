@@ -16,7 +16,7 @@
       # (./hardware/default.nix will be imported)
       ./hardware
 
-      # Boot / Disk (Disko) / GUI
+      # Boot / Disk (Disko) / GUI / Locale
       # (./system/default.nix will be imported)
       ./system
 
