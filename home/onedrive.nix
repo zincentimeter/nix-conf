@@ -3,7 +3,9 @@
 let
   # The mount path of my OneDrive
   mountPath = "${config.home.homeDirectory}/OneDrive";
-in 
+  configName = "onedrive-fuse/config.toml";
+  configPath = "${config.xdg.configHome}/${configName}";
+in
 {
   # To use, 
   # 1. Register an app 
@@ -21,9 +23,10 @@ in
   # If ~/.config/onedrive-fuse/credential.json exists, then simply run
   # > onedrive-fuse login --read-write
 
+  xdg.configFile.${configName}.source = ./onedrive.toml;
+
   # "onedrive-fuse" is the name of the new service we'll be creating
   systemd.user.services."onedrive-fuse" = {
-    # enable = true;
     Unit = {
       After = ["network.target" "sound.target"];
       Description = "Mount Microsoft OneDrive storage as FUSE filesystem";
@@ -35,7 +38,7 @@ in
       # specifies that this is a service that waits for notification from its predecessor (declared in
       # `after=`) before starting
       Type = "notify";
-      ExecStart = ''${pkgs.onedrive-fuse.outPath}/bin/onedrive-fuse mount ${mountPath}'';
+      ExecStart = ''${pkgs.onedrive-fuse.outPath}/bin/onedrive-fuse mount ${mountPath} --config ${configPath}'';
       ExecStop = ''${pkgs.fuse.outPath}/bin/fusermount -u ${mountPath}'';
     };
   };
