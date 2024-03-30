@@ -55,9 +55,10 @@ in
         # remote desktop
         remmina
 
-        # watchalong
-        syncplay
+        
       ] ++ [
+        # watchalong
+        syncplayGpuOffloaded
         vlcGpuOffloaded
       ];
 
