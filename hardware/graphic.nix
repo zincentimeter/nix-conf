@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Graphic settings
@@ -7,10 +7,13 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = [ pkgs.vaapiVdpau ];
   };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
+
+  environment.systemPackages = [ pkgs.nvidia-vaapi-driver ];
 
   hardware.nvidia = {
 
@@ -25,17 +28,6 @@
 	    finegrained = false;
     };
 
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    # shinri: my p16v has NVIDIA RTX A500 Laptop GPU, which comes with pci id 0x25BD
-    # shinri: that means it can use the open one.
-    open = true;
-
     # Enable the Nvidia settings menu,
 	  # accessible via `nvidia-settings`.
     nvidiaSettings = true;
@@ -45,6 +37,11 @@
 
     # Hybrid Graphics (Nvidia Optimus PRIME)
     prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+
       # Optimus Option C: Reverse Sync Mode (Experimental)
       reverseSync.enable = true;
       # Enable if using an external GPU
