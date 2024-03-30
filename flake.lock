@@ -243,29 +243,6 @@
         "type": "github"
       }
     },
-    "onedrive-fuse": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1707724047,
-        "narHash": "sha256-JIW3/wmhaGgNXiFxj5kXJD1a1j0AeOik15t7DIeN0LU=",
-        "owner": "oxalica",
-        "repo": "onedrive-fuse",
-        "rev": "88111955b43684942407b736f34943b86ba36101",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "onedrive-fuse",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -305,7 +282,6 @@
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable_2",
-        "onedrive-fuse": "onedrive-fuse",
         "sops-nix": "sops-nix"
       }
     },

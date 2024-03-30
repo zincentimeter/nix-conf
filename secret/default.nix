@@ -9,9 +9,23 @@
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
-    secrets.github_access_token = {};
-    secrets.onedrive_fuse_azure_token = {};
     
+    secrets =
+      builtins.mapAttrs (n: v: v // {
+          mode = "0440";
+          owner = config.users.users.shinri.name;
+          group = config.users.users.shinri.group;
+        }
+      ) {
+        # Secrets listed here are managed and readable by user <shinri>.
+        "rclone_azure_token" = {};
+        "rclone_client_secret_value" = {};
+        "rclone_client_secret_secret_id" = {};
+      } // {
+        # Secrets listed here requires elevated permission.
+        "github_access_token" = {};
+        "onedrive_fuse_azure_token" = {};
+      };
     templates."nix_access_token.conf".content = ''
       access-tokens = github.com=${config.sops.placeholder.github_access_token}
     '';

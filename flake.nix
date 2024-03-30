@@ -27,12 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    onedrive-fuse = {
-      url = "github:oxalica/onedrive-fuse";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... } @ inputs:
@@ -50,7 +44,6 @@
               # Overlay function below
               (final: prev: {
                 # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
-                onedrive-fuse = inputs.onedrive-fuse.packages.${system}.default;
               })
             ];
           }

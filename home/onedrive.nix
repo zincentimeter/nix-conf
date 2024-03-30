@@ -3,7 +3,7 @@
 let
   # The mount path of my OneDrive
   mountPath = "${config.home.homeDirectory}/OneDrive";
-  configName = "onedrive-fuse/config.toml";
+  configName = "rclone/config.toml";
   configPath = "${config.xdg.configHome}/${configName}";
 in
 {
@@ -13,20 +13,14 @@ in
   # 2. Login to follow
   # > https://github.com/oxalica/onedrive-fuse/blob/main/README.md
   home.packages = with pkgs; [
-    onedrive-fuse
-    fuse
+    rclone
   ];
 
-  # The cookie may outdate, I have placed the azure token under ./secret/ with sops-nix
-  # To login for the first time:
-  # > onedrive-fuse login --read-write --client-id $(sudo cat /run/secrets/onedrive_fuse_azure_token)
-  # If ~/.config/onedrive-fuse/credential.json exists, then simply run
-  # > onedrive-fuse login --read-write
-
-  xdg.configFile.${configName}.source = ./onedrive.toml;
-
-  # "onedrive-fuse" is the name of the new service we'll be creating
-  systemd.user.services."onedrive-fuse" = {
+  # The config is saved at ${configPath}. since its managed by rclone
+  # i will not take over it.
+  # To configure, use /var/secrets/
+  # "rclone" is the name of the new service we'll be creating
+  systemd.user.services."rclone" = {
     Unit = {
       After = ["network.target" "sound.target"];
       Description = "Mount Microsoft OneDrive storage as FUSE filesystem";
@@ -38,8 +32,8 @@ in
       # specifies that this is a service that waits for notification from its predecessor (declared in
       # `after=`) before starting
       Type = "notify";
-      ExecStart = ''${pkgs.onedrive-fuse.outPath}/bin/onedrive-fuse mount ${mountPath} --config ${configPath}'';
-      ExecStop = ''${pkgs.fuse.outPath}/bin/fusermount -u ${mountPath}'';
+      ExecStart = ''${pkgs.rclone}/bin/rclone mount ${mountPath}'';
+      ExecStop = ''${pkgs.rclone}/bin/fusermount -u ${mountPath}'';
     };
   };
 }
