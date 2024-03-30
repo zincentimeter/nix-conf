@@ -8,7 +8,7 @@ in
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscode.override { commandLineArgs = "--enable-wayland-ime"; };
 
     mutableExtensionsDir = false;
     extensions = with existing-extensions; [
