@@ -7,6 +7,7 @@
 - [ ] chinese plasma 6 (Bad Locale may also trigger the problem of numlock and capslock)
 - [x] manage secrets with sops-nix (cannot directly introduced in nix config)
 - [x] laptop caps cannot be identified correctly on login screen (don't hint sddm to use wayland)
+- [x] vlc / vlc via syncplay not working for nvidia gpu (offloading it solves this)
 
 ## Future Improvements
 
