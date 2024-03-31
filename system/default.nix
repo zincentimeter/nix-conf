@@ -12,6 +12,10 @@
     # Graphic Interface Configuration
     ./gui
 
+    # Language-related
     ./locale.nix
+
+    # Fonts
+    ./font.nix
   ];
 }

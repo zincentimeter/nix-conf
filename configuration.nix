@@ -44,10 +44,6 @@
     options = "--delete-older-than 7d";
   };
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shinri = {
     isNormalUser = true;
@@ -85,8 +81,6 @@
     git
     tldr
 
-    noto-fonts-cjk
-
     # Processes output of Nix commands to show helpful and pretty information
     nix-output-monitor
     # Language Server for Nix
@@ -99,19 +93,6 @@
     fzf
 
   ];
-
-  # Font
-  fonts.packages = with pkgs; [
-    redhat-official-fonts
-    nerdfonts
-  ];
-
-  fonts.fontconfig.defaultFonts = {
-    monospace = [
-      "Red Hat Mono"
-      "DejaVu Sans Mono"
-    ];
-  };
 
   # Editor configuration
   programs.neovim = {
