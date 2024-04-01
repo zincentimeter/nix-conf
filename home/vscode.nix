@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   vscode-utils = pkgs.vscode-utils;
   existing-extensions = pkgs.vscode-extensions;
+  continueConfigFile = ".vscode/.continue.json";
+  continueConfigPath = "${config.home.homeDirectory}/${continueConfigFile}";
 in
 {
 
@@ -55,6 +57,13 @@ in
         version = "1.19.8";
         sha256 = "fY9ada+pQpk+RgzbmPe5FgOSdsxz0GpHwRnjjvd8CrI=";
       }
+      # Copilot
+      {
+        name = "continue";
+        publisher = "Continue";
+        version = "0.9.100";
+        sha256 = "ITUmEYuHD2x8x4u0nZwiPobOcNW2KgC5OSHUjzWagT8=";
+      }
     ];
 
     userSettings = {
@@ -65,7 +74,23 @@ in
       "workbench.colorTheme" = "Default Light Modern";
       "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
       "files.autoSave" = "afterDelay";
+      "workbench.tree.indent" = 16;
+      "continue.enableTabAutocomplete" = true;
+      "continue.remoteConfigServerUrl" = "file://${continueConfigPath}";
     };
   };
 
+  # Configure continue extension to use ollama
+  home.file = {
+    ${continueConfigFile}.text = builtins.toJSON {
+      "models" = [
+        {
+          "title" = "Ollama";
+          "provider" = "ollama";
+          "model" = "codellama";
+          "completionOptions" = {};
+        }
+      ];
+    };
+  };
 }
