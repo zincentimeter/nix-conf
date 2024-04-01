@@ -15,7 +15,7 @@
   programs.firefox = {
     enable = true;
     policies = {
-      Preference = {
+      Preferences = {
         # instruct Firefox to use the file picker offered by the
         # XDG Desktop Portal framework
         # The value 1 means "always".
