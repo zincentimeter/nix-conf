@@ -3,7 +3,7 @@
 let
   # The mount path of my OneDrive
   mountRootPath = "${config.home.homeDirectory}/OneDrive";
-  configName = "rclone/config.toml";
+  configName = "rclone/rclone.conf";
   configPath = "${config.xdg.configHome}/${configName}";
 in
 {
@@ -26,11 +26,13 @@ in
     let 
       mkRcloneService = ({source, target} : {
         Unit = {
-          After = [ "network.target" "sound.target"  ];
+          After = [ "network-online.target" ];
+          Wants = [ "network-online.target" ];
+          ConditionPathExists = [ "${configPath}" "${target}"];
           Description = "Mount Microsoft OneDrive storage as FUSE filesystem, ${source} -> ${target}";
         };
         # set it to ["default.target"] to make a unit start by default when the user <name> logs on.
-        Install.WantedBy = [ "xdg-desktop-portal.service" ];
+        Install.WantedBy = [ "default.target" ];
         Service = {
           # see systemd man pages for more information on the various options for "Type": "notify"
           # specifies that this is a service that waits for notification from its predecessor (declared in
@@ -39,13 +41,14 @@ in
 
           ExecStart =
           let
-            vfsCacheOption = "--vfs-cache-mode=writes";
+            vfsCacheOption = "--vfs-cache-mode=full";
             mountCommand = "${pkgs.rclone}/bin/rclone mount ${vfsCacheOption}";
           in
           ''
             ${mountCommand} ${source} ${target}
           '';
-          ExecStop = ''${pkgs.fuse}/bin/fusermount -u ${target}'';
+          Restart = "on-failure";
+          RestartSec = 30;
         };
       });
     in
