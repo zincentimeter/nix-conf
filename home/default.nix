@@ -38,7 +38,6 @@ in
       home.username = config.users.users.shinri.name;
       home.homeDirectory = config.users.users.shinri.home;
       home.packages = with pkgs; [
-        firefox
         tree
         telegram-desktop
         cinny-desktop
@@ -65,6 +64,7 @@ in
       imports = [
         ./vscode.nix
         ./onedrive.nix
+        ./firefox.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
