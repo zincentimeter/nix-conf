@@ -9,10 +9,18 @@
 
   # Make Firefox use the KDE file picker.
   # Preferences source: https://wiki.archlinux.org/title/firefox#KDE_integration
+
+  # https://wiki.archlinux.org/title/firefox
+  # https://discourse.nixos.org/t/combining-best-of-system-firefox-and-home-manager-firefox-settings/37721
   programs.firefox = {
     enable = true;
-    preferences = {
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
+    policies = {
+      Preference = {
+        # instruct Firefox to use the file picker offered by the
+        # XDG Desktop Portal framework
+        # The value 1 means "always".
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
     };
   };
 }
