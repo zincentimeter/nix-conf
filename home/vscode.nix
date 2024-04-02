@@ -54,16 +54,31 @@ in
       {
         name = "cpptools";
         publisher = "ms-vscode";
-        version = "1.19.8";
-        sha256 = "fY9ada+pQpk+RgzbmPe5FgOSdsxz0GpHwRnjjvd8CrI=";
+        version = "1.20.0";
+        sha256 = "hnLIvqKXCwrVCPCX5zriZWf5om0m073qK19gubvgaq8=";
+        arch = "linux-x64";
       }
+    ] ++ [
       # Copilot
-      {
-        name = "continue";
-        publisher = "Continue";
-        version = "0.9.100";
-        sha256 = "ITUmEYuHD2x8x4u0nZwiPobOcNW2KgC5OSHUjzWagT8=";
-      }
+      # Refer to:
+      # 1. https://github.com/NixOS/nixpkgs/pull/289289/files
+      # 2. https://github.com/continuedev/continue/issues/821
+      (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "continue";
+          publisher = "Continue";
+          version = "0.9.101";
+          sha256 = "2lZOiK2c2mnJ79QN4+bWAyyM6i8YNdX1L881XlMn4Gg=";
+          arch = "linux-x64";
+        };
+        nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+        buildInputs = [ pkgs.stdenv.cc.cc.lib ];
+        postInstall = ''
+          cd "$out/$installPrefix"
+          substituteInPlace "out/extension.js" \
+            --replace-fail 'await showTutorial();' '//await showTutorial();'
+        '';
+      })
     ];
 
     userSettings = {
