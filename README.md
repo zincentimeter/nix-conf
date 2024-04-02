@@ -8,11 +8,15 @@
 - [x] manage secrets with sops-nix (cannot directly introduced in nix config)
 - [x] laptop caps cannot be identified correctly on login screen (don't hint sddm to use wayland)
 - [x] vlc / vlc via syncplay not working for nvidia gpu (offloading it solves this)
+- [ ] ThinkPad Thunderbolt Dock 3 cannot connect smoothly
 
 ## Future Improvements
 
 - [ ] Declarative Plasma 6
 - [ ] Declarative _2raya config (or sin_box?)
+- [ ] Declarative home
+    - [x] vscode
+    - to be updated...
 
 ## Note
 
