@@ -17,5 +17,8 @@
 
     # Fonts
     ./font.nix
+
+    # Internet, DNS, etc.
+    ./network.nix
   ];
 }
