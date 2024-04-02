@@ -9,7 +9,6 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "zh_TW.UTF-8";
   i18n.supportedLocales = [ "all" ];
 
   # Configure keymap in X11
