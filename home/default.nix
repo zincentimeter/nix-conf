@@ -68,6 +68,7 @@ in
         ./vscode.nix
         ./onedrive.nix
         ./firefox.nix
+        ./thunderbird.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
