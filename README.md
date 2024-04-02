@@ -4,7 +4,7 @@
 
 - [x] vscode cannot input chinese (patched with `--enable-wayland-ime`)
 - [x] numlock and capslock (change to Keyboard(Chinese) fix this)
-- [ ] chinese plasma 6 (Bad Locale may also trigger the problem of numlock and capslock)
+- [x] chinese plasma 6 (change defaultLocale fix this)
 - [x] manage secrets with sops-nix (cannot directly introduced in nix config)
 - [x] laptop caps cannot be identified correctly on login screen (don't hint sddm to use wayland)
 - [x] vlc / vlc via syncplay not working for nvidia gpu (offloading it solves this)
