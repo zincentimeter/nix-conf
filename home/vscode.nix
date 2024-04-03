@@ -3,7 +3,7 @@
 let
   vscode-utils = pkgs.vscode-utils;
   existing-extensions = pkgs.vscode-extensions;
-  continueConfigFile = ".vscode/.continue.json";
+  continueConfigFile = ".continue/config.json";
   continueConfigPath = "${config.home.homeDirectory}/${continueConfigFile}";
 in
 {
@@ -91,7 +91,7 @@ in
       "files.autoSave" = "afterDelay";
       "workbench.tree.indent" = 16;
       "continue.enableTabAutocomplete" = true;
-      "continue.remoteConfigServerUrl" = "file://${continueConfigPath}";
+      "continue.telemetryEnabled" = false;
     };
   };
 
@@ -100,12 +100,20 @@ in
     ${continueConfigFile}.text = builtins.toJSON {
       "models" = [
         {
-          "title" = "Ollama";
+          "title" = "Ollama w/ codellama";
           "provider" = "ollama";
           "model" = "codellama";
-          "completionOptions" = {};
+          "completionOptions" = {
+            
+          };
         }
       ];
+      "tabAutocompleteModel" = {
+        "title" = "Tab Autocomplete Model (Ollama w/ starcoder:3b)";
+        "provider" = "ollama";
+        "model" = "starcoder:3b";
+      };
+      "allowAnonymousTelemetry" = false;
     };
   };
 }
