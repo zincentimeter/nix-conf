@@ -54,9 +54,19 @@ in
     in
   {
     "onedrive@root" = mkRcloneService { source = "OneDrive:"; target = mountRootPath; };
-    "onedrive@videos" = mkRcloneService { source = "OneDrive:视频/"; target = config.xdg.userDirs.videos; };
-    "onedrive@pictures" = mkRcloneService { source = "OneDrive:图片/"; target = config.xdg.userDirs.pictures; };
-    "onedrive@documents" = mkRcloneService { source = "OneDrive:Documents/"; target = config.xdg.userDirs.documents; };
-    "onedrive@music" = mkRcloneService { source = "OneDrive:music/"; target = config.xdg.userDirs.music; };
+  };
+
+  home.file = 
+    let
+      mkDirSymlink = (sourcePath : {
+        source = config.lib.file.mkOutOfStoreSymlink sourcePath;
+        recursive = true;
+      });
+    in
+  {
+    "Documents" = mkDirSymlink "${mountRootPath}/Documents";
+    "Pictures" = mkDirSymlink "${mountRootPath}/图片";
+    "Videos" = mkDirSymlink "${mountRootPath}/视频";
+    "Music" = mkDirSymlink "${mountRootPath}/music";
   };
 }

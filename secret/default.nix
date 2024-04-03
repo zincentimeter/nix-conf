@@ -21,6 +21,8 @@
         "rclone_azure_token" = {};
         "rclone_client_secret_value" = {};
         "rclone_client_secret_secret_id" = {};
+        "outlook_password" = {};
+        "campus_password" = {};
       } // {
         # Secrets listed here requires elevated permission.
         "github_access_token" = {};
