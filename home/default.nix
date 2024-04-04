@@ -54,6 +54,9 @@ in
         # remote desktop
         remmina
 
+        # zotero
+        zotero_7
+
         # libreoffice
         # If you use KDE (Plasma) then you'll be better off with libreoffice-qt package.
         # Otherwise you may lack, e.g. main menu bar. 
