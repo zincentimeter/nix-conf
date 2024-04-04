@@ -49,6 +49,18 @@
             nixpkgs.overlays = [
               # Overlay function below
               (final: prev: {
+                  noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
+                    (finalAttrs: previousAttrs:
+                      {
+                        src = previousAttrs.src.override {
+                          hash = "sha256-GXULnRPsIJRdiL3LdFtHbqTqSvegY2zodBxFm4P55to=";
+                          sparseCheckout = [ "Sans/OTC" ];
+                        };
+                        installPhase = ''
+                          install -m444 -Dt $out/share/fonts/opentype/noto-cjk Sans/OTC/*.ttc
+                        '';
+                      }
+                    );
                 # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
               })
             ];
