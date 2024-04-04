@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 
 {
   networking.hostName = "thinkpad-p16v"; # Define your hostname.
@@ -7,4 +7,8 @@
 
   # Proxy
   services.v2raya.enable = true;
+  # To debug:
+  # systemd.services.v2raya.serviceConfig.ExecStart = lib.mkForce ''
+  #   ${lib.getExe pkgs.v2raya} --log-disable-timestamp --log-level=debug
+  # '';
 }

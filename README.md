@@ -9,6 +9,7 @@
 - [x] laptop caps cannot be identified correctly on login screen (don't hint sddm to use wayland)
 - [x] vlc / vlc via syncplay not working for nvidia gpu (offloading it solves this)
 - [ ] ThinkPad Thunderbolt Dock 3 cannot connect smoothly
+- [x] The airplane's dns cannot resolve Tailscale (solved by disable tailscale dns functionality)
 
 ## Future Improvements
 
