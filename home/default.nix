@@ -57,7 +57,9 @@ in
         # zotero
         zotero_7
 
-        # libreoffice
+        # PDF / ePub reader
+        foliate
+
         # If you use KDE (Plasma) then you'll be better off with libreoffice-qt package.
         # Otherwise you may lack, e.g. main menu bar. 
         libreoffice-qt
