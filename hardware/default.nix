@@ -11,6 +11,12 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  # autodiscovery of network printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
