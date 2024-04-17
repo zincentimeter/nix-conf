@@ -66,6 +66,9 @@ in
 
         # BT downloading
         qbittorrent
+
+        # terminal emulator
+        kitty
       ] ++ [
         # watchalong
         syncplayGpuOffloaded
