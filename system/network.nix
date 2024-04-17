@@ -7,6 +7,8 @@
 
   # Proxy
   services.v2raya.enable = true;
+
+  environment.systemPackages = [ pkgs.dae ];
   # To debug:
   # systemd.services.v2raya.serviceConfig.ExecStart = lib.mkForce ''
   #   ${lib.getExe pkgs.v2raya} --log-disable-timestamp --log-level=debug
