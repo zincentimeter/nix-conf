@@ -9,7 +9,7 @@ in
 {
 
   programs.vscode = {
-    enable = true;
+    enable = false;
     package = pkgs.vscode.override { commandLineArgs = "--enable-wayland-ime"; };
 
     mutableExtensionsDir = false;
@@ -58,6 +58,12 @@ in
         sha256 = "hnLIvqKXCwrVCPCX5zriZWf5om0m073qK19gubvgaq8=";
         arch = "linux-x64";
       }
+      # {
+      #   name = "vim";
+      #   publisher = "vscodevim";
+      #   version = "1.27.2";
+      #   sha256 = "O5G4yhvD2HvKb4Vbvr1v20nMEQq88f5RE+X50bZvr1Q=";
+      # }
     ] ++ [
       # Copilot
       # Refer to:
@@ -95,25 +101,4 @@ in
     };
   };
 
-  # Configure continue extension to use ollama
-  home.file = {
-    ${continueConfigFile}.text = builtins.toJSON {
-      "models" = [
-        {
-          "title" = "Ollama w/ codellama";
-          "provider" = "ollama";
-          "model" = "codellama";
-          "completionOptions" = {
-            
-          };
-        }
-      ];
-      "tabAutocompleteModel" = {
-        "title" = "Tab Autocomplete Model (Ollama w/ starcoder:3b)";
-        "provider" = "ollama";
-        "model" = "starcoder:3b";
-      };
-      "allowAnonymousTelemetry" = false;
-    };
-  };
 }
