@@ -17,6 +17,8 @@
     pkiBundle = "/etc/secureboot";
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_6_8;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.efi.canTouchEfiVariables = true;
 }
