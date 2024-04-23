@@ -78,6 +78,7 @@ in
       imports = [
         ./vscode.nix
         ./firefox.nix
+	./onedrive.nix
         ./thunderbird.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
