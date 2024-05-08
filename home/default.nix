@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   nvidiaOffloadSetting = [
     "--set __NV_PRIME_RENDER_OFFLOAD 1"
@@ -32,6 +32,10 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [
+      inputs.plasma-manager.homeManagerModules.plasma-manager
+    ];
+
     users.shinri = {
       # Home Manager needs a bit of information about you and the
       # paths it should manage.
@@ -78,8 +82,9 @@ in
       imports = [
         ./vscode.nix
         ./firefox.nix
-	./onedrive.nix
+        ./onedrive.nix
         ./thunderbird.nix
+        ./plasma.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your

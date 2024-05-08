@@ -48,6 +48,9 @@
       "thinkpad-p16v" = nixpkgs.lib.nixosSystem rec {
 
         system = "x86_64-linux";
+	specialArgs = {
+	  inherit inputs;
+	};
         modules = [
           {
             # Patching nixpkgs with customized packages
