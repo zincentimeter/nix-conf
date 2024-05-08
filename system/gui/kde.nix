@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Configure GUI here
@@ -13,13 +13,17 @@
   # Use x11 as default since I meet a wierd numlock problem
   # Resembling https://github.com/wez/wezterm/issues/1869#user-content-its-a-mutter-problem
   # services.xserver.displayManager.defaultSession = "plasmax11";
-  services.xserver.displayManager.sddm = {
-    wayland.enable = false;
+  services.displayManager.sddm = {
+    wayland.enable = true;
     enable = true;
     autoNumlock = true;
   };
 
+  environment.systemPackages = [
+    pkgs.kdePackages.plasma-thunderbolt
+  ];
+
   # Enable the X11 windowing system. (For unstable Plasma 6, xserver is for sddm)
-  services.xserver.enable = true;
+  # services.xserver.enable = false;
 
 }
