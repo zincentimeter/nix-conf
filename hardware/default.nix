@@ -50,4 +50,7 @@
   # fwupd, for firmware updates
   services.fwupd.enable = true;
 
+  # thunderbolt userspace daemon
+  services.hardware.bolt.enable = true;
+
 }
