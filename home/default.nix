@@ -70,9 +70,6 @@ in
 
         # BT downloading
         qbittorrent
-
-        # terminal emulator
-        kitty
       ] ++ [
         # watchalong
         syncplayGpuOffloaded
@@ -85,6 +82,7 @@ in
         ./onedrive.nix
         ./thunderbird.nix
         ./plasma.nix
+        ./kitty.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
