@@ -102,6 +102,7 @@
     configure = {
       customRC = ''
         set number relativenumber
+        set expandtab
         lua require 'lspconfig'.nil_ls.setup{}
       '';
       packages.myVimPackage.start = with pkgs.vimPlugins; [
