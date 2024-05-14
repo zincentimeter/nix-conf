@@ -3,3 +3,6 @@
 
 # Drafts like config for plasma-manager etc.
 .pending
+
+# Directory logo for Dolphin Explorer 
+.directory
