@@ -131,6 +131,7 @@
   environment.shellAliases = {
     gnix = "git --work-tree=${config.users.users.shinri.home}/nix-conf";
     ns = "sudo nixos-rebuild switch";
+    nb = "sudo nixos-rebuild boot";
   };
 
   # List services that you want to enable:
