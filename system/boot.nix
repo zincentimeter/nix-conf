@@ -19,7 +19,7 @@
 
   boot.kernel.sysctl = {
     # https://gist.github.com/manuelmazzuola/4ffa90f5f5d0ddacda96
-    "kernel"."sysrq" = 1;
+    "kernel.sysrq" = 1;
   };
 
   # Use the systemd-boot EFI boot loader.
