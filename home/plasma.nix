@@ -233,28 +233,14 @@
       "plasmashell"."switch to next activity" = [ ];
       "plasmashell"."switch to previous activity" = [ ];
       "plasmashell"."toggle do not disturb" = [ ];
-      "services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
-      "services/org.kde.konsole.desktop"."_launch" = [ ];
     };
     configFile = {
-      # "baloofilerc"."General"."dbVersion" = 2;
-      # "baloofilerc"."General"."exclude filters" = "*~,*.part,*.o,*.la,*.lo,*.loT,*.moc,moc_*.cpp,qrc_*.cpp,ui_*.h,cmake_install.cmake,CMakeCache.txt,CTestTestfile.cmake,libtool,config.status,confdefs.h,autom4te,conftest,confstat,Makefile.am,*.gcode,.ninja_deps,.ninja_log,build.ninja,*.csproj,*.m4,*.rej,*.gmo,*.pc,*.omf,*.aux,*.tmp,*.po,*.vm*,*.nvram,*.rcore,*.swp,*.swap,lzo,litmain.sh,*.orig,.histfile.*,.xsession-errors*,*.map,*.so,*.a,*.db,*.qrc,*.ini,*.init,*.img,*.vdi,*.vbox*,vbox.log,*.qcow2,*.vmdk,*.vhd,*.vhdx,*.sql,*.sql.gz,*.ytdl,*.tfstate*,*.class,*.pyc,*.pyo,*.elc,*.qmlc,*.jsc,*.fastq,*.fq,*.gb,*.fasta,*.fna,*.gbff,*.faa,po,CVS,.svn,.git,_darcs,.bzr,.hg,CMakeFiles,CMakeTmp,CMakeTmpQmake,.moc,.obj,.pch,.uic,.npm,.yarn,.yarn-cache,__pycache__,node_modules,node_packages,nbproject,.terraform,.venv,venv,core-dumps,lost+found";
       "baloofilerc"."General"."exclude filters version" = 9;
-      # "dolphinrc"."ExtractDialog"."2 screens: Height" = 560;
-      # "dolphinrc"."ExtractDialog"."2 screens: Width" = 1280;
-      # "dolphinrc"."KFileDialog Settings"."Places Icons Auto-resize" = false;
-      # "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
-      # "kactivitymanagerdrc"."activities"."5f5db2ac-781c-4cbb-9e19-e4525ab6f90e" = "Default";
-      # "kactivitymanagerdrc"."main"."currentActivity" = "5f5db2ac-781c-4cbb-9e19-e4525ab6f90e";
-      # "kcminputrc"."Libinput/1739/52934/SYNA801A:00 06CB:CEC6 Touchpad"."Enabled" = true;
-      # "kcminputrc"."Libinput/1739/52934/SYNA801A:00 06CB:CEC6 Touchpad"."NaturalScroll" = true;
-      # "kcminputrc"."Libinput/2/10/TPPS\\/2 Elan TrackPoint"."PointerAcceleration" = "-0.100";
-      # "kcminputrc"."Mouse"."X11LibInputXAccelProfileFlat" = true;
-      # "kcminputrc"."Mouse"."XLbInptAccelProfileFlat" = false;
-      # "kcminputrc"."Mouse"."XLbInptPointerAcceleration" = 0.4;
-      # "kcminputrc"."Tmp"."update_info" = "delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize";
       "kded5rc"."Module-browserintegrationreminder"."autoload" = false;
       "kded5rc"."Module-device_automounter"."autoload" = false;
+
+      "kcminputrc"."Keyboard"."NumLock" = 0;
+
       "kdeglobals"."DirSelect Dialog"."DirSelectDialog Size" = "820,584";
       "kdeglobals"."General"."AllowKDEAppsToRememberWindowPositions" = true;
       "kdeglobals"."General"."TerminalApplication" = "kitty";
@@ -278,15 +264,7 @@
       "kdeglobals"."KFileDialog Settings"."Sort reversed" = false;
       "kdeglobals"."KFileDialog Settings"."Speedbar Width" = 140;
       "kdeglobals"."KFileDialog Settings"."View Style" = "DetailTree";
-      # "kdeglobals"."KScreen"."ScaleFactor" = 1.5;
-      # "kdeglobals"."KScreen"."ScreenScaleFactors" = "eDP-1\x3d1.5;DP-1\x3d1.5;HDMI-1\x3d1.5;DP-2\x3d1.5;DP-3\x3d1.5;DP-4\x3d1.5;DP-5\x3d1.5;DP-4-1\x3d1.5;DP-4-2\x3d1.5;DP-4-3\x3d1.5;";
-      # "kdeglobals"."KShortcutsDialog Settings"."Dialog Size" = "600,480";
-      # "kdeglobals"."WM"."activeBackground" = "227,229,231";
-      # "kdeglobals"."WM"."activeBlend" = "227,229,231";
-      # "kdeglobals"."WM"."activeForeground" = "35,38,41";
-      # "kdeglobals"."WM"."inactiveBackground" = "239,240,241";
-      # "kdeglobals"."WM"."inactiveBlend" = "239,240,241";
-      # "kdeglobals"."WM"."inactiveForeground" = "112,125,138";
+
       "kglobalshortcutsrc"."ActivityManager"."_k_friendly_name" = "Activity Manager";
       "kglobalshortcutsrc"."KDE Keyboard Layout Switcher"."_k_friendly_name" = "Keyboard Layout Switcher";
       "kglobalshortcutsrc"."kaccess"."_k_friendly_name" = "Accessibility";
@@ -298,6 +276,9 @@
       "kglobalshortcutsrc"."mediacontrol"."_k_friendly_name" = "Media Controller";
       "kglobalshortcutsrc"."org_kde_powerdevil"."_k_friendly_name" = "KDE Power Management System";
       "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "plasmashell";
+      "kglobalshortcutsrc"."services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
+      "kglobalshortcutsrc"."services/org.kde.konsole.desktop"."_launch" = "none";
+
       "khotkeysrc"."Data"."DataCount" = 3;
       "khotkeysrc"."Data_1"."Comment" = "KMenuEdit Global Shortcuts";
       "khotkeysrc"."Data_1"."DataCount" = 1;
@@ -847,42 +828,12 @@
       "kiorc"."Confirmations"."ConfirmDelete" = true;
       "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
       "kwalletrc"."Wallet"."First Use" = false;
-      # "kwinrc"."Desktops"."Id_1" = "8895147a-8e78-4ae8-8df9-da5821e0d0d1";
-      # "kwinrc"."Desktops"."Number" = 1;
-      # "kwinrc"."Desktops"."Rows" = 1;
-      # "kwinrc"."Effect-overview"."BorderActivate" = 9;
-      # "kwinrc"."Tiling"."padding" = 4;
-      # "kwinrc"."Tiling/06d0b84e-faa3-5ae3-9eee-15c86dc4a7cb"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/0e1fb2ae-27bd-5866-aeea-131569a697bb"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/1d870aec-7dd1-5fbd-be83-04448f519515"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/1ea26201-272f-59f3-92ed-4c5b475027ed"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/3a8bb86f-444c-5b5f-b573-a929c69d9af6"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/5867062a-3a48-5008-ad32-60dc0d3ff225"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/6909b484-4935-57aa-a1b9-4f8cd654e946"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/73047d68-c7c5-50d2-abb6-adc4f3048bcb"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/7fb8c463-c102-5440-8fb7-5253b26b5d9c"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/8e65624c-58d0-5b96-bfef-c1f07129d3fd"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/92e842d7-5928-5c43-884a-4912e7cc82ed"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/9dbcff61-c52a-5f90-9ddb-a54345c5e8d4"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/a82bbfb1-c819-5ddf-bb71-62d12fff8f98"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/b7070a26-cb54-5890-8cd6-1b121501061e"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/ba71a567-eb9f-5dc3-abfc-466f3b449650"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/bb53167f-30dc-5f87-829e-833ec6442eff"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/bef496eb-4e8e-5c28-93f3-83357d6efe55"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/bf023252-ba50-50b3-97c2-33d5218cf100"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/bffd0b3c-a2bf-5a02-8bdd-0ab2221610c2"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/cf03631c-145d-50f5-90f8-0c8908cb983a"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/da19db2d-544e-54bd-8700-b49f2363c6a5"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/e5285f5a-af54-5894-9a52-f770e1647422"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Tiling/fad43770-eaab-5e7d-b472-0e7be0ec6cb0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      # "kwinrc"."Wayland"."InputMethod[$e]" = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
-      # "kwinrc"."Wayland"."InputMethod\x5b$e\x5d" = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
-      # "kwinrc"."Wayland"."VirtualKeyboardEnabled" = true;
-      # "kwinrc"."Xwayland"."Scale" = 1;
+
       "kxkbrc"."Layout"."DisplayNames" = "";
       "kxkbrc"."Layout"."LayoutList" = "cn";
       "kxkbrc"."Layout"."Use" = true;
       "kxkbrc"."Layout"."VariantList" = "";
+
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasma-localerc"."Formats"."LC_ADDRESS" = "zh_TW.UTF-8";
       "plasma-localerc"."Formats"."LC_MEASUREMENT" = "zh_TW.UTF-8";
@@ -893,7 +844,9 @@
       "plasma-localerc"."Formats"."LC_TELEPHONE" = "zh_CN.UTF-8";
       "plasma-localerc"."Formats"."LC_TIME" = "zh_CN.UTF-8";
       "plasma-localerc"."Translations"."LANGUAGE" = "en_US";
+
       "plasmarc"."Wallpapers"."usersWallpapers" = "";
+
       "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
       "systemsettingsrc"."systemsettings_sidebar_mode"."HighlightNonDefaultSettings" = true;
     };
