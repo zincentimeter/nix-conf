@@ -18,7 +18,7 @@
   };
   # autodiscovery of network printers
   services.avahi = {
-    enable = false;
+    enable = true;
     nssmdns4 = true;
     openFirewall = true;
   };
