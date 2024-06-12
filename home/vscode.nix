@@ -3,8 +3,8 @@
 let
   vscode-utils = pkgs.vscode-utils;
   existing-extensions = pkgs.vscode-extensions;
-  continueConfigFile = ".continue/config.json";
-  continueConfigPath = "${config.home.homeDirectory}/${continueConfigFile}";
+  # continueConfigFile = ".continue/config.json";
+  # continueConfigPath = "${config.home.homeDirectory}/${continueConfigFile}";
 in
 {
 
