@@ -83,6 +83,7 @@ in
         ./thunderbird.nix
         ./plasma.nix
         ./kitty.nix
+        ./neovim
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your

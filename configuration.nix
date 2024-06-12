@@ -70,17 +70,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    helix
-
     wget
     git
     tldr
 
     # Processes output of Nix commands to show helpful and pretty information
     nix-output-monitor
-    # Language Server for Nix
-    nil
 
     # Shell (mainly for `fish`) plugins
     # A utility tool powered by fzf for using git interactively.
@@ -92,34 +87,11 @@
     pkgs.kdePackages.kdeconnect-kde
   ];
 
-  # Editor configuration
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-    viAlias = true;
-    defaultEditor = true;
-
-    configure = {
-      customRC = ''
-        set number relativenumber
-        set expandtab
-        lua require 'lspconfig'.nil_ls.setup{}
-      '';
-      packages.myVimPackage.start = with pkgs.vimPlugins; [
-        nvim-lspconfig
-      ];
-    };
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   programs.ssh.startAgent = true;
 
