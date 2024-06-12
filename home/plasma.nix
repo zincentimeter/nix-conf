@@ -8,10 +8,13 @@
     shortcuts = {
       "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = "Meta+Alt+L";
       "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Meta+Alt+K";
+
       "kaccess"."Toggle Screen Reader On and Off" = "Meta+Alt+S";
+
       "kcm_touchpad"."Disable Touchpad" = "Touchpad Off";
       "kcm_touchpad"."Enable Touchpad" = "Touchpad On";
       "kcm_touchpad"."Toggle Touchpad" = ["Touchpad Toggle" "Meta+Ctrl+Zenkaku Hankaku"];
+
       "kmix"."decrease_microphone_volume" = "Microphone Volume Down";
       "kmix"."decrease_volume" = "Volume Down";
       "kmix"."decrease_volume_small" = "Shift+Volume Down";
@@ -20,8 +23,10 @@
       "kmix"."increase_volume_small" = "Shift+Volume Up";
       "kmix"."mic_mute" = ["Microphone Mute" "Meta+Volume Mute"];
       "kmix"."mute" = "Volume Mute";
+
       "ksmserver"."Lock Session" = ["Meta+L" "Screensaver"];
       "ksmserver"."Log Out" = "Ctrl+Alt+Del";
+
       "kwin"."Activate Window Demanding Attention" = "Meta+Ctrl+A";
       "kwin"."Edit Tiles" = "Meta+T";
       "kwin"."Expose" = "Ctrl+F9";
@@ -68,11 +73,13 @@
       "kwin"."view_actual_size" = "Meta+0";
       "kwin"."view_zoom_in" = ["Meta++" "Meta+="];
       "kwin"."view_zoom_out" = "Meta+-";
+
       "mediacontrol"."nextmedia" = "Media Next";
       "mediacontrol"."pausemedia" = "Media Pause";
       "mediacontrol"."playpausemedia" = "Media Play";
       "mediacontrol"."previousmedia" = "Media Previous";
       "mediacontrol"."stopmedia" = "Media Stop";
+
       "org_kde_powerdevil"."Decrease Keyboard Brightness" = "Keyboard Brightness Down";
       "org_kde_powerdevil"."Decrease Screen Brightness" = "Monitor Brightness Down";
       "org_kde_powerdevil"."Decrease Screen Brightness Small" = "Shift+Monitor Brightness Down";
@@ -85,6 +92,7 @@
       "org_kde_powerdevil"."Sleep" = "Sleep";
       "org_kde_powerdevil"."Toggle Keyboard Backlight" = "Keyboard Light On/Off";
       "org_kde_powerdevil"."powerProfile" = ["Battery" "Meta+B"];
+
       "plasmashell"."clipboard_action" = "Meta+Ctrl+X";
       "plasmashell"."cycle-panels" = "Meta+Alt+P";
       "plasmashell"."manage activities" = "Meta+Q";
@@ -93,6 +101,9 @@
       "plasmashell"."show dashboard" = "Ctrl+F12";
       "plasmashell"."show-on-mouse-pos" = "Meta+V";
       "plasmashell"."stop current activity" = "Meta+S";
+
+      "services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
+      "services/org.kde.konsole.desktop"."_launch" = "none";
     };
     configFile = {
       "baloofilerc"."General"."exclude filters version" = 9;
@@ -136,12 +147,11 @@
       "kglobalshortcutsrc"."mediacontrol"."_k_friendly_name" = "Media Controller";
       "kglobalshortcutsrc"."org_kde_powerdevil"."_k_friendly_name" = "KDE Power Management System";
       "kglobalshortcutsrc"."plasmashell"."_k_friendly_name" = "plasmashell";
-      "kglobalshortcutsrc"."services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
-      "kglobalshortcutsrc"."services/org.kde.konsole.desktop"."_launch" = "none";
 
       "kiorc"."Confirmations"."ConfirmDelete" = true;
       "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
       "kwalletrc"."Wallet"."First Use" = false;
+      "kwinrc"."Wayland"."InputMethod[$e]" = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
 
       "kxkbrc"."Layout"."DisplayNames" = "";
       "kxkbrc"."Layout"."LayoutList" = "cn";
