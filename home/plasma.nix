@@ -3,7 +3,7 @@
     enable = true;
 
     # https://github.com/pjones/plasma-manager/tree/trunk?tab=readme-ov-file#make-your-configuration-more-declarative-with-overrideconfig
-    overrideConfig = true;
+    # overrideConfig = true;
 
     shortcuts = {
       "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = "Meta+Alt+L";
@@ -151,7 +151,6 @@
       "kiorc"."Confirmations"."ConfirmDelete" = true;
       "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
       "kwalletrc"."Wallet"."First Use" = false;
-      "kwinrc"."Wayland"."InputMethod[$e]" = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
 
       "kxkbrc"."Layout"."DisplayNames" = "";
       "kxkbrc"."Layout"."LayoutList" = "cn";
