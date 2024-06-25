@@ -51,9 +51,6 @@ in
         coq
         coqPackages.vscoq-language-server
 
-        # game
-        # minecraft
-        prismlauncher
 
         # remote desktop
         remmina
@@ -70,6 +67,13 @@ in
 
         # BT downloading
         qbittorrent
+
+        # Game
+        # osu!
+        osu-lazer-bin
+        # minecraft
+        prismlauncher
+
       ] ++ [
         # watchalong
         syncplayGpuOffloaded
