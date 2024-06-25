@@ -21,6 +21,9 @@
 
     extraLuaConfig = builtins.readFile ./neovim-init.lua;
     plugins = with pkgs.vimPlugins; [
+      # base plugin libraries
+      plenary-nvim
+
       # language server protocol
       nvim-lspconfig
 	
@@ -45,6 +48,9 @@
       cmp-cmdline
       cmp-calc
       cmp_luasnip
+
+      # file explorer
+      oil-nvim
 
       # lang
       luasnip

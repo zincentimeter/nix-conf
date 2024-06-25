@@ -2,12 +2,12 @@
 local lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
---- --- nix
+--- LSP:nix
 lsp.nil_ls.setup({
   capabilities = capabilities,
 })
 
---- --- lua
+--- LSP:lua
 lsp.lua_ls.setup({
   settings = {
     Lua = {
@@ -124,6 +124,10 @@ cmp.setup.cmdline(':', {
 
 --- UI
 
-require('noice').setup({})
+require('noice').setup()
 
-require('feline').setup({})
+require('feline').setup()
+
+--- File Explorer
+
+require('oil').setup()
