@@ -54,6 +54,7 @@
 
       # lang
       luasnip
+      markdown-preview-nvim
     ];
   };
   
