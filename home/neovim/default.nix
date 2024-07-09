@@ -7,6 +7,7 @@
     nil
     lua-language-server
   ];
+  
   programs.neovim = {
     enable = true;
     vimAlias = true;

@@ -1,4 +1,5 @@
 --- LSP
+
 local lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -36,6 +37,7 @@ lsp.lua_ls.setup({
 })
 
 --- Autocomplete
+
 local luasnip = require('luasnip')
 luasnip.config.setup({ history = false })
 local has_words_before = function()
@@ -131,3 +133,7 @@ require('feline').setup()
 --- File Explorer
 
 require('oil').setup()
+
+--- Git
+
+require('neogit').setup()
