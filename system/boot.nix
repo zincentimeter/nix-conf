@@ -22,15 +22,22 @@
     "kernel.sysrq" = 1;
   };
 
-  # boot.kernelParams = [
+  boot.kernelParams = [
   #   "systemd.journald.forward_to_console=1"
   #   "console=tty1"
   #   # Halt all CPUs after the first oops has been printed for
   #   # the specified number of seconds.  This is to be used if
   #   # your oopses keep scrolling off the screen.
   #   "pause_on_oops=20"
-  # ];
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.crashDump = {
+    enable = true;
+    kernelParams = [ "single" "boot.shell_on_fail" ];
+    reservedMemory = "256M";
+  };
+
 }
