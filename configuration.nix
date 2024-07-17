@@ -83,8 +83,6 @@
     # A command-line fuzzy finder written in Go
     fzf
 
-    # kde
-    pkgs.kdePackages.kdeconnect-kde
   ];
 
   nixpkgs.config.allowUnfree = true;

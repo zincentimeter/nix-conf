@@ -23,6 +23,8 @@
     pkgs.kdePackages.plasma-thunderbolt
   ];
 
+  programs.kdeconnect.enable = true;
+
   # Enable the X11 windowing system. (For unstable Plasma 6, xserver is for sddm)
   # services.xserver.enable = false;
 
