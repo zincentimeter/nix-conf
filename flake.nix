@@ -89,11 +89,7 @@
           }
           # This is not a complete NixOS configuration and you need to reference
           # your normal configuration here.
-          {
-            imports = [
-              ./configuration.nix
-            ];
-          }
+          ./configuration.nix
 
           inputs.lanzaboote.nixosModules.lanzaboote
           inputs.disko.nixosModules.disko
