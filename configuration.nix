@@ -83,6 +83,8 @@
     # A command-line fuzzy finder written in Go
     fzf
 
+    # Runs programs without installing them
+    comma
   ];
 
   nixpkgs.config.allowUnfree = true;
