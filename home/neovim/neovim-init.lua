@@ -24,11 +24,9 @@ lsp.lua_ls.setup({
 
       --- Make the server aware of Neovim runtime files
       workspace = {
+        checkThirdParty = false,
 	library = {
-          checkThirdParty = false,
-	  library = {
-	    vim.env.VIMRUNTIME
-	  }
+	  vim.env.VIMRUNTIME
 	},
       },
     },
