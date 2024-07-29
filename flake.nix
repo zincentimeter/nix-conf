@@ -52,6 +52,20 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
+<<<<<<< HEAD
+=======
+
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Shinri's SSH public keys uploaded to sourcehut.
+    sourcehut-keys = {
+      url = "https://meta.sr.ht/~zincentimeter.keys";
+      flake = false;
+    };
+>>>>>>> 02d0b69 (nix: add nix-index-database to enable comma)
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... } @ inputs:
@@ -96,6 +110,7 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
           inputs.impermanence.nixosModules.impermanence
+          inputs.nix-index-db.nixosModules.nix-index
 
         ];
       };
