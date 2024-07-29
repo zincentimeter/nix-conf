@@ -133,9 +133,16 @@ require('feline').setup()
 --- File Explorer
 
 require('oil').setup()
+
 require('neo-tree').setup({
-  enable_git_status = true,
+  -- All config that is not default will be presented here.
+  -- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
+  close_if_last_window = true,
+  enable_cursor_hijack = true,
 })
+-- autostart neo-tree
+-- https://gitea.angry.im/PeterCxy/dotfiles/commit/3758670e5b7963c70da22301dbbeb59552cf9c04
+require('neo-tree.sources.manager').show('filesystem')
 
 --- Telescope (Global Search, etc.)
 
