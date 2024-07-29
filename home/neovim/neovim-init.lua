@@ -164,4 +164,7 @@ require('telescope').setup({
 
 --- Git
 
-require('neogit').setup()
+require('neogit').setup({
+  -- vsplit if window would have 80 cols, otherwise split
+  kind = 'auto',
+})
