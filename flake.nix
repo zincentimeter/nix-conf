@@ -52,8 +52,6 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
-<<<<<<< HEAD
-=======
 
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
@@ -65,14 +63,13 @@
       url = "https://meta.sr.ht/~zincentimeter.keys";
       flake = false;
     };
->>>>>>> 02d0b69 (nix: add nix-index-database to enable comma)
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, ... } @ inputs:
+  outputs = { self, ... } @ inputs:
   {
     nixosConfigurations = {
       # Use `rec` to use `system` variable inside overlays
-      "thinkpad-p16v" = nixpkgs.lib.nixosSystem {
+      "thinkpad-p16v" = inputs.nixpkgs.lib.nixosSystem {
 
         system = "x86_64-linux";
         specialArgs = {
