@@ -67,51 +67,46 @@
 
   outputs = { self, ... } @ inputs:
   {
-    nixosConfigurations = {
-      # Use `rec` to use `system` variable inside overlays
-      "thinkpad-p16v" = inputs.nixpkgs.lib.nixosSystem {
-
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          {
-            # Patching nixpkgs with customized packages
-            # e.g. apps from other sources or stable branch
-            nixpkgs.overlays = [
-              # Overlay function below
-              # (final: prev: {
-              #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
-              #       (finalAttrs: previousAttrs:
-              #         {
-              #           src = previousAttrs.src.override {
-              #             hash = "sha256-GXULnRPsIJRdiL3LdFtHbqTqSvegY2zodBxFm4P55to=";
-              #             sparseCheckout = [ "Sans/OTC" ];
-              #           };
-              #           installPhase = ''
-              #             install -m444 -Dt $out/share/fonts/opentype/noto-cjk Sans/OTC/*.ttc
-              #           '';
-              #         }
-              #       );
-              #   # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
-              # })
-            ];
-          }
-          # This is not a complete NixOS configuration and you need to reference
-          # your normal configuration here.
-          ./configuration.nix
-
-          inputs.lanzaboote.nixosModules.lanzaboote
-          inputs.disko.nixosModules.disko
-          inputs.home-manager.nixosModules.home-manager
-          inputs.sops-nix.nixosModules.sops
-          inputs.impermanence.nixosModules.impermanence
-          inputs.nix-index-db.nixosModules.nix-index
-
-        ];
+    nixosConfigurations."thinkpad-p16v" = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
       };
-    };
-  };
+      modules = [
+        {
+          # Patching nixpkgs with customized packages
+          # e.g. apps from other sources or stable branch
+          nixpkgs.overlays = [
+            # Overlay function below
+            # (final: prev: {
+            #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
+            #       (finalAttrs: previousAttrs:
+            #         {
+            #           src = previousAttrs.src.override {
+            #             hash = "sha256-GXULnRPsIJRdiL3LdFtHbqTqSvegY2zodBxFm4P55to=";
+            #             sparseCheckout = [ "Sans/OTC" ];
+            #           };
+            #           installPhase = ''
+            #             install -m444 -Dt $out/share/fonts/opentype/noto-cjk Sans/OTC/*.ttc
+            #           '';
+            #         }
+            #       );
+            #   # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
+            # })
+          ];
+        }
+        # This is not a complete NixOS configuration and you need to reference
+        # your normal configuration here.
+        ./configuration.nix
 
+        inputs.lanzaboote.nixosModules.lanzaboote
+        inputs.disko.nixosModules.disko
+        inputs.home-manager.nixosModules.home-manager
+        inputs.sops-nix.nixosModules.sops
+        inputs.impermanence.nixosModules.impermanence
+        inputs.nix-index-db.nixosModules.nix-index
+
+      ];
+    }; # nixosConfigurations
+  };
 }
