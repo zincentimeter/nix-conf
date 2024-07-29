@@ -52,6 +52,8 @@
 
       # file explorer
       oil-nvim
+      neo-tree-nvim
+      telescope-nvim
 
       # lang
       luasnip

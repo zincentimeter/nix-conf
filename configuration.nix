@@ -73,6 +73,7 @@
     wget
     git
     tldr
+    ripgrep
 
     # Processes output of Nix commands to show helpful and pretty information
     nix-output-monitor

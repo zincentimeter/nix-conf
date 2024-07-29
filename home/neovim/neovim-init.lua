@@ -133,6 +133,34 @@ require('feline').setup()
 --- File Explorer
 
 require('oil').setup()
+require('neo-tree').setup({
+  enable_git_status = true,
+})
+
+--- Telescope (Global Search, etc.)
+
+-- File and text search in hidden files and directories
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
+local telescopeConfig = require('telescope.config')
+local vimgrep_args = { unpack(telescopeConfig.values.vimgrep_arguments) }
+-- want to search in hidden/dot files.
+table.insert(vimgrep_args, '--no-ignore')
+table.insert(vimgrep_args, '--hidden')
+-- I don't want to search in the `.git` directory.
+table.insert(vimgrep_args, '--glob')
+table.insert(vimgrep_args, '!**/.git/*')
+
+require('telescope').setup({
+  defaults = {
+    vimgrep_arguments = vimgrep_args,
+  },
+  pickers = {
+    find_files = {
+      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+      find_command = { 'rg', '--files', '--no-ignore', '--hidden', '--glob', '!**/.git/*' },
+    },
+  },
+})
 
 --- Git
 
