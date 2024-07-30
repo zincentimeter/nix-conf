@@ -74,6 +74,8 @@ in
         # minecraft
         prismlauncher
 
+        # Clipboard for Neovim to access system clipboard.
+        wl-clipboard
       ] ++ [
         # watchalong
         syncplayGpuOffloaded
