@@ -1,5 +1,17 @@
 { pkgs, ... }:
 
+let
+  luvit-meta = pkgs.vimUtils.buildVimPlugin {
+    pname = "luvit-meta";
+    src = pkgs.fetchFromGitHub {
+      owner = "Bilal2453";
+      repo = "luvit-meta";
+      rev = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60";
+      hash = "sha256-zAAptV/oLuLAAsa2zSB/6fxlElk4+jNZd/cPr9oxFig=";
+    };
+    version = "2024-07-30";
+  };
+in
 {
 
   home.packages = with pkgs; [
@@ -58,6 +70,9 @@
       # lang
       luasnip
       markdown-preview-nvim
+      lazydev-nvim
+    ] ++ [
+      luvit-meta
     ];
   };
   

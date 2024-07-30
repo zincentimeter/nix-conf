@@ -34,6 +34,15 @@ lsp.lua_ls.setup({
   capabilities = capabilities
 })
 
+require('lazydev').setup({
+  library = {
+    {
+      path = "luvit-meta/library",
+      words = { "vim%.uv" },
+    },
+  };
+})
+
 --- Autocomplete
 
 local luasnip = require('luasnip')
@@ -98,6 +107,7 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
+    { name = 'lazydev'  },
     { name = 'luasnip'  },
     { name = 'path'     },
     { name = 'buffer'   },
