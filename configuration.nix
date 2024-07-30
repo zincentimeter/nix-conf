@@ -65,13 +65,16 @@
   };
 
   # programs.java.enable = true;
-  
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    git
     tldr
     ripgrep
 
