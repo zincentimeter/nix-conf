@@ -18,6 +18,9 @@ in
     # Language Server for Nix and Lua
     nil
     lua-language-server
+
+    # Dev Tools for C/C++
+    clang-tools
   ];
   
   programs.neovim = {
@@ -47,7 +50,7 @@ in
 
       # git
       neogit
-        
+ 
       # UI
       noice-nvim # overall beautify
       feline-nvim # status line
@@ -72,6 +75,7 @@ in
       luasnip
       markdown-preview-nvim
       lazydev-nvim
+      clangd_extensions-nvim
     ] ++ [
       luvit-meta
     ];

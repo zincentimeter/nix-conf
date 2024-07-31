@@ -44,6 +44,13 @@ require('lazydev').setup({
   };
 })
 
+--- LSP:C/C++
+require('clangd_extensions').setup({
+  server = {
+    capabilities = capabilities,
+  },
+})
+
 --- Autocomplete
 
 local luasnip = require('luasnip')
