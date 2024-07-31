@@ -4,8 +4,8 @@ local lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 --- LSP:nix
-lsp.nil_ls.setup({
-  capabilities = capabilities,
+lsp.nixd.setup({
+  capabilities = capabilities
 })
 
 --- LSP:lua
