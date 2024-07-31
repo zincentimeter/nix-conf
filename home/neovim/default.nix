@@ -52,7 +52,8 @@ in
       noice-nvim # overall beautify
       feline-nvim # status line
       edge # color theme
-      
+      trouble-nvim # show errors
+
       # auto-complete
       nvim-cmp
       cmp-nvim-lsp
