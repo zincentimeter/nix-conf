@@ -45,6 +45,10 @@ require('lazydev').setup({
 })
 
 --- LSP:C/C++
+lsp.clangd.setup({
+  capabilities = capabilities
+})
+
 require('clangd_extensions').setup({
   server = {
     capabilities = capabilities,
