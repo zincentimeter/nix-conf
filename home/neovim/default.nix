@@ -9,7 +9,7 @@ let
       rev = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60";
       hash = "sha256-zAAptV/oLuLAAsa2zSB/6fxlElk4+jNZd/cPr9oxFig=";
     };
-    version = "2024-07-30";
+    version = "2024-01-21";
   };
 in
 {
