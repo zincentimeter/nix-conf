@@ -76,6 +76,9 @@ in
 
         # Clipboard for Neovim to access system clipboard.
         wl-clipboard
+
+        # OAuth my Outlook
+        mailctl
       ] ++ [
         # watchalong
         syncplayGpuOffloaded
@@ -90,6 +93,7 @@ in
         ./plasma.nix
         ./kitty.nix
         ./neovim
+        ./git.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
