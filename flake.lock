@@ -334,7 +334,9 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "plasma-manager": "plasma-manager",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "sourcehut-keys": "sourcehut-keys",
+        "stratosphere": "stratosphere"
       }
     },
     "rust-overlay": {
@@ -381,6 +383,38 @@
         "owner": "Mic92",
         "repo": "sops-nix",
         "type": "github"
+      }
+    },
+    "sourcehut-keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-XLpEGxkgBCWhCW5X3iSiRwKRGx90Algm4I44/1pc2eY=",
+        "type": "file",
+        "url": "https://meta.sr.ht/~zincentimeter.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://meta.sr.ht/~zincentimeter.keys"
+      }
+    },
+    "stratosphere": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1722520917,
+        "narHash": "sha256-54t82RpgZ+i84t4byMQYha/3jMTKQ+dD1U9Ne4zhGF0=",
+        "ref": "refs/heads/roze",
+        "rev": "8102b1f61543a609b4739630fd43d6f6a19d1bb3",
+        "revCount": 49,
+        "type": "git",
+        "url": "https://git.sr.ht/~fubuki/stratosphere"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sr.ht/~fubuki/stratosphere"
       }
     },
     "systems": {

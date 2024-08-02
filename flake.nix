@@ -63,6 +63,14 @@
       url = "https://meta.sr.ht/~zincentimeter.keys";
       flake = false;
     };
+
+    # Nix User Repository (NUR)
+    # Gyara's user custom software repository
+    stratosphere = {
+      url = "git+https://git.sr.ht/~fubuki/stratosphere";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
   };
 
   outputs = { self, ... } @ inputs:
@@ -77,6 +85,7 @@
           # Patching nixpkgs with customized packages
           # e.g. apps from other sources or stable branch
           nixpkgs.overlays = [
+            inputs.stratosphere.overlay
             # Overlay function below
             # (final: prev: {
             #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
