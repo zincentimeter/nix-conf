@@ -321,11 +321,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722847374,
-        "narHash": "sha256-2cCt5qWBm5oAgnmdTeu+aDrXYygcfHMrNc0MAV9pqB0=",
+        "lastModified": 1722866363,
+        "narHash": "sha256-ztVu/8r11Ar7KQHbl3QlmWnHOfVH0PSwRZawVjw7JQU=",
         "ref": "refs/heads/roze",
-        "rev": "51e0fe630ac9e89020bee40279a3b5d599b47778",
-        "revCount": 53,
+        "rev": "eba9eecc667e6bf5e0d5437b517f8cd334fd0f91",
+        "revCount": 54,
         "type": "git",
         "url": "https://git.sr.ht/~fubuki/stratosphere"
       },
