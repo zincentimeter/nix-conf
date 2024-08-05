@@ -1,17 +1,5 @@
 { pkgs, ... }:
 
-let
-  luvit-meta = pkgs.vimUtils.buildVimPlugin {
-    pname = "luvit-meta";
-    src = pkgs.fetchFromGitHub {
-      owner = "Bilal2453";
-      repo = "luvit-meta";
-      rev = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60";
-      hash = "sha256-zAAptV/oLuLAAsa2zSB/6fxlElk4+jNZd/cPr9oxFig=";
-    };
-    version = "2024-01-21";
-  };
-in
 {
 
   home.packages = with pkgs; [
@@ -76,8 +64,8 @@ in
       markdown-preview-nvim
       lazydev-nvim
       clangd_extensions-nvim
-    ] ++ [
-      luvit-meta
+      # https://discourse.nixos.org/t/help-using-a-nixpkgs-overlay-in-a-flake/46075/2
+      pkgs.luvit-meta-nvim
     ];
   };
   
