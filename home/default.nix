@@ -79,6 +79,9 @@ in
 
         # OAuth my Outlook
         mailctl
+
+        # Tencent Meeting
+        pkgs.stra.wemeet
       ] ++ [
         # watchalong
         syncplayGpuOffloaded

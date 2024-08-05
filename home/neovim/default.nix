@@ -65,7 +65,7 @@
       lazydev-nvim
       clangd_extensions-nvim
       # https://discourse.nixos.org/t/help-using-a-nixpkgs-overlay-in-a-flake/46075/2
-      pkgs.luvit-meta-nvim
+      pkgs.stra.luvit-meta-nvim
     ];
   };
   
