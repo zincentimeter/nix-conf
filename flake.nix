@@ -27,6 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.crane.follows = "crane"; 
+      inputs.pre-commit-hooks-nix.follows = "";
     };
 
     # declarative disk partition
@@ -86,7 +87,7 @@
           # Patching nixpkgs with customized packages
           # e.g. apps from other sources or stable branch
           nixpkgs.overlays = [
-            inputs.stratosphere.overlay
+            inputs.stratosphere.overlays.default
             # Overlay function below
             # (final: prev: {
             #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
