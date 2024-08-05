@@ -93,7 +93,7 @@ in
         ./firefox.nix
         ./onedrive.nix
         ./thunderbird.nix
-        ./plasma.nix
+        ./plasma
         ./kitty.nix
         ./neovim
         ./git.nix

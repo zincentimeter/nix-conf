@@ -105,6 +105,7 @@
       "services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
       "services/org.kde.konsole.desktop"."_launch" = "none";
     };
+
     configFile = {
       "baloofilerc"."General"."exclude filters version" = 9;
 
