@@ -4,6 +4,15 @@
   programs.plasma.configFile = {
     "baloofilerc"."General"."exclude filters version" = 9;
 
+    kwinrc = {
+      Tiling.padding = 4;
+      XWayland.Scale = 1.75;
+      Wayland.InputMethod = {
+        value = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+        shellExpand = true;
+      };
+    };
+
     "kded5rc"."Module-browserintegrationreminder"."autoload" = false;
     "kded5rc"."Module-device_automounter"."autoload" = false;
 
