@@ -18,6 +18,7 @@
 - [ ] Declarative home
     - [x] vscode
     - to be updated...
+- [ ] mount / on tmpfs with `impermanence` on to control what is permanent
 
 ## Note
 
@@ -40,3 +41,4 @@
     7. `git checkout main`
     8. `git checkout private <file>`
     9. update-index with `skip-worktree`
+
