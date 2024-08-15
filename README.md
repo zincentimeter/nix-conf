@@ -16,7 +16,7 @@
 - [ ] Declarative Plasma 6
 - [ ] Declarative _2raya config (or sin_box?)
 - [ ] Declarative home
-    - [x] vscode
+    - [x] ~~vscode~~ (disabled, now use vim)
     - to be updated...
 - [ ] mount / on tmpfs with `impermanence` on to control what is permanent
 
