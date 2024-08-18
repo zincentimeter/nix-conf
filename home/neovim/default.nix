@@ -54,6 +54,9 @@
       cmp-calc
       cmp_luasnip
 
+      # shortcuts & keys
+      which-key-nvim
+
       # file explorer
       oil-nvim
       neo-tree-nvim
