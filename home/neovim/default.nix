@@ -9,6 +9,9 @@
 
     # Dev Tools for C/C++
     clang-tools
+
+    # required by `Telescope live_grep`
+    ripgrep
   ];
   
   programs.neovim = {
