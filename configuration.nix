@@ -96,6 +96,9 @@
   # started in user sessions.
   # programs.mtr.enable = true;
 
+  # configure the neovim to be the defaultEditor.
+  programs.neovim.defaultEditor = true;
+
   programs.ssh.startAgent = true;
 
   # Shell
