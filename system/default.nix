@@ -20,5 +20,8 @@
 
     # Internet, DNS, etc.
     ./network.nix
+
+    # Persistent things
+    ./persistence.nix
   ];
 }
