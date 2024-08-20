@@ -13,19 +13,6 @@ let
   # by going to the directory of newly-built one:
   # > readlink -f <the_binary_name>
   # check the file of that wrapper to see if it REALLY contains these variables.
-  syncplayGpuOffloaded =
-    pkgs.syncplay.overrideAttrs (finalAttrs: previousAttrs:
-      {
-        # https://github.com/NixOS/nixpkgs/issues/27769#issuecomment-318906426
-        qtWrapperArgs = nvidiaOffloadSetting;
-      }
-    );
-  vlcGpuOffloaded =
-    pkgs.vlc.overrideAttrs (finalAttrs: previousAttrs:
-      {
-        qtWrapperArgs = nvidiaOffloadSetting;
-      }
-    );
 in
 {
   # Program configured with home-manager, but as a NixOS module!
@@ -81,11 +68,11 @@ in
         mailctl
 
         # Tencent Meeting
-        pkgs.stra.wemeet
-      ] ++ [
+        stra.wemeet
+
         # watchalong
-        syncplayGpuOffloaded
-        vlcGpuOffloaded
+        syncplay
+        vlc
       ];
 
       imports = [
