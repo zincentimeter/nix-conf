@@ -38,6 +38,9 @@
     options = "--delete-older-than 7d";
   };
 
+  # define the source of /etc/nixos
+  environment.etc.nixos.source = "/home/shinri/nix-conf";
+
   users.mutableUsers = false;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shinri = {
