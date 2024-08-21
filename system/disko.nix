@@ -21,7 +21,7 @@
             content = {
               type = "filesystem";
               format = "ext4";
-              mountpoint = "/";
+              mountpoint = "/nix";
             };
           };
           swap = {
@@ -34,12 +34,11 @@
         }; # partitions
       }; # content
     }; # disk.main
-    /*
+
     nodev."/" = {
       fsType = "tmpfs";
       mountOptions = [
-        # The default, when neither size nor nr_blocks is specified, is size=50%.
-        "default"
+        "size=50%"
         # https://serverfault.com/q/644468
         "noatime"
         # 7=rwx, 5=r-x, 5=r-x
@@ -48,7 +47,7 @@
         "mode=755"
       ]; # mountOptions
     }; # nodev."/"
-    */
+
   }; # disko.devices
 }
 

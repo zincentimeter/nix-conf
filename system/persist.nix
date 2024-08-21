@@ -20,8 +20,8 @@ let
   # during the preparation, we set it to root,
   # after mount root to tmpfs, it will be set to something like /nix/persist.
   impermanence = {
-    persistHome = "/persist";
-    storageHome = "/storage";
+    persistHome = "/nix/persist";
+    storageHome = "/nix/storage";
   };
 
   user_full_only = "u=rwx,g=,o=";
@@ -36,8 +36,7 @@ let
   atHome = package: (builtins.elem package shinri.home.packages);
 in
 {
-  # fileSystems."/persist".neededForBoot = true;
-  # fileSystems."/storage".neededForBoot = true;
+  fileSystems."/nix".neededForBoot = true;
 
   environment.persistence = {
     "${impermanence.persistHome}" = {
