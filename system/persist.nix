@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 /* So far included:
  * /etc/secureboot
@@ -13,8 +13,9 @@
  * /var/spool/cups
 
  * ~/{nix-conf,Collections,OneDrive,tmp}
- * WIP: Shit in ~/.config and ~/.local (not done yet)
+ * /.config and ~/.local
  */
+
 let
   # during the preparation, we set it to root,
   # after mount root to tmpfs, it will be set to something like /nix/persist.
@@ -30,6 +31,9 @@ let
     dataHome = ".local/share";
     stateHome = ".local/state";
   };
+
+  shinri = config.home-manager.users.shinri;
+  atHome = package: (builtins.elem package shinri.home.packages);
 in
 {
   # fileSystems."/persist".neededForBoot = true;
@@ -160,38 +164,126 @@ in
         { file = "/etc/subuid"; }
         { file = "/etc/subgid"; }
       ];
-      users.shinri = {
+
+      users.shinri =
+      let
+        configHome = xdgRelative.configHome;
+        dataHome = xdgRelative.dataHome;
+        stateHome = xdgRelative.stateHome;
+      in
+      {
         directories = [
           # The right repository of nix-conf
-          { directory = "nix-conf"; }
-          { directory = "${xdgRelative.cacheHome}"; }
-          { directory = "${xdgRelative.configHome}/autostart"; }
+          "nix-conf"
+          # Secure keys related
+          { directory = ".ssh"; mode = user_full_only; }
+          { directory = ".gnupg"; mode = user_full_only; }
+          # Nix States
+          "${stateHome}/nix"
+          # Cache Home (just saves it for fast access)
+          "${xdgRelative.cacheHome}"
+          # Autostart applications (like telegram)
+          "${configHome}/autostart"
           # apps like Foliate require GNOME-flavored settings
-          { directory = "${xdgRelative.configHome}/dconf"; }
-          # Remmina 
-          { directory = "${xdgRelative.configHome}/remmina"; }
-          { directory = "${xdgRelative.configHome}/freerdp"; }
-          # input methods
-          { directory = "${xdgRelative.configHome}/fcitx"; }
-          { directory = "${xdgRelative.configHome}/fcitx5"; }
+          "${configHome}/dconf"
+          # GitHub CLI (used without installed)
+          "${configHome}/gh"
+        ] ++ lib.optionals (
+          config.programs.firefox.enable ||
+          shinri.programs.firefox.enable
+        )[
+          ".mozilla"
+        ] ++ lib.optionals (
+          config.programs.thunderbird.enable /* NixOS */ ||
+          shinri.programs.thunderbird.enable /* home  */
+        ) [
+          ".thunderbird"
+        ] ++ lib.optionals (atHome pkgs.remmina) [
+          "${configHome}/freerdp"
+          "${configHome}/remmina"
+          "${dataHome}/remmina"
+        ] ++ lib.optionals (atHome pkgs.obs-studio) [
+          "${configHome}/obs-studio"
+        ] ++ lib.optionals (config.services.onedrive.enable) [
+          "${configHome}/onedrive"
+        ] ++ lib.optionals (atHome pkgs.qbittorrent) [
+          "${configHome}/qBitTorrent"
+          "${dataHome}/qBitTorrent" 
+        ] ++ lib.optionals (config.services.syncthing.enable) [
+          "${configHome}/syncthing"
+        ] ++ lib.optionals (
+          config.programs.fish.enable ||
+          shinri.programs.fish.enable
+        ) [
+          "${configHome}/fish"
+          "${dataHome}/fish"
+        ] ++ lib.optionals config.programs.steam.enable [
+          # (Some gave saves sit on it)
+          "${configHome}/unity3d"
+          "${configHome}/Steam"
+          "${dataHome}/Steam"
+        ] ++ lib.optionals (atHome pkgs.cinny-desktop) [
+          "${dataHome}/cinny"
+          "${dataHome}/in.cinny.app"
+        ] ++ lib.optionals (atHome pkgs.telegram-desktop) [
+          "${dataHome}/TelegramDesktop"
+        ] ++ lib.optionals (atHome pkgs.osu-lazer-bin) [
+          "${dataHome}/osu"
+        ] ++ lib.optionals (atHome pkgs.prismlauncher) [
+          "${dataHome}/PrismLauncher"
+        ] ++ lib.optionals (atHome pkgs.vlc) [
+          "${dataHome}/vlc"
+        ] ++ lib.optionals (atHome pkgs.stra.wemeet) [
+          "${dataHome}/wemeetapp"
+        ] ++ lib.optionals (
+          config.i18n.inputMethod.enable &&
+          (config.i18n.inputMethod.type == "fcitx5")
+        ) [
+          "${configHome}/fcitx"
+          "${configHome}/fcitx5"
+          "${dataHome}/fcitx5"
+        ] ++ lib.optionals (
+          config.i18n.inputMethod.enable &&
+          (config.i18n.inputMethod.type == "fcitx5") &&
+          (builtins.elem
+            pkgs.fcitx5-mozc config.i18n.inputMethod.fcitx5.addons)
+        ) [
           # Japanese IME
-          { directory = "${xdgRelative.configHome}/mozc"; }
-          # GitHub CLI
-          { directory = "${xdgRelative.configHome}/gh"; }
-          # OBS
-          { directory = "${xdgRelative.configHome}/obs-studio"; }
-          # OneDrive
-          { directory = "${xdgRelative.configHome}/onedrive"; }
-          # qBitTorrent
-          { directory = "${xdgRelative.configHome}/qBitTorrent"; }
-          # syncthing
-          { directory = "${xdgRelative.configHome}/syncthing"; }
+          "${configHome}/mozc"
+        ] ++ lib.optionals (atHome pkgs.zotero_7 || atHome pkgs.zotero) [
+          "${configHome}/zotero"
+          "${dataHome}/zotero"
+        ] ++ [
+          # KDE (not governed by plasma-manager)
+          # - kdeconnect 
+          "${configHome}/kdeconnect"
+          # - baloo file index
+          "${dataHome}/baloo"
+          # - KActivities
+          "${dataHome}/kactivitymanagerd"
+          "${dataHome}/kwalletd"
+          # - Okular (Bookmark, etc.)
+          "${dataHome}/okular"
+          # - Widgets
+          "${dataHome}/plasma/plasmoids"
+          # - Dolphin remote folders
+          "${dataHome}/remoteview"
+          # - Trash bin (used by Dolphin)
+          "${dataHome}/Trash"
         ];
         files = [ 
           # sops-nix
-          { file = "${xdgRelative.configHome}/sops/age/keys.txt"; }
-          # Syncplay
-          { file = "${xdgRelative.configHome}/syncplay.ini"; }
+          "${configHome}/sops/age/keys.txt"
+        ] ++ lib.optionals (atHome pkgs.syncplay) [
+          "${configHome}/syncplay.ini"
+        ] ++ [
+          # KDE (not governed by plasma-manager)
+          # - KWin Display Configuration
+          "${configHome}/kwinoutputconfig.json"
+          # - Desktop Applets, panel configuration
+          "${configHome}/plasma-org.kde.plasma.desktop-appletsrc"
+          # - Dolphin's User Bookmark (sidebar)
+          "${dataHome}/user-places.xbel"
         ];
       }; # users.shinri
     }; # "${impermanence.persistHome}"
@@ -202,9 +294,9 @@ in
       files = [];
       users.shinri = {
         directories = [
-          { directory = "OneDrive"; }
-          { directory = "Collections"; }
-          { directory = "tmp"; }
+          "OneDrive"
+          "Collections"
+          "tmp"
         ];
       }; # users.shinri
     }; # "${impermanence.storageHome}"
