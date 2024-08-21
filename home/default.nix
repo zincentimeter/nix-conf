@@ -23,6 +23,8 @@
         coq
         coqPackages.vscoq-language-server
 
+        # tldr, too long, don't read, cmd quick lookup
+        tldr
 
         # remote desktop
         remmina

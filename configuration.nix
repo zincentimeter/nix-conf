@@ -72,7 +72,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    tldr
     ripgrep
 
     # Processes output of Nix commands to show helpful and pretty information
