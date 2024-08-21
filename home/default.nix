@@ -61,9 +61,9 @@
       ];
 
       imports = [
+        ./files.nix
         ./vscode.nix
         ./firefox.nix
-        ./onedrive.nix
         ./thunderbird.nix
         ./plasma
         ./kitty.nix
