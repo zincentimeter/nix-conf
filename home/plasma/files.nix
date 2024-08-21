@@ -48,6 +48,9 @@
       Translations.LANGUAGE = us;
     }; # plasma-localerc
 
+    # highlight everthing changed
+    systemsettingsrc.systemsettings_sidebar_mode.HighlightNonDefaultSettings = true;
+
     spectaclerc = {
       General = {
         clipboardGroup = "PostScreenshotCopyImage";
@@ -66,7 +69,7 @@
     plasma_calendar_holiday_regions.General.selectedRegions = "cn_zh-cn";
   };
 
-  # https://github.com/pjones/plasma-manager/tree/trunk?tab=readme-ov-file#make-your-configuration-more-declarative-with-overrideconfig
+  # https://github.com/pjones/plasma-manager/tree/trunk?tab=readme-ov-file
   programs.plasma.overrideConfig = true;
   # https://github.com/nix-community/plasma-manager/blob/trunk/modules/files.nix
   programs.plasma.resetFiles = [
