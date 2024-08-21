@@ -22,6 +22,6 @@
     ./network.nix
 
     # Persistent things
-    ./persistence.nix
+    ./persist.nix
   ];
 }
