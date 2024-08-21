@@ -19,8 +19,8 @@
         layouts = [{ layout = "us"; }];
       };
       touchpads = [{
-        vendorId = "1739";
-        productId = "52934";
+        vendorId = "06cb";
+        productId = "cec6";
         name = "SYNA801A:00 06CB:CEC6 Touchpad";
         enable = true;
         naturalScroll = true;
