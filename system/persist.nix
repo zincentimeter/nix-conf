@@ -187,6 +187,11 @@ in
           "${configHome}/dconf"
           # GitHub CLI (used without installed)
           "${configHome}/gh"
+          # Fonts
+          "${dataHome}/fonts"
+        ] ++ lib.optionals (atHome pkgs.tldr) [
+          "${dataHome}/tldrc" # then tldrc symlink -> ~/.tldrc
+          # symlink managed in home/files.nix
         ] ++ lib.optionals (
           config.programs.firefox.enable ||
           shinri.programs.firefox.enable
