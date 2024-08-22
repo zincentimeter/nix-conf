@@ -47,3 +47,72 @@
     8. `git checkout private <file>`
     9. update-index with `skip-worktree`
 
+## Appendix B. A Journey on "tmpfs on root"
+
+> ( machine translation is used )
+
+The process of setting up tmpfs on the root in NixOS is full of pitfalls.
+Some of these issues are due to NixOS itself,
+but most arise from the combination of various requirements.
+
+1. When only the `/home` and `/nix` directories are available,
+   `nixos-enter` (hereafter referred to as enter) fails to work on `/mnt`,
+   giving a "not a NixOS installation" error.
+   The solution is to create an empty file in `/mnt/etc/NIXOS`.
+
+2. The issue with `nixos-rebuild` (hereafter referred to as `rebuild`) is that
+   it uses the `$SUDO_USER` variable and then fails with a PAM authentication error.
+   > The solution is to delete this environment variable.
+
+3. Flake-based `rebuild` fails due to a missing git.
+   > The solution is to directly open a nix-shell with git (e.g., `nix-shell -p git`).
+
+4. Because `enter` sets the environment's hostname to nixos,
+   running rebuild directly results in a flake not found error.
+   > The solution is to either change the hostname or the flake (e.g., `hostname <your_name>`).
+
+5. When using the impermanence module, you must be especially careful.
+   If you change the directory specified in the configuration
+   (e.g., from `/persist` to `/nix/persist`),
+   the mounts managed by impermanence will fail since enter uses your existing system build.
+   > Necessary files during the rebuild process must be manually copied or mounted.
+
+6. When configuring secure boot during the `rebuild` process, 
+   due to the issue mentioned in point 5,
+   the lanzaboote module fails to load the files required to sign the target kernel,
+   leading to a failed build that cannot be installed into the bootloader.
+   > The solution is:
+   ```sh
+   cp -ar /nix/persist/etc/secureboot/ /etc/. # -a preserves permissions information
+   ```
+
+   Incidentally, this took me nearly an hour.
+   The error messages were useless,
+   stating that a file was missing but not specifying which one.
+   I had to use `strace` to check each one,
+   and during the process, the LiveCD crashed, so I had to redo points 1-6 all over again.
+
+7. The system cannot handle the default option when mounting `tmpfs`,
+   causing it to freeze at NixOS stage 1.
+   > The solution is to remove the default option from the disko module configuration.
+   This also took me over an hour due to the difficulty of using the LiveCD
+   to change the configuration.
+   Points 1-6 had to be addressed, and the LiveCD loads very slowly.
+
+8. During enter, since I use the sops-nix module to load encrypted information,
+   and due to the issue mentioned in point 5 where `~/.ssh` cannot be loaded, an error occurs.
+   Although I can still enter the `chroot` environment with `enter`,
+   I configure GitHub API access with sops-nix via `nix.conf`,
+   which could cause problems if internet access is needed.
+   > The solution is to manually copy the keys over:
+   ```sh
+   cp -ar /nix/persist/home/shinri/.ssh/ /home/shinri
+   ```
+
+This has been one of the most "Nix exercise" I've ever had.
+It took over a month from the initial idea to full implementation.
+Adding to that, this week, I spent time troubleshooting `/var`, `/etc`, `~/.config`, and `~/.local`,
+and also tuning with the `plasma-manager` module rarely used before.
+It was like a ripple effect.
+However, I'm glad I finally moved everything to this setup smoothly
+and avoided reinstalling the system.
