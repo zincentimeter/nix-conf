@@ -1,7 +1,5 @@
 # Shinri's NixOS Configuration
 
-[toc]
-
 ## 1. Points of inconvenience
 
 - [x] (deprecated) ~~vscode cannot input chinese (patched with `--enable-wayland-ime`)~~
