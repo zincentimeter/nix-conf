@@ -4,7 +4,7 @@
 
   home.packages = with pkgs; [
     # Language Server for Nix and Lua
-    nixd
+    nil
     lua-language-server
 
     # Dev Tools for C/C++

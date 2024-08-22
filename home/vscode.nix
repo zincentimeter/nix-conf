@@ -89,9 +89,9 @@ in
 
     userSettings = {
       "git.confirmSync" = false;
-      "nix.serverPath" = "nixd";
+      "nix.serverPath" = "nil";
       "nix.enableLanguageServer" = true;
-      "nix.serverSettings"."nixd"."formatting"."command" = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
+      "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
       "workbench.colorTheme" = "Default Light Modern";
       "editor.fontFamily" = "'Red Hat Mono', 'Droid Sans Mono', 'monospace', monospace";
       "files.autoSave" = "afterDelay";
