@@ -2,25 +2,28 @@
 
 ## Points of inconvenience
 
-- [x] vscode cannot input chinese (patched with `--enable-wayland-ime`)
-- [x] numlock and capslock (change to Keyboard(Chinese) fix this)
-- [x] chinese plasma 6 (logout to make it enable)
-- [x] manage secrets with sops-nix (cannot directly introduced in nix config)
-- [x] laptop caps cannot be identified correctly on login screen (don't hint sddm to use wayland)
-- [x] vlc / vlc via syncplay not working for nvidia gpu (offloading it solves this)
-- [x] ThinkPad Thunderbolt Dock 3 cannot connect smoothly
-- [x] The airplane's dns cannot resolve Tailscale (solved by disable tailscale dns functionality)
+- [x] (deprecated) ~~vscode cannot input chinese (patched with `--enable-wayland-ime`)~~
+- [x] (fixed) ~~numlock and capslock (change to Keyboard(Chinese) fix this)~~
+- [x] (fixed) ~~chinese plasma 6~~ (logout to make it enable)
+- [x] (reached) manage secrets with sops-nix (cannot directly introduced in nix config)
+- [x] (fixed) ~~ThinkPad Thunderbolt Dock 3 cannot connect smoothly~~ (fix: sbctl)
+- [x] (worked-around) The airplane's dns cannot resolve Tailscale (solved by disable tailscale dns functionality)
 
-## Future Improvements
+## Improvements
 
-- [ ] Declarative Plasma 6
+- [x] Declarative Plasma 6
 - [ ] Declarative _2raya config (or sin_box?)
-- [ ] Declarative home
+- [x] Declarative home
     - [x] ~~vscode~~ (disabled, now use vim)
     - to be updated...
-- [ ] mount / on tmpfs with `impermanence` on to control what is permanent
+- [x] mount / on tmpfs with `impermanence` on to control what is permanent
 
-## Note
+## Notes on public
+
+> I mainly focus on my private repo.
+> So the public repo of my nix-conf will be a cherry-picked version.
+> The .gitskip will serve as a notice of skipped files, not serving functionaly.
+> The following routine is deprecated.
 
 - Private items are skipped by
 
