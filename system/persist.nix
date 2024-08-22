@@ -252,6 +252,11 @@ in
         ] ++ lib.optionals (atHome pkgs.zotero_7 || atHome pkgs.zotero) [
           "${configHome}/zotero"
           "${dataHome}/zotero"
+        ] ++ lib.optionals (
+          config.programs.neovim.enable ||
+          shinri.programs.neovim.enable
+        ) [
+          "${dataHome}/nvim"
         ] ++ [
           # KDE (not governed by plasma-manager)
           # - kdeconnect 
