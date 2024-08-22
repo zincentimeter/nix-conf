@@ -1,6 +1,8 @@
 # Shinri's NixOS Configuration
 
-## Points of inconvenience
+[toc]
+
+## 1. Points of inconvenience
 
 - [x] (deprecated) ~~vscode cannot input chinese (patched with `--enable-wayland-ime`)~~
 - [x] (fixed) ~~numlock and capslock (change to Keyboard(Chinese) fix this)~~
@@ -9,7 +11,7 @@
 - [x] (fixed) ~~ThinkPad Thunderbolt Dock 3 cannot connect smoothly~~ (fix: sbctl)
 - [x] (worked-around) The airplane's dns cannot resolve Tailscale (solved by disable tailscale dns functionality)
 
-## Improvements
+## 2. Improvements
 
 - [x] Declarative Plasma 6
 - [ ] Declarative _2raya config (or sin_box?)
@@ -18,7 +20,7 @@
     - to be updated...
 - [x] mount / on tmpfs with `impermanence` on to control what is permanent
 
-## Notes on public
+## Appendix A. Notes on public
 
 > I mainly focus on my private repo.
 > So the public repo of my nix-conf will be a cherry-picked version.
