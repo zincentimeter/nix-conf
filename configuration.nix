@@ -85,6 +85,7 @@
 
   # Shell
   programs.fish.enable = true;
+  # default shell for all users, including root
   users.defaultUserShell = pkgs.fish;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
