@@ -19,8 +19,9 @@
     autoNumlock = true;
   };
 
-  environment.systemPackages = [
-    pkgs.kdePackages.plasma-thunderbolt
+  environment.systemPackages = with pkgs; [
+    kdePackages.plasma-thunderbolt
+    vulkan-tools
   ];
 
   programs.kdeconnect.enable = true;

@@ -10,7 +10,7 @@
     ./disko.nix
 
     # Graphic Interface Configuration
-    ./gui
+    ./gui.nix
 
     # Language-related
     ./locale.nix
