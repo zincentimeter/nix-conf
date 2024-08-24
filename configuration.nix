@@ -73,8 +73,6 @@
   # configure the neovim to be the defaultEditor.
   programs.neovim.defaultEditor = true;
 
-  programs.ssh.startAgent = true;
-
   # Shell
   programs.fish.enable = true;
   # default shell for all users, including root
