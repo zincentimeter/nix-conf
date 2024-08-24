@@ -23,5 +23,8 @@
 
     # Persistent things
     ./persist.nix
+
+    # Nix, Nixpkgs related
+    ./nix.nix
   ];
 }

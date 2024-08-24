@@ -28,19 +28,6 @@
     ];
 
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "shinri" ];
-  nix.extraOptions = ''
-    !include ${config.sops.templates."nix_access_token.conf".path}
-  '';
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 7d";
-  };
-
-  # define the source of /etc/nixos
-  environment.etc.nixos.source = "/home/shinri/nix-conf";
-
   users.mutableUsers = false;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shinri = {
@@ -87,10 +74,6 @@
     comma
   ];
 
-  programs.nix-index-database.comma.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -103,20 +86,6 @@
   # Shell
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
-
-  # Shell aliases
-  environment.shellAliases = {
-    gnix = "git --work-tree=${config.users.users.shinri.home}/nix-conf";
-    vnix = "nvim --cmd 'cd ${config.users.users.shinri.home}/nix-conf'";
-    ns = "sudo nixos-rebuild switch";
-    nb = "sudo nixos-rebuild boot";
-  };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
