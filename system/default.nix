@@ -26,5 +26,8 @@
 
     # Nix, Nixpkgs related
     ./nix.nix
+
+    # Users related configuration
+    ./users.nix
   ];
 }
