@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -51,19 +51,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    ripgrep
-
-    # Processes output of Nix commands to show helpful and pretty information
-    nix-output-monitor
 
     # Shell (mainly for `fish`) plugins
     # A utility tool powered by fzf for using git interactively.
     fishPlugins.forgit
     # A command-line fuzzy finder written in Go
     fzf
-
-    # Runs programs without installing them
-    comma
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

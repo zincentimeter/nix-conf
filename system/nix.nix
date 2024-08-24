@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   flakeRepo = "/home/shinri/nix-conf";
@@ -40,4 +40,11 @@ in
     ns = "sudo nixos-rebuild switch";
     nb = "sudo nixos-rebuild boot";
   };
+
+  environment.systemPackages = with pkgs; [
+    # Runs programs without installing them
+    comma
+    # Processes output of Nix commands to show helpful and pretty information
+    nix-output-monitor
+  ];
 }
