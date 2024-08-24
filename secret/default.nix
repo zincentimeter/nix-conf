@@ -11,7 +11,7 @@
     };
     
     secrets =
-      builtins.mapAttrs (n: v: v // {
+      builtins.mapAttrs (_: v: v // {
           mode = "0440";
           owner = config.users.users.shinri.name;
           group = config.users.users.shinri.group;

@@ -10,9 +10,6 @@
   # Enable the Plasma 6 Desktop Environment.
   # services.xserver.desktopManager.plasma5.enable = true;
   services.desktopManager.plasma6.enable = true;
-  # Use x11 as default since I meet a wierd numlock problem
-  # Resembling https://github.com/wez/wezterm/issues/1869#user-content-its-a-mutter-problem
-  # services.xserver.displayManager.defaultSession = "plasmax11";
   services.displayManager.sddm = {
     wayland.enable = true;
     enable = true;
@@ -25,8 +22,4 @@
   ];
 
   programs.kdeconnect.enable = true;
-
-  # Enable the X11 windowing system. (For unstable Plasma 6, xserver is for sddm)
-  # services.xserver.enable = false;
-
 }

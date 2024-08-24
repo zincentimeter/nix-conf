@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 let
   flakeRepo = "/home/shinri/nix-conf";

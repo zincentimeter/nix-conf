@@ -75,7 +75,7 @@
     
   };
 
-  outputs = { self, ... } @ inputs:
+  outputs = { ... } @ inputs:
   {
     nixosConfigurations."thinkpad-p16v" = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
