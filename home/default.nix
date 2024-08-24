@@ -1,4 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
+
 {
   # Program configured with home-manager, but as a NixOS module!
   home-manager = {
@@ -59,7 +60,7 @@
 
         # watchalong
         syncplay
-        vlc
+        stra.vlc-wayland
       ];
 
       imports = [
