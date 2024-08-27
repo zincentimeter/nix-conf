@@ -27,7 +27,7 @@
     # Nix, Nixpkgs related
     ./nix.nix
 
-    # Users related configuration
+    # Users related configuration, and basic environment (Shells) for all users including root
     ./users.nix
   ];
 }

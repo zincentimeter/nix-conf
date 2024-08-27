@@ -16,7 +16,7 @@
       # (./hardware/default.nix will be imported)
       ./hardware
 
-      # Boot / Disk (Disko) / GUI / Locale
+      # Boot / Disk (Disko) / GUI / Locale / Environment (Shells) for all users
       # (./system/default.nix will be imported)
       ./system
 
@@ -44,32 +44,13 @@
     #     glxinfo
     #   ];
     # };
-
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-
-    # Shell (mainly for `fish`) plugins
-    # A utility tool powered by fzf for using git interactively.
-    fishPlugins.forgit
-    # A command-line fuzzy finder written in Go
-    fzf
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-
-  # configure the neovim to be the defaultEditor.
-  programs.neovim.defaultEditor = true;
-
-  # Shell
-  programs.fish.enable = true;
-  # default shell for all users, including root
-  users.defaultUserShell = pkgs.fish;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
