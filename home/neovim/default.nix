@@ -18,6 +18,7 @@
     enable = true;
     vimAlias = true;
     viAlias = true;
+    # must be enabled with shell configuration in home-manager 
     defaultEditor = true;
     
     extraConfig = ''
