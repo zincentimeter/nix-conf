@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     # dependency of lanzaboote
     flake-utils.url = "github:numtide/flake-utils";
@@ -90,7 +91,7 @@
           [
             inputs.stratosphere.overlays.default
             # Overlay function below
-            /* (final: prev: 
+            (final: prev: 
             let
               pkgsMaster = import inputs.nixpkgs-master {
                 system = "x86_64-linux";
@@ -101,12 +102,8 @@
               };
             in
             {
-              cinny = pkgsMaster.cinny;
-              cinny-unwrapped = pkgsMaster.cinny-unwrapped;
               cinny-desktop = pkgsMaster.cinny-desktop;
-              # because cinnny requires newer mesa.
-              mesa = pkgsMaster.mesa;
-            }) */
+            })
             /* (final: prev: { 
               #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
               #       (finalAttrs: previousAttrs:
