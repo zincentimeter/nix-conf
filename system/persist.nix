@@ -43,6 +43,8 @@ in
       enable = true;
       hideMounts = true;
       directories = [
+        { directory = "/tmp"; }
+        { directory = "/var/tmp"; }
         { directory = "/var/lib/nixos"; }
         {
           directory = "/var/lib/private";
