@@ -86,24 +86,44 @@
         {
           # Patching nixpkgs with customized packages
           # e.g. apps from other sources or stable branch
-          nixpkgs.overlays = [
+          nixpkgs.overlays =
+          [
             inputs.stratosphere.overlays.default
             # Overlay function below
-            # (final: prev: {
-            #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
-            #       (finalAttrs: previousAttrs:
-            #         {
-            #           src = previousAttrs.src.override {
-            #             hash = "sha256-GXULnRPsIJRdiL3LdFtHbqTqSvegY2zodBxFm4P55to=";
-            #             sparseCheckout = [ "Sans/OTC" ];
-            #           };
-            #           installPhase = ''
-            #             install -m444 -Dt $out/share/fonts/opentype/noto-cjk Sans/OTC/*.ttc
-            #           '';
-            #         }
-            #       );
-            #   # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
-            # })
+            /* (final: prev: 
+            let
+              pkgsMaster = import inputs.nixpkgs-master {
+                system = "x86_64-linux";
+                config.permittedInsecurePackages = [
+                  "cinny-4.1.0"
+                  "cinny-unwrapped-4.1.0"
+                ];
+              };
+            in
+            {
+              cinny = pkgsMaster.cinny;
+              cinny-unwrapped = pkgsMaster.cinny-unwrapped;
+              cinny-desktop = pkgsMaster.cinny-desktop;
+              # because cinnny requires newer mesa.
+              mesa = pkgsMaster.mesa;
+            }) */
+            /* (final: prev: { 
+              #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
+              #       (finalAttrs: previousAttrs:
+              #         {
+              #           src = previousAttrs.src.override {
+              #             hash = "sha256-GXULnRPsIJRdiL3LdFtHbqTqSvegY2zodBxFm4P55to=";
+              #             sparseCheckout = [ "Sans/OTC" ];
+              #           };
+              #           installPhase = ''
+              #             install -m444 -Dt $out/share/fonts/opentype/noto-cjk Sans/OTC/*.ttc
+              #           '';
+              #         }
+              #       );
+              #   # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
+              
+            })
+            */
           ];
         }
         # This is not a complete NixOS configuration and you need to reference
