@@ -19,10 +19,6 @@
         telegram-desktop
         cinny-desktop
         obs-studio
-        
-        # For coq, a language used in software foundation book
-        coq
-        coqPackages.vscoq-language-server
 
         # tldr, too long, don't read, cmd quick lookup
         tldr
