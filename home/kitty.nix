@@ -7,5 +7,6 @@
     settings = {
       cursor_blink_interval = 0;
     };
+    shellIntegration.enableFishIntegration = true;
   };
 }

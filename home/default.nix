@@ -68,6 +68,7 @@
         ./kitty.nix
         ./neovim
         ./git.nix
+        ./shell.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
