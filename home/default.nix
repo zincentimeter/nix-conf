@@ -49,7 +49,7 @@
         wl-clipboard
 
         # OAuth my Outlook
-        mailctl
+        oama
 
         # Tencent Meeting
         stra.wemeet
