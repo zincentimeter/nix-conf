@@ -34,12 +34,6 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.crashDump = {
-    enable = true;
-    kernelParams = [ "single" "boot.shell_on_fail" ];
-    reservedMemory = "256M";
-  };
-
   # Add loopback device to enable virtual camera
   # https://nixos.wiki/wiki/OBS_Studio
   # Inspired by https://www.bilibili.com/read/cv27040222/
