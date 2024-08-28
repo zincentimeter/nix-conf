@@ -61,7 +61,6 @@
 
       imports = [
         ./files.nix
-        ./vscode.nix
         ./firefox.nix
         ./thunderbird.nix
         ./plasma
