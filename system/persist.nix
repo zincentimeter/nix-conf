@@ -213,8 +213,8 @@ in
         ] ++ lib.optionals (config.services.onedrive.enable) [
           "${configHome}/onedrive"
         ] ++ lib.optionals (atHome pkgs.qbittorrent) [
-          "${configHome}/qBitTorrent"
-          "${dataHome}/qBitTorrent" 
+          "${configHome}/qBittorrent"
+          "${dataHome}/qBittorrent" 
         ] ++ lib.optionals (config.services.syncthing.enable) [
           "${configHome}/syncthing"
         ] ++ lib.optionals (
