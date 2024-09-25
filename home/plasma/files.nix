@@ -2,6 +2,10 @@
 
 {
   programs.plasma.configFile = {
+
+    # Don't show plasma broswer integration again
+    kded6rc.PlasmaBrowserIntegration.shownCount = 100;
+
     kwinrc = {
       XWayland.Scale = 2;
       Wayland.InputMethod = {
@@ -57,6 +61,7 @@
         launchAction = "UseLastUsedCapturemode";
         useReleaseToCapture = true;
       };
+      GuiConfig.captureMode = 0;
     };
     
     # Used for Ark to fallback codepages
@@ -67,7 +72,32 @@
     # Widget showing chinese lunar year
     plasma_calendar_alternatecalendar.General.calendarSystem = "Chinese";
     plasma_calendar_holiday_regions.General.selectedRegions = "cn_zh-cn";
-  };
+
+    dolphinrc = {
+      DetailsMode = {
+        IconSize = 22;
+        PreviewSize = 22;
+      };
+      General = {
+        AutoExpandFolders = true;
+      };
+      InformationPanel.dateFormat = "ShortFormat";
+    };
+  }; # configFile
+
+  programs.plasma.dataFile = {
+    "dolphin/view_properties/global/.directory" = {
+      Dolphin = {
+        SortHiddenLast = true;
+        SortOrder = 1;
+        SortRole = "modificationtime";
+        # https://www.reddit.com/r/kde/comments/68zb89/how_to_make_the_details_view_mode_the_default/
+        # https://github.com/usama8800/dotfiles/blob/408067dff947ab7621016af9b01ed9edd03fedf9/.dotfiles/nixos/modules/home-manager.nix#L236
+        ViewMode = 1;
+      };
+      Settings.HiddenFilesShown = true;
+    };
+  }; # dataFile
 
   # https://github.com/pjones/plasma-manager/tree/trunk?tab=readme-ov-file
   programs.plasma.overrideConfig = true;

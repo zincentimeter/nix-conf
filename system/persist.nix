@@ -291,8 +291,6 @@ in
           # KDE (not governed by plasma-manager)
           # - KWin Display Configuration
           "${configHome}/kwinoutputconfig.json"
-          # - Desktop Applets, panel configuration
-          "${configHome}/plasma-org.kde.plasma.desktop-appletsrc"
           # - Dolphin's User Bookmark (sidebar)
           "${dataHome}/user-places.xbel"
         ];
