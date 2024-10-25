@@ -3,36 +3,6 @@
 local lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
---- LSP:typst
-lsp.tinymist.setup({
-  single_file_support = true,
-  root_dir = function ()
-    return vim.fn.getcwd()
-  end,
-  settings = {
-    outputPath = "$root/$name";
-    -- Export PDFs when a document has a title (and save a file),
-    -- which is useful to filter out template files.
-    exportPdf = "onDocumentHasTitle";
-    formatterMode = "typstyle";
-  },
-})
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
-vim.api.nvim_create_autocmd(
-    {
-        "BufNewFile",
-        "BufRead",
-    },
-    {
-        pattern = "*.typ",
-        callback = function()
-          vim.api.nvim_set_option_value("filetype", "typst", {})
-        end,
-    }
-)
-
 --- LSP:nix
 lsp.nil_ls.setup({
   capabilities = capabilities,

@@ -3,14 +3,9 @@
 {
 
   home.packages = with pkgs; [
-    # Language Server for Nix, Lua and Typst
+    # Language Server for Nix and Lua
     nil
     lua-language-server
-    # an integrated language service for Typst
-    tinymist
-
-    # Styler
-    typstyle
 
     # Dev Tools for C/C++
     clang-tools
