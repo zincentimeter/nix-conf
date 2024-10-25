@@ -96,8 +96,8 @@
               pkgsMaster = import inputs.nixpkgs-master {
                 system = "x86_64-linux";
                 config.permittedInsecurePackages = [
-                  "cinny-4.1.0"
-                  "cinny-unwrapped-4.1.0"
+                  "cinny-4.2.2"
+                  "cinny-unwrapped-4.2.2"
                 ];
               };
             in
