@@ -143,6 +143,8 @@ in
         { directory = "/var/lib/udisks2"; }
       ] ++ lib.optionals config.services.upower.enable [
         { directory = "/var/lib/upower"; }
+      ] ++ lib.optionals config.virtualisation.waydroid.enable [
+        { directory = "/var/lib/waydroid"; }
       ];
       # Files (symlink included)
       files = [

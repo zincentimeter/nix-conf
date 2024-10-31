@@ -8,5 +8,6 @@
     ./onedrive.nix
   ];
 
+  virtualisation.waydroid.enable = true;
 
 }
