@@ -4,8 +4,10 @@
 # for a more complex example.
 keys:
   - &thinkpad_nixos_ssh age19akddny84sspeywm7790l7pynaf5uec6cv7m4s37fpxx9kg4tg9sxkwhyp
+  - &tm1701_nixos_ssh age15vlteupukxspra4g40ykpxuwu9ysu04nmxlc2xsrmmcs7dkjxawskwfscq
 creation_rules:
   - path_regex: secrets.json
     key_groups:
     - age:
       - *thinkpad_nixos_ssh
+      - *tm1701_nixos_ssh
