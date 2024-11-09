@@ -57,6 +57,8 @@
         # watchalong
         syncplay
         stra.vlc-wayland
+
+        typst
       ];
 
       imports = [
