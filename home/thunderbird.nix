@@ -21,7 +21,14 @@
         tls.enable = true;
         tls.useStartTls = true;
       };
-      thunderbird.enable = true;
+      thunderbird = {
+        enable = true;
+        settings = id: {
+          # https://github.com/nix-community/home-manager/issues/4988
+          "mail.server.server_${id}.authMethod" = 10;
+          "mail.smtpserver.smtp_${id}.authMethod" = 10;
+        };
+      };
     };
   };
 
