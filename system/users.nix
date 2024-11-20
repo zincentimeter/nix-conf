@@ -9,6 +9,7 @@
     hashedPassword = "REDACTED=================================================================";
   };
   users.users.shinri = {
+    description = "Shinri Kosame";
     hashedPassword = "REDACTED=================================================================";
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
