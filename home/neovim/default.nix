@@ -79,6 +79,7 @@
       markdown-preview-nvim
       lazydev-nvim
       clangd_extensions-nvim
+      vimtex
       # https://discourse.nixos.org/t/help-using-a-nixpkgs-overlay-in-a-flake/46075/2
       pkgs.stra.vimPlugins.luvit-meta
     ];
