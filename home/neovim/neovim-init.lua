@@ -231,6 +231,11 @@ require('neo-tree').setup({
   -- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
   close_if_last_window = true,
   enable_cursor_hijack = true,
+  filesystem = {
+    -- This will use the OS level file watchers to detect changes
+    -- instead of relying on nvim autocmd events.
+    use_libuv_file_watcher = true,
+  },
 })
 -- autostart neo-tree
 -- https://gitea.angry.im/PeterCxy/dotfiles/commit/3758670e5b7963c70da22301dbbeb59552cf9c04
