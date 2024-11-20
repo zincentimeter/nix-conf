@@ -10,13 +10,24 @@ lsp.tinymist.setup({
     return vim.fn.getcwd()
   end,
   settings = {
-    outputPath = "$root/$name";
     -- Export PDFs when a document has a title (and save a file),
     -- which is useful to filter out template files.
     exportPdf = "onDocumentHasTitle";
+    -- set the rootPath to -,
+    -- so that tinymist will always use parent directory of the file as the root path
+    root_dir = "-";
     formatterMode = "typstyle";
   },
 })
+
+-- typst-preview.nvim
+require('typst-preview').setup({
+  dependencies_bin = {
+    ['tinymist'] = 'tinymist',
+    ['websocat'] = 'websocat',
+  },
+})
+
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
@@ -85,6 +96,17 @@ require('clangd_extensions').setup({
   },
 })
 
+--- VimTeX
+
+vim.g.vimtex_view_general_viewer = 'okular'
+vim.g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
+vim.api.nvim_create_user_command('ZoteroCite', function()
+  local format = vim.bo.filetype:match(".*tex") and "cite" or "pandoc"
+  local api_call = 'http://127.0.0.1:23119/better-bibtex/cayw?format=' .. format .. '&brackets'
+  local ref = vim.fn.system('curl -s "' .. api_call .. '"')
+  vim.cmd('normal! i' .. ref)
+end, { nargs = 0 })
+
 --- Autocomplete
 
 local luasnip = require('luasnip')
@@ -149,6 +171,7 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
+    { name = 'vimtex'   },
     { name = 'lazydev'  },
     { name = 'luasnip'  },
     { name = 'path'     },

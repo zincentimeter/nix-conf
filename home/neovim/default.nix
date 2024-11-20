@@ -8,6 +8,8 @@
     lua-language-server
     # an integrated language service for Typst
     tinymist
+    # dependency of typst-preview-nvim
+    websocat
 
     # Styler
     typstyle
@@ -73,6 +75,7 @@
 
       # lang
       luasnip
+      pkgs.stra.vimPlugins.typst-preview-nvim
       markdown-preview-nvim
       lazydev-nvim
       clangd_extensions-nvim
