@@ -57,8 +57,6 @@
         # watchalong
         syncplay
         stra.vlc-wayland
-
-        typst
       ];
 
       imports = [
@@ -70,6 +68,7 @@
         ./neovim
         ./git.nix
         ./shell.nix
+        ./typeset.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
