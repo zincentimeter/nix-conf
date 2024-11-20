@@ -139,5 +139,27 @@
         ];
       }
     ]; # panels
+
+    fonts =
+    let
+      sansFont = "SFPro Text";
+      monoFont = "Red Hat Mono";
+      normalSize = 10;
+      normalSizeSans = { family = sansFont; pointSize = normalSize; };
+    in
+    {
+      general = normalSizeSans;
+      fixedWidth = {
+        family = monoFont;
+        pointSize = 10;
+      };
+      small = {
+        family = sansFont;
+        pointSize = 8;
+      };
+      toolbar = normalSizeSans;
+      menu = normalSizeSans;
+      windowTitle = normalSizeSans;
+    }; # fonts
   }; # programs.plasma
 }

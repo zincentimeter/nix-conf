@@ -73,6 +73,12 @@
       url = "git+https://git.sr.ht/~fubuki/stratosphere";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Apple Fonts Flake, including San Francisco etc.
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
   };
 
@@ -103,6 +109,9 @@
             in
             {
               cinny-desktop = pkgsMaster.cinny-desktop;
+              inherit (inputs.apple-fonts.packages."x86_64-linux")
+                sf-pro sf-compact sf-mono sf-arabic ny
+              ;
             })
             /* (final: prev: { 
               #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs

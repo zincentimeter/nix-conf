@@ -10,6 +10,10 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     nerdfonts
+    sf-pro
+    sf-compact
+    sf-mono
+    ny
   ];
 
   fonts.fontconfig.enable = true;
@@ -23,12 +27,14 @@
     ];
 
     serif = [
+      "New York Medium"
       "DejaVu Sans"
       "Noto Serif CJK TC"
       "Noto Serif CJK SC"
     ];
 
     sansSerif = [
+      "SFPro Text"
       "DejaVu Sans"
       "Noto Sans CJK TC"
       "Noto Sans CJK SC"
