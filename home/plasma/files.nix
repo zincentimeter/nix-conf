@@ -83,6 +83,11 @@
       };
       InformationPanel.dateFormat = "ShortFormat";
     };
+
+    okularrc = {
+      MainWindow.MenuBar = "Disabled";
+      "MainWindow/Toolbar mainToolBar".ToolButtonStyle = "IconOnly";
+    };
   }; # configFile
 
   programs.plasma.dataFile = {
@@ -143,6 +148,7 @@
     "klanguageoverridesrc"
     "plasma_calendar_alternatecalendar"
     "plasma_calendar_holiday_regions"
+    "okularrc"
   ];
 
 }
