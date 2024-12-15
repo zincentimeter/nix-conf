@@ -1,4 +1,4 @@
-{ ... }:
+{ config, sops, ... }:
 
 {
   # Account settings
@@ -38,4 +38,8 @@
       isDefault = true;
     };
   };
+
+  # Oama client_{id,secret} of Outlook is acquired from:
+  # https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade
+  # xdg.configFile."oama/config.yaml".source = config.lib.file.mkOutOfStoreSymlink sops.templates."oama_config.yaml".path;
 }

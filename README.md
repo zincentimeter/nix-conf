@@ -20,6 +20,10 @@
     - [x] ~~vscode~~ (disabled, now use vim)
     - to be updated...
 - [x] mount / on tmpfs with `impermanence` on to control what is permanent
+- [ ] Broken OAMA v0.14 conf to Outlook, v0.16 fails to build
+  - This relates to git-send-email, crucial
+    - git-send-email relates to submission to stratosphere (including one neovim plugin addition and a update for now)
+- [ ] 
 
 ## Appendix A. Notes on public
 

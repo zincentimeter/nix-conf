@@ -108,6 +108,17 @@
               };
             in
             {
+              # Use latest Oama, overriding nixpkgs' pkg
+              # oama = prev.oama.overrideAttrs {
+              #   version = "0.16";
+              #   src = prev.fetchFromGitHub {
+              #     owner = "pdobsan";
+              #     repo = "oama";
+              #     rev = "b4fbc1efa5787d5bd13e6cc3eeca19303fca891f";
+              #     hash = "sha256-5/0giScOUIU3VKgftzyq7mEXD+yz54Di4fdEo0jgoB8=";
+              #   };
+              # };
+              # Use latest problem-free Cinny
               cinny-desktop = pkgsMaster.cinny-desktop;
               inherit (inputs.apple-fonts.packages."x86_64-linux")
                 sf-pro sf-compact sf-mono sf-arabic ny

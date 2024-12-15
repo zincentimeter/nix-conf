@@ -8,6 +8,11 @@
     sharedModules = [
       inputs.plasma-manager.homeManagerModules.plasma-manager
     ];
+    extraSpecialArgs = {
+      # used initially for oama config, azure id/secret
+      inherit (config)
+        sops;
+    };
 
     users.shinri = {
       # Home Manager needs a bit of information about you and the
