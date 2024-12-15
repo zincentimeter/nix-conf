@@ -12,7 +12,7 @@
 ## 2. Improvements
 
 - [x] Declarative Plasma 6
-  - [ ] declare plasmashell and default theme (`plasma-org.kde.plasma.desktop-appletsrc` and `kwinoutputconfig.json`)
+  - [x] declare plasmashell and default theme (`plasma-org.kde.plasma.desktop-appletsrc` and `kwinoutputconfig.json`)
   - [ ] persist dolphin explorer initial setup
 - [ ] Workable cinny-desktop, still broken for now (24/08/23) nixpkgs#334805
 - [ ] Declarative _2raya config (or sin_box?, or dae?)

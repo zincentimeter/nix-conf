@@ -161,5 +161,18 @@
       menu = normalSizeSans;
       windowTitle = normalSizeSans;
     }; # fonts
+
+    powerdevil = {
+      AC = {
+        whenLaptopLidClosed = "doNothing";
+        powerProfile = "balanced";
+      };
+      battery = {
+        powerProfile = "powerSaving";
+      };
+      lowBattery = {
+        powerProfile = "powerSaving";
+      };
+    }; # powerdevil
   }; # programs.plasma
 }
