@@ -120,6 +120,7 @@
               # };
               # Use latest problem-free Cinny
               cinny-desktop = pkgsMaster.cinny-desktop;
+              # Apple Fonts
               inherit (inputs.apple-fonts.packages."x86_64-linux")
                 sf-pro sf-compact sf-mono sf-arabic ny
               ;
