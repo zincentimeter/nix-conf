@@ -2,8 +2,8 @@
 
 {
   services.syncthing = {
-    enable = true;
-    relay.enable = true;
+    enable = false;
+    relay.enable = false;
     systemService = true;
 
     user = "shinri";
