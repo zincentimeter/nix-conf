@@ -193,6 +193,8 @@ in
           "${configHome}/gh"
           # Fonts
           "${dataHome}/fonts"
+        ] ++ lib.optionals config.virtualisation.waydroid.enable [
+          "${dataHome}/waydroid"
         ] ++ lib.optionals (atHome pkgs.tldr) [
           "${dataHome}/tldrc" # then tldrc symlink -> ~/.tldrc
           # symlink managed in home/files.nix
