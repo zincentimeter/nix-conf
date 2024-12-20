@@ -48,7 +48,7 @@
         # osu!
         osu-lazer-bin
         # minecraft
-        prismlauncher
+        # prismlauncher
 
         # Clipboard for Neovim to access system clipboard.
         wl-clipboard
