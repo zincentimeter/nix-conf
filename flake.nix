@@ -74,6 +74,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # for naiveproxy
+    sn0wm1x = {
+      url = "github:sn0wm1x/ur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # for ib-tws (interactivebrokers)
+    clefru = {
+      url = "github:clefru/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Apple Fonts Flake, including San Francisco etc.
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
