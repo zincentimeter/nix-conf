@@ -60,7 +60,7 @@
         stra.wemeet
 
         # watchalong
-        syncplay
+        # syncplay
         stra.vlc-wayland
       ];
 
