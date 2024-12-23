@@ -80,12 +80,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # for ib-tws (interactivebrokers)
-    clefru = {
-      url = "github:clefru/nur-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Apple Fonts Flake, including San Francisco etc.
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
@@ -130,6 +124,7 @@
               #     hash = "sha256-5/0giScOUIU3VKgftzyq7mEXD+yz54Di4fdEo0jgoB8=";
               #   };
               # };
+
               # Use latest problem-free Cinny
               cinny-desktop = pkgsMaster.cinny-desktop;
               # Apple Fonts

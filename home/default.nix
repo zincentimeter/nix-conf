@@ -62,6 +62,9 @@
         # watchalong
         # syncplay
         stra.vlc-wayland
+
+        # trading
+        tradingview
       ];
 
       imports = [
