@@ -120,24 +120,8 @@
               inherit (inputs.apple-fonts.packages."x86_64-linux")
                 sf-pro sf-compact sf-mono sf-arabic ny
               ;
+              inherit (inputs.sn0wm1x.packages."x86_64-linux") naiveproxy-bin;
             })
-            /* (final: prev: { 
-              #     noto-fonts-cjk = nixpkgs.legacyPackages.${system}.noto-fonts-cjk.overrideAttrs
-              #       (finalAttrs: previousAttrs:
-              #         {
-              #           src = previousAttrs.src.override {
-              #             hash = "sha256-GXULnRPsIJRdiL3LdFtHbqTqSvegY2zodBxFm4P55to=";
-              #             sparseCheckout = [ "Sans/OTC" ];
-              #           };
-              #           installPhase = ''
-              #             install -m444 -Dt $out/share/fonts/opentype/noto-cjk Sans/OTC/*.ttc
-              #           '';
-              #         }
-              #       );
-              #   # <package_name> = nixpkgs-stable.legacyPackages.${system}.<package_name>;
-              
-            })
-            */
           ];
         }
         # This is not a complete NixOS configuration and you need to reference
