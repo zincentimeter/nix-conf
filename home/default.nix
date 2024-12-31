@@ -22,7 +22,6 @@
       home.packages = with pkgs; [
         tree
         telegram-desktop
-        cinny-desktop
         obs-studio
 
         # tldr, too long, don't read, cmd quick lookup

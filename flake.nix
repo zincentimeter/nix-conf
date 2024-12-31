@@ -104,15 +104,6 @@
             inputs.stratosphere.overlays.default
             # Overlay function below
             (final: prev: 
-            let
-              pkgsMaster = import inputs.nixpkgs-master {
-                system = "x86_64-linux";
-                config.permittedInsecurePackages = [
-                  "cinny-4.2.2"
-                  "cinny-unwrapped-4.2.2"
-                ];
-              };
-            in
             {
               # Use latest Oama, overriding nixpkgs' pkg
               # oama = prev.oama.overrideAttrs {
@@ -125,8 +116,6 @@
               #   };
               # };
 
-              # Use latest problem-free Cinny
-              cinny-desktop = pkgsMaster.cinny-desktop;
               # Apple Fonts
               inherit (inputs.apple-fonts.packages."x86_64-linux")
                 sf-pro sf-compact sf-mono sf-arabic ny
