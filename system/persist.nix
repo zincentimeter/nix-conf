@@ -234,9 +234,6 @@ in
           "${configHome}/unity3d"
           "${configHome}/Steam"
           "${dataHome}/Steam"
-        ] ++ lib.optionals (atHome pkgs.cinny-desktop) [
-          "${dataHome}/cinny"
-          "${dataHome}/in.cinny.app"
         ] ++ lib.optionals (atHome pkgs.telegram-desktop) [
           "${dataHome}/TelegramDesktop"
         ] ++ lib.optionals (atHome pkgs.osu-lazer-bin) [
