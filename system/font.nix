@@ -9,12 +9,13 @@
     redhat-official-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-    nerdfonts
     sf-pro
     sf-compact
     sf-mono
     ny
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (
+    builtins.attrValues pkgs.nerd-fonts
+  );
 
   fonts.fontconfig.enable = true;
 
