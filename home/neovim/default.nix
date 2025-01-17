@@ -1,18 +1,5 @@
 { pkgs, ... }:
 
-let
-  cmp-vimtex = pkgs.vimUtils.buildVimPlugin {
-    pname = "cmp-vimtex";
-    version = "2024-11-17";
-    src = pkgs.fetchFromGitHub {
-      owner = "micangl";
-      repo = "cmp-vimtex";
-      rev = "5283bf9108ef33d41e704027b9ef22437ce7a15b";
-      hash = "sha256-pD2dPdpyn5A/uwonDdAxCX138yBeDqbXDdlG/IKjVTU=";
-    };
-    meta.homepage = "https://github.com/micangl/cmp-vimtex";
-  };
-in
 {
 
   home.packages = with pkgs; [
@@ -95,8 +82,6 @@ in
       vimtex
       # https://discourse.nixos.org/t/help-using-a-nixpkgs-overlay-in-a-flake/46075/2
       pkgs.stra.vimPlugins.luvit-meta
-    ] ++ [
-      cmp-vimtex
     ];
   };
   
