@@ -64,6 +64,12 @@
 
         # trading
         tradingview
+
+        # new terminal
+        ghostty
+
+        # player
+        mpv
       ];
 
       imports = [
