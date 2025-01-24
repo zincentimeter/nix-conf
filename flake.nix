@@ -98,14 +98,32 @@
         # This is not a complete NixOS configuration and you need to reference
         # your normal configuration here.
         ./configuration.nix
-
+        # Flake modules that enhances nixos configuration
         inputs.lanzaboote.nixosModules.lanzaboote
         inputs.disko.nixosModules.disko
         inputs.home-manager.nixosModules.home-manager
         inputs.sops-nix.nixosModules.sops
         inputs.impermanence.nixosModules.impermanence
         inputs.nix-index-db.nixosModules.nix-index
+      ];
+    }; # nixosConfigurations
 
+    nixosConfigurations."tm1701" = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        # This is not a complete NixOS configuration and you need to reference
+        # your normal configuration here.
+        ./remote/tm1701.nix
+        # Flake modules that enhances nixos configuration
+        inputs.lanzaboote.nixosModules.lanzaboote
+        inputs.disko.nixosModules.disko
+        inputs.home-manager.nixosModules.home-manager
+        inputs.sops-nix.nixosModules.sops
+        inputs.impermanence.nixosModules.impermanence
+        inputs.nix-index-db.nixosModules.nix-index
       ];
     }; # nixosConfigurations
   };
