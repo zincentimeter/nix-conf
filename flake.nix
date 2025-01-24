@@ -95,34 +95,6 @@
         inherit inputs;
       };
       modules = [
-        {
-          # Patching nixpkgs with customized packages
-          # e.g. apps from other sources or stable branch
-          nixpkgs.overlays =
-          [
-            inputs.stratosphere.overlays.default
-            # Overlay function below
-            (final: prev: 
-            {
-              # Use latest Oama, overriding nixpkgs' pkg
-              # oama = prev.oama.overrideAttrs {
-              #   version = "0.16";
-              #   src = prev.fetchFromGitHub {
-              #     owner = "pdobsan";
-              #     repo = "oama";
-              #     rev = "b4fbc1efa5787d5bd13e6cc3eeca19303fca891f";
-              #     hash = "sha256-5/0giScOUIU3VKgftzyq7mEXD+yz54Di4fdEo0jgoB8=";
-              #   };
-              # };
-
-              # Apple Fonts
-              inherit (inputs.apple-fonts.packages."x86_64-linux")
-                sf-pro sf-compact sf-mono sf-arabic ny
-              ;
-              inherit (inputs.sn0wm1x.packages."x86_64-linux") naiveproxy-bin;
-            })
-          ];
-        }
         # This is not a complete NixOS configuration and you need to reference
         # your normal configuration here.
         ./configuration.nix

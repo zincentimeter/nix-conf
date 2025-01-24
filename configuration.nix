@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
@@ -50,6 +50,23 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+  ];
+
+  # Patching nixpkgs with customized packages
+  # e.g. apps from other sources or stable branch
+  nixpkgs.overlays =
+  [
+    inputs.stratosphere.overlays.default
+    # Overlay function below
+    (final: prev: 
+    {
+      # Apple Fonts
+      inherit (inputs.apple-fonts.packages."x86_64-linux")
+        sf-pro sf-compact sf-mono sf-arabic ny
+      ;
+      # NaiveProxy
+      inherit (inputs.sn0wm1x.packages."x86_64-linux") naiveproxy-bin;
+    })
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
