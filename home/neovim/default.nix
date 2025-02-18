@@ -52,7 +52,7 @@
  
       # UI
       noice-nvim # overall beautify
-      feline-nvim # status line
+      lualine-nvim # status line
       edge # color theme
       trouble-nvim # show errors
 

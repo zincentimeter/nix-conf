@@ -35,15 +35,6 @@
     remotePlay.openFirewall = true;
     # Open ports in the firewall for Source Dedicated Server
     dedicatedServer.openFirewall = false;
-    # missing dependency packages (use if required)
-    # package = pkgs.steam.override {
-    #   withPrimus = true;
-    #   withJava = true;
-    #   extraPkgs = with pkgs; [
-    #     bumblebee
-    #     glxinfo
-    #   ];
-    # };
   };
 
   # List packages installed in system profile. To search, run:
