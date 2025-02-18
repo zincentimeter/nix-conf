@@ -7,9 +7,6 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     # dependency of lanzaboote
-    flake-utils.url = "github:numtide/flake-utils";
-
-    # dependency of lanzaboote
     crane = {
       url = "github:ipetkov/crane/v0.16.3";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +22,6 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.crane.follows = "crane"; 
       inputs.pre-commit-hooks-nix.follows = "";
     };
