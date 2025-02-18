@@ -32,16 +32,16 @@ require('typst-preview').setup({
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 vim.api.nvim_create_autocmd(
-    {
-        "BufNewFile",
-        "BufRead",
-    },
-    {
-        pattern = "*.typ",
-        callback = function()
-          vim.api.nvim_set_option_value("filetype", "typst", {})
-        end,
-    }
+  {
+      "BufNewFile",
+      "BufRead",
+  },
+  {
+    pattern = "*.typ",
+    callback = function()
+      vim.api.nvim_set_option_value("filetype", "typst", {})
+    end,
+  }
 )
 
 --- LSP:nix
@@ -200,7 +200,12 @@ cmp.setup.cmdline(':', {
 
 require('noice').setup()
 
-require('feline').setup()
+require('lualine').setup({
+  extensions = {
+    'trouble',
+    'neo-tree'
+  },
+})
 
 require('trouble').setup({
   auto_close = true,
@@ -223,9 +228,6 @@ require('trouble').setup({
 })
 
 --- File Explorer
-
-require('oil').setup()
-
 require('neo-tree').setup({
   -- All config that is not default will be presented here.
   -- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
@@ -235,11 +237,24 @@ require('neo-tree').setup({
     -- This will use the OS level file watchers to detect changes
     -- instead of relying on nvim autocmd events.
     use_libuv_file_watcher = true,
+    follow_current_file = {
+      enabled = true,
+    },
+    hijack_netrw_behavior = "open_default",
+  },
+  -- source_selector provides clickable tabs to switch between sources.
+  source_selector = {
+    winbar = true,
   },
 })
--- autostart neo-tree
--- https://gitea.angry.im/PeterCxy/dotfiles/commit/3758670e5b7963c70da22301dbbeb59552cf9c04
-require('neo-tree.sources.manager').show('filesystem')
+
+-- Autostart Neotree on startup
+-- https://github.com/MarvelousAlbattani/neovim/blob/ed88d34b703682c528e90ebdd988c9e9193bc972/init.lua#L37
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    require("neo-tree.command").execute({})
+  end,
+})
 
 --- Telescope (Global Search, etc.)
 
