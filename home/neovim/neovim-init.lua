@@ -210,6 +210,7 @@ require('lualine').setup({
 require('trouble').setup({
   auto_close = true,
   auto_refresh = true,
+  multiline = true,
   focus = true,
   -- Preview in a split to the right of the trouble list
   -- https://github.com/folke/trouble.nvim/blob/main/docs/examples.md#preview-in-a-split-to-the-right-of-the-trouble-list
