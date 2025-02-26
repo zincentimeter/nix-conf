@@ -194,6 +194,17 @@ in
           "${configHome}/gh"
           # Fonts
           "${dataHome}/fonts"
+        ##########################################################
+        # ADD HOME HERE
+        # 1. with options:
+        # ++ lib.optionals {config,shinri}.programs.*.enable [
+        # 2. with packages written in home/:
+        # ++ lib.optionals (atHome pkgs.*) [
+        # 
+        ##########################################################
+        ] ++ lib.optionals (atHome pkgs.filezilla) [
+          "${configHome}/filezilla"
+          "${cacheHome}/filezilla"
         ] ++ lib.optionals config.virtualisation.waydroid.enable [
           "${dataHome}/waydroid"
         ] ++ lib.optionals (atHome pkgs.tldr) [

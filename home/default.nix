@@ -70,6 +70,9 @@
 
         # player
         mpv
+
+        # ftp over ssl
+        filezilla
       ];
 
       imports = [
