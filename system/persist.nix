@@ -173,6 +173,7 @@ in
         configHome = xdgRelative.configHome;
         dataHome = xdgRelative.dataHome;
         stateHome = xdgRelative.stateHome;
+        cacheHome = xdgRelative.cacheHome;
       in
       {
         directories = [
@@ -184,7 +185,7 @@ in
           # Nix States
           "${stateHome}/nix"
           # Cache Home (just saves it for fast access)
-          "${xdgRelative.cacheHome}"
+          "${cacheHome}"
           # Autostart applications (like telegram)
           "${configHome}/autostart"
           # apps like Foliate require GNOME-flavored settings
