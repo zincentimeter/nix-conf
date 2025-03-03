@@ -32,6 +32,8 @@
       set number relativenumber
       colorscheme edge
       set termguicolors
+      set shiftwidth=2
+      set expandtab
     '';
 
     extraLuaConfig = builtins.readFile ./neovim-init.lua;
