@@ -247,6 +247,14 @@ require('neo-tree').setup({
   source_selector = {
     winbar = true,
   },
+  -- event handlers
+  event_handlers = {
+    event = "neo_tree_window_after_open",
+    handler = function()
+      vim.cmd("wincmd =")
+      vim.cmd("wincmd p")
+    end
+  },
 })
 
 -- Autostart Neotree on startup
@@ -254,6 +262,7 @@ require('neo-tree').setup({
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     require("neo-tree.command").execute({})
+    vim.cmd("wincmd p")
   end,
 })
 
