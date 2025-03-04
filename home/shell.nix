@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.fish = {
@@ -25,6 +25,12 @@
 
   programs.fzf = {
     enable = true;
-    enableFishIntegration = true;
+    enableFishIntegration = config.programs.fish.enable;
+    enableBashIntegration = config.programs.bash.enable;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 }
