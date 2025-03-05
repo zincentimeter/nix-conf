@@ -6,16 +6,19 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = [ pkgs.vaapiVdpau ];
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      libva-vdpau-driver
+      nvidia-vaapi-driver
+      vpl-gpu-rt # quick sync video
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
-  environment.systemPackages = [ pkgs.nvidia-vaapi-driver ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
 
