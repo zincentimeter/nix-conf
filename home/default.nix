@@ -73,6 +73,9 @@
 
         # ftp over ssl
         filezilla
+
+        # Notetaking
+        xournalpp
       ];
 
       imports = [
