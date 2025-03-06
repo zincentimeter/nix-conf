@@ -44,10 +44,9 @@
         qbittorrent
 
         # Game
-        # osu!
         osu-lazer-bin
-        # minecraft
-        # prismlauncher
+        # An Project Diva Modding Manager
+        rust4diva
 
         # Clipboard for Neovim to access system clipboard.
         wl-clipboard

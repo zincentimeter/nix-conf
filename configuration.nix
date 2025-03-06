@@ -45,20 +45,25 @@
 
   # Patching nixpkgs with customized packages
   # e.g. apps from other sources or stable branch
-  nixpkgs.overlays =
-  [
+  nixpkgs.overlays = [
     inputs.stratosphere.overlays.default
     # Overlay function below
-    (final: prev: 
+    (final: prev:
     {
       # Apple Fonts
       inherit (inputs.apple-fonts.packages."x86_64-linux")
         sf-pro sf-compact sf-mono sf-arabic ny
       ;
       # NaiveProxy
-      inherit (inputs.sn0wm1x.packages."x86_64-linux") naiveproxy-bin;
+      inherit (inputs.sn0wm1x.packages."x86_64-linux")
+        naiveproxy-bin
+      ;
+      # My NUR
+      inherit (inputs.zincentimeter.packages."x86_64-linux")
+        rust4diva
+      ;
     })
-  ];
+  ]; # overlays
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

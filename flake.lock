@@ -284,7 +284,8 @@
         "plasma-manager": "plasma-manager",
         "sops-nix": "sops-nix",
         "sourcehut-keys": "sourcehut-keys",
-        "stratosphere": "stratosphere"
+        "stratosphere": "stratosphere",
+        "zincentimeter": "zincentimeter"
       }
     },
     "rust-overlay": {
@@ -406,6 +407,26 @@
       "original": {
         "type": "git",
         "url": "https://git.sr.ht/~fubuki/stratosphere"
+      }
+    },
+    "zincentimeter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741263631,
+        "narHash": "sha256-uPTqEu9QyJXmqHUroDCSaaehcOBLpHvf7xPwm/hqTv8=",
+        "owner": "zincentimeter",
+        "repo": "nur",
+        "rev": "1d5c1c96d1f925553b506611bb7b01a07d3a0d7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zincentimeter",
+        "repo": "nur",
+        "type": "github"
       }
     }
   },

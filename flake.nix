@@ -63,6 +63,10 @@
     };
 
     # Nix User Repository (NUR)
+    zincentimeter = {
+      url = "github:zincentimeter/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Gyara's user custom software repository
     stratosphere = {
       url = "git+https://git.sr.ht/~fubuki/stratosphere";
