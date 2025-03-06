@@ -76,6 +76,9 @@
 
         # Notetaking
         xournalpp
+
+        # markdown
+        typora
       ];
 
       imports = [

@@ -202,6 +202,8 @@ in
         # ++ lib.optionals (atHome pkgs.*) [
         # 
         ##########################################################
+        ] ++ lib.optionals (atHome pkgs.typora) [
+          "${configHome}/Typora"
         ] ++ lib.optionals (atHome pkgs.filezilla) [
           "${configHome}/filezilla"
           "${cacheHome}/filezilla"
