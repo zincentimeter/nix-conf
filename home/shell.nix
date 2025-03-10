@@ -8,6 +8,7 @@
       { name = "forgit"; src = pkgs.fishPlugins.forgit.src; }
       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
       { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
+      { name = "bass"; src = pkgs.fishPlugins.bass.src; }
       # Manually packaging and enable a plugin
       #   {
       #     name = "z";
