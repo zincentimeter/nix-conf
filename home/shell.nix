@@ -22,7 +22,10 @@
     ];
   };
 
-  home.packages = with pkgs; [ grc ];
+  home.packages = with pkgs; [
+    # generic colorizer
+    grc
+  ];
 
   programs.fzf = {
     enable = true;
