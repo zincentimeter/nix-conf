@@ -109,7 +109,7 @@
             }; # General
           } # widgets[5]
           {
-            name = "com.kde.plasma.shutdownorswitch";
+            name = "org.kde.plasma.shutdownorswitch";
             config.General.showSuspend = true;
           } # widgets[6]
           {
