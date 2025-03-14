@@ -90,6 +90,7 @@
         ./git.nix
         ./shell.nix
         ./typeset.nix
+        ./mime.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
       # This value determines the home Manager release that your
