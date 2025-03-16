@@ -22,7 +22,6 @@
       home.packages = with pkgs; [
         tree
         telegram-desktop
-        obs-studio
 
         # tldr, too long, don't read, cmd quick lookup
         tldr
@@ -93,6 +92,17 @@
         ./mime.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
+      programs.obs-studio = {
+        enable = true;
+        plugins = with pkgs.obs-studio-plugins; [
+          # screen capture on wlroots based wayland compositors
+          wlrobs
+          # browser source, as official source does not work
+          obs-webkitgtk
+          # show keyboard on stream
+          input-overlay
+        ];
+      };
       # This value determines the home Manager release that your
       # configuration is compatible with. This helps avoid breakage
       # when a new home Manager release introduces backwards
