@@ -12,6 +12,6 @@
 
   programs.ghostty = {
     enable = true;
-    shellIntegration.enableFishIntegration = true;
+    enableFishIntegration = true;
   };
 }
