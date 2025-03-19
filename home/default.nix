@@ -84,7 +84,7 @@
         ./firefox.nix
         ./thunderbird.nix
         ./plasma
-        ./kitty.nix
+        ./terminal.nix
         ./neovim
         ./git.nix
         ./shell.nix
