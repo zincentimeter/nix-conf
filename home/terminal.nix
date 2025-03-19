@@ -9,4 +9,9 @@
     };
     shellIntegration.enableFishIntegration = true;
   };
+
+  programs.ghostty = {
+    enable = true;
+    shellIntegration.enableFishIntegration = true;
+  };
 }
