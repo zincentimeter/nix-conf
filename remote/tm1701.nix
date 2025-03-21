@@ -14,8 +14,6 @@
   networking.hostName = lib.mkForce "tm1701";
   # Home manager
   home-manager.users.shinri = {
-    # Don't symlink
-    home.file = lib.mkForce {};
     # Touchpad change (but don't use mkForce)
     programs.plasma.input.touchpads = [{
       vendorId = "04f3";
