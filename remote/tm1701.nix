@@ -14,6 +14,9 @@
   networking.hostName = lib.mkForce "tm1701";
   # Home manager
   home-manager.users.shinri = {
+    # Don't symlink
+    home.file = lib.mkForce {};
+    # Touchpad change (but don't use mkForce)
     programs.plasma.input.touchpads = [{
       vendorId = "04f3";
       productId = "3083";
@@ -21,11 +24,18 @@
       enable = true;
       naturalScroll = true;
     }];
+    # Use own ssh key instead
     programs.ssh.matchBlocks."*".identityFile = lib.mkForce
       "${config.users.users.shinri.home}/.ssh/tm1701";
+    # disable texlive
+    programs.texlive.enable = lib.mkForce false;
   };
   # Secrets
   sops.age.sshKeyPaths = lib.mkForce [ "${config.users.users.shinri.home}/.ssh/tm1701" ];
   # Services
   services.onedrive.enable = lib.mkForce false;
+  # Printers are disabled
+  services.printing.enable = lib.mkForce false;
+  # Don't enable waydroid
+  virtualisation.waydroid.enable = lib.mkForce false;
 }
