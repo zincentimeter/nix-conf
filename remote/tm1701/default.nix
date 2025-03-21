@@ -1,8 +1,8 @@
-# This config is heavily based on ../configuration.nix
+# This config is heavily based on ../../configuration.nix
 { config, lib, ... }:
 {
   imports = [
-    ../configuration.nix
+    ../../configuration.nix
   ];
   # Boot
   boot.loader.systemd-boot.enable = lib.mkForce true;

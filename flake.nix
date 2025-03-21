@@ -110,7 +110,7 @@
       modules = [
         # This is not a complete NixOS configuration and you need to reference
         # your normal configuration here.
-        ./remote/tm1701.nix
+        ./remote/tm1701
         # Flake modules that enhances nixos configuration
         inputs.lanzaboote.nixosModules.lanzaboote
         inputs.disko.nixosModules.disko
