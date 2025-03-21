@@ -36,4 +36,20 @@
   services.printing.enable = lib.mkForce false;
   # Don't enable waydroid
   virtualisation.waydroid.enable = lib.mkForce false;
+
+  # Open SSH
+  services.openssh = {
+    enable = true;
+    ports = [ 22112 ];
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = lib.mkForce "prohibit-password";
+    };
+    hostKeys = [
+      {
+        path = "${config.users.users.shinri.home}/.ssh/tm1701";
+        type = "ed25519";
+      }
+    ];
+  };
 }
