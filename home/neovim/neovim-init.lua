@@ -76,6 +76,7 @@ lsp.lua_ls.setup({
 })
 
 -- Lazily enhance lua_ls
+--- @diagnostic disable-next-line: missing-fields
 require('lazydev').setup({
   library = {
     {
@@ -207,6 +208,7 @@ require('lualine').setup({
   },
 })
 
+--- @diagnostic disable-next-line: missing-fields
 require('trouble').setup({
   auto_close = true,
   auto_refresh = true,
