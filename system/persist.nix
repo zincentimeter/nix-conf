@@ -282,6 +282,7 @@ in
           shinri.programs.neovim.enable
         ) [
           "${dataHome}/nvim"
+          "${stateHome}/nvim"
         ] ++ [
           # KDE (not governed by plasma-manager)
           # - kdeconnect 
