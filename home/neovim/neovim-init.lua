@@ -217,15 +217,9 @@ require('trouble').setup({
   -- Preview in a split to the right of the trouble list
   -- https://github.com/folke/trouble.nvim/blob/main/docs/examples.md#preview-in-a-split-to-the-right-of-the-trouble-list
   modes = {
-    test = {
+    default = {
       mode = 'diagnostics',
       auto_open = true,
-      preview = {
-        type = 'split',
-        relative = 'win',
-        position = 'right',
-        size = 0.3,
-      },
     },
   },
 })
