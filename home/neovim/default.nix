@@ -1,5 +1,14 @@
 { pkgs, ... }:
 
+/*
+  TODO list on neovim:
+  - [ ] neo-tree sometimes does not auto close when it is the last one
+  - [ ] :terminal open terminal on the current window, but want it to open in a new split window
+  - [x] split won't focus on the newly-spawn window
+    - Solved: split will always focus on newly created window,
+      but split is default to split to left/up, causing an illusion
+  - [ ] nvr to stop recursive vim window on `sudo -i` and `git commit` and other pagers.
+*/
 {
 
   home.packages = with pkgs; [
@@ -21,7 +30,6 @@
     ripgrep
 
     # Opening files from within :terminal without starting a nested nvim process
-    # TODO: not configured yet, must be called manually
     neovim-remote
   ];
   
