@@ -19,6 +19,10 @@
 
     # required by `Telescope live_grep`
     ripgrep
+
+    # Opening files from within :terminal without starting a nested nvim process
+    # TODO: not configured yet, must be called manually
+    neovim-remote
   ];
   
   programs.neovim = {
