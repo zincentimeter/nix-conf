@@ -28,15 +28,8 @@
     # must be enabled with shell configuration in home-manager 
     defaultEditor = true;
     
-    extraConfig = ''
-      set number relativenumber
-      colorscheme edge
-      set termguicolors
-      set shiftwidth=2
-      set expandtab
-    '';
-
     extraLuaConfig = builtins.readFile ./neovim-init.lua;
+
     plugins = with pkgs.vimPlugins; [
       # base plugin libraries
       plenary-nvim

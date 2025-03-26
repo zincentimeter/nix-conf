@@ -1,3 +1,16 @@
+--- Neovim global settings
+
+-- set relative numbers
+vim.opt.relativenumber = true
+-- set color scheme
+vim.cmd('colorscheme edge')
+-- enable true colors in terminal
+vim.opt.termguicolors = true
+-- change default shiftwidth
+vim.opt.shiftwidth = 2
+-- Use the appropriate number of spaces to insert a <Tab>.
+vim.opt.expandtab = true
+
 --- LSP
 
 local lsp = require('lspconfig')
