@@ -253,6 +253,13 @@ require('neo-tree').setup({
       enabled = true,
     },
     hijack_netrw_behavior = "open_default",
+    filtered_items = {
+      hide_dotfiles = false,
+      hide_gitignored = false,
+      hide_by_name = {
+        ".git"
+      },
+    },
   },
   -- source_selector provides clickable tabs to switch between sources.
   source_selector = {
