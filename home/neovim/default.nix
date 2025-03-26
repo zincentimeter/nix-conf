@@ -40,7 +40,6 @@
       # Tree-sitter
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
-      nvim-treesitter-context
 
       # git
       neogit
