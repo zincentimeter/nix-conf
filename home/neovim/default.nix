@@ -49,6 +49,7 @@
       neogit
  
       # UI
+      dropbar-nvim # breadcrumbs hierarchy lists
       noice-nvim # overall beautify
       lualine-nvim # status line
       edge # color theme
