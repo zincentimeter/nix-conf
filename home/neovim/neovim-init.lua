@@ -10,6 +10,9 @@ vim.opt.termguicolors = true
 vim.opt.shiftwidth = 2
 -- Use the appropriate number of spaces to insert a <Tab>.
 vim.opt.expandtab = true
+-- Split to right/down
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 --- LSP
 
