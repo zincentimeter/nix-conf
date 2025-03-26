@@ -273,7 +273,6 @@ require('neo-tree').setup({
     event = "neo_tree_window_after_open",
     handler = function()
       vim.cmd("wincmd =")
-      vim.cmd("wincmd p")
     end
   },
 })
