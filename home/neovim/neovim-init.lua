@@ -1,6 +1,7 @@
 --- Neovim global settings
 
 -- set relative numbers
+vim.opt.number = true
 vim.opt.relativenumber = true
 -- set color scheme
 vim.cmd('colorscheme edge')
