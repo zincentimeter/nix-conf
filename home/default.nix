@@ -55,6 +55,8 @@
 
         # Tencent Meeting
         stra.wemeet
+        # Zoom-us video conferencing
+        zoom-us
 
         # watchalong
         # syncplay
