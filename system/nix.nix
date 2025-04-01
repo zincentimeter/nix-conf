@@ -29,9 +29,6 @@ in
   environment.etc.nixos.source = flakeRepo; 
   # Shell aliases related to NixOS
   environment.shellAliases = {
-    gnix = "git --work-tree=${config.users.users.shinri.home}/nix-conf";
     nix-conf = "nvim --cmd 'cd ${config.users.users.shinri.home}/nix-conf'";
-    ns = "sudo nixos-rebuild switch";
-    nb = "sudo nixos-rebuild boot";
   };
 }
