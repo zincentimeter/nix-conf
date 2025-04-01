@@ -7,13 +7,7 @@ in
 
   # A NixOS/nix helper
   programs.nh.enable = true;
-  programs.nh = {
-    flake = flakeRepo;
-    clean = {
-      enable = true;
-      dates = "weekly";
-    };
-  };
+  programs.nh.flake = flakeRepo;
 
   # can just call: , <app_name>
   # no longer require nix-shell -p mess
