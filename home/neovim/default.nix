@@ -71,6 +71,7 @@
       cmp-cmdline
       cmp-calc
       cmp_luasnip
+      cmp-vimtex
 
       # shortcuts & keys
       which-key-nvim
