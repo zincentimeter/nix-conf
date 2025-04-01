@@ -48,18 +48,12 @@ require('typst-preview').setup({
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
-vim.api.nvim_create_autocmd(
-  {
-      "BufNewFile",
-      "BufRead",
-  },
-  {
-    pattern = "*.typ",
-    callback = function()
-      vim.api.nvim_set_option_value("filetype", "typst", {})
-    end,
-  }
-)
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.typ",
+  callback = function()
+    vim.api.nvim_set_option_value("filetype", "typst", {})
+  end,
+})
 
 --- LSP:nix
 lsp.nil_ls.setup({
@@ -326,6 +320,7 @@ require('image').setup({})
 
 -- csvview-nvim
 require('csvview').setup({})
+-- autostart on CSV open
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.csv",
   callback = function()
