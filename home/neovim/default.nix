@@ -88,6 +88,12 @@
       vimtex
       # https://discourse.nixos.org/t/help-using-a-nixpkgs-overlay-in-a-flake/46075/2
       pkgs.stra.vimPlugins.luvit-meta
+
+      # extra functionalities
+      # preview images
+      image-nvim
+      # preview tables in nvim
+      csvview-nvim
     ];
   };
   

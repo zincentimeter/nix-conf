@@ -318,3 +318,17 @@ require('neogit').setup({
   --- @diagnostic disable-next-line
   kind = 'auto',
 })
+
+--- Extra Functionalities
+-- image-nvim
+--- @diagnostic disable-next-line: missing-fields
+require('image').setup({})
+
+-- csvview-nvim
+require('csvview').setup({})
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.csv",
+  callback = function()
+    require('csvview').enable()
+  end,
+})
