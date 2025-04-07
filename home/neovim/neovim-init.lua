@@ -265,10 +265,18 @@ require('neo-tree').setup({
   },
   -- event handlers
   event_handlers = {
-    event = "neo_tree_window_after_open",
-    handler = function()
-      vim.cmd("wincmd =")
-    end
+    {
+      event = "neo_tree_window_after_open",
+      handler = function()
+        vim.cmd("wincmd =")
+      end,
+    },
+    { -- Enforce Normal mode
+      event = "neo_tree_buffer_enter",
+      handler = function()
+        vim.cmd("stopinsert")
+      end
+    }
   },
 })
 
