@@ -76,6 +76,7 @@
 
         # markdown
         typora
+        obsidian
       ];
 
       imports = [
