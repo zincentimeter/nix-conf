@@ -320,10 +320,16 @@ which_key.add({
 })
 
 --- Git
-require('neogit').setup({
+local neogit = require('neogit')
+neogit.setup({
   -- vsplit if window would have 80 cols, otherwise split
   --- @diagnostic disable-next-line
   kind = 'auto',
+})
+-- add neogit shortcut keymap on <Leader> to which-key.nvim
+local neogit_prefix = '<Leader>'
+which_key.add({
+  { lhs=neogit_prefix..'g', rhs=neogit.open, desc='Neogit' }
 })
 
 --- Extra Functionalities
