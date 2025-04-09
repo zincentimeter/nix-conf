@@ -310,8 +310,8 @@ require('telescope').setup({
     vimgrep_arguments = vimgrep_args,
   },
 })
--- add telescope shortcut keymap on <leader> to which-key.nvim
-local telescope_prefix = '<leader>'
+-- add telescope shortcut keymap on <Leader> to which-key.nvim
+local telescope_prefix = '<Leader>'
 which_key.add({
   mode = { 'n', 'v' }, -- NORMAL and VISUAL mode
   { lhs=telescope_prefix..'s', rhs=telescope_builtin.live_grep, desc='Live grep' },
