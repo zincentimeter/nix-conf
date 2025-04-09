@@ -8,6 +8,7 @@
     - Solved: split will always focus on newly created window,
       but split is default to split to left/up, causing an illusion
   - [ ] nvr to stop recursive vim window on `sudo -i` and `git commit` and other pagers.
+  - [ ] paste contents from visual selection into Telescope's line buffer
 */
 {
 
