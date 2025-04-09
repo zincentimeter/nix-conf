@@ -99,6 +99,7 @@
       csvview-nvim
     ];
   };
-  
 
+  # use nvim as the manpager to view linux manual
+  home.sessionVariables.MANPAGER = "nvim +Man!";
 }
