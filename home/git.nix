@@ -12,4 +12,9 @@
       };
     };
   };
+
+  # GitHub CLI
+  programs.gh.enable = true;
+  # GitHub CLI Dashboard
+  programs.gh-dash.enable = true;
 }
