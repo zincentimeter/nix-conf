@@ -15,6 +15,9 @@ vim.opt.expandtab = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+--- WhichKey
+local which_key = require('which-key')
+
 --- LSP
 
 local lsp = require('lspconfig')
@@ -290,28 +293,30 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 --- Telescope (Global Search, etc.)
-
 -- File and text search in hidden files and directories
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
-local telescopeConfig = require('telescope.config')
-local vimgrep_args = { unpack(telescopeConfig.values.vimgrep_arguments) }
+local telescope_config = require('telescope.config')
+local telescope_builtin = require('telescope.builtin')
+local vimgrep_args = { unpack(telescope_config.values.vimgrep_arguments) }
 -- want to search in hidden/dot files.
 table.insert(vimgrep_args, '--no-ignore')
 table.insert(vimgrep_args, '--hidden')
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_args, '--glob')
 table.insert(vimgrep_args, '!**/.git/*')
-
+--- Setup telecope here
 require('telescope').setup({
   defaults = {
     vimgrep_arguments = vimgrep_args,
   },
-  pickers = {
-    find_files = {
-      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-      find_command = { 'rg', '--files', '--no-ignore', '--hidden', '--glob', '!**/.git/*' },
-    },
-  },
+})
+-- add telescope shortcut keymap on <leader> to which-key.nvim
+local telescope_prefix = '<leader>'
+which_key.add({
+  mode = { 'n', 'v' }, -- NORMAL and VISUAL mode
+  { lhs=telescope_prefix..'s', rhs=telescope_builtin.live_grep, desc='Live grep' },
+  { lhs=telescope_prefix..'b', rhs=telescope_builtin.buffers, desc='List buffers' },
+  { lhs=telescope_prefix..'f', rhs=telescope_builtin.find_files, desc='Open files' },
 })
 
 --- Git
