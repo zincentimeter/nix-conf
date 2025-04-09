@@ -3,7 +3,8 @@
 /*
   TODO list on neovim:
   - [ ] neo-tree sometimes does not auto close when it is the last one
-  - [ ] :terminal open terminal on the current window, but want it to open in a new split window
+  - [x] :terminal open terminal on the current window, but want it to open in a new split window
+    - Solved: created a keymap to open new terminal in split window
   - [x] split won't focus on the newly-spawn window
     - Solved: split will always focus on newly created window,
       but split is default to split to left/up, causing an illusion
