@@ -2,7 +2,8 @@
 
 ## 1. Points of inconvenience
 
-- [ ] TODO: when switching light/dark from colorschemeswapper-plasmoid, cannot change for kitty and neovim.
+- [x] when switching light/dark from colorschemeswapper-plasmoid, cannot change for kitty and neovim.
+  - Kitty now [supports](https://sw.kovidgoyal.net/kitty/kittens/themes/#change-color-themes-automatically-when-the-os-switches-between-light-and-dark) auto changing color.
   - [Claude](https://claude.ai/chat/22eee9e5-3a23-49bb-9503-4b0f9464db27)
   - useful commands:
   ```sh

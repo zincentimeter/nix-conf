@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.kitty = {
@@ -13,5 +13,10 @@
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  xdg.configFile = {
+    "kitty/dark-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/Neutron.conf";
+    "kitty/light-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/OneHalfLight.conf";
   };
 }
