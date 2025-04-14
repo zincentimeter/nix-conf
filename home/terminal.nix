@@ -16,7 +16,7 @@
   };
 
   xdg.configFile = {
-    "kitty/dark-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/Neutron.conf";
+    "kitty/dark-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/default.conf";
     "kitty/light-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/OneHalfLight.conf";
   };
 }
