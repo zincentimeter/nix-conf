@@ -46,6 +46,8 @@
         osu-lazer-bin
         # An Project Diva Modding Manager
         rust4diva
+        # minecraft
+        prismlauncher
 
         # Clipboard for Neovim to access system clipboard.
         wl-clipboard
