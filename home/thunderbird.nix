@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   # Account settings
@@ -30,6 +30,7 @@
           "mail.smtpserver.smtp_${id}.authMethod" = 10;
         };
       };
+      msmtp.enable = true;
     };
   };
 
@@ -40,8 +41,22 @@
     };
   };
 
-  # enable msmtp to bridge oauth to git send-email
-  programs.msmtp.enable = true;
+  # to bridge oauth2 provider (oama) and git-sendemail
+  home.packages = [ pkgs.msmtp ];
+  # use customized msmtp/config
+  xdg.configFile."msmtp/config".text = with config.accounts.email.accounts.outlook; ''
+    account outlook
+    auth xoauth2
+    from ${address}
+    user ${address}
+    host ${smtp.host}
+    port ${toString smtp.port}
+    passwordeval ${pkgs.oama}/bin/oama access ${address}
+    tls on
+    tls_starttls on
+    tls_trust_file ${smtp.tls.certificatesFile}
+    account default : outlook
+  '';
 
   xdg.configFile."oama/config.yaml".text = builtins.toJSON {
     encryption.tag = "KEYRING";
@@ -50,5 +65,4 @@
       auth_endpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/devicecode";
     };
   };
-    
 }
