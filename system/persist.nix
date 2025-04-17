@@ -169,14 +169,8 @@ in
       ];
 
       users.shinri =
-      let
-        configHome = xdgRelative.configHome;
-        dataHome = xdgRelative.dataHome;
-        stateHome = xdgRelative.stateHome;
-        cacheHome = xdgRelative.cacheHome;
-      in
       {
-        directories = [
+        directories = with xdgRelative; [
           # The right repository of nix-conf
           "nix-conf"
           # Secure keys related
@@ -303,7 +297,7 @@ in
           # - Trash bin (used by Dolphin)
           "${dataHome}/Trash"
         ];
-        files = [ 
+        files = with xdgRelative; [ 
           # sops-nix
           "${configHome}/sops/age/keys.txt"
         ] ++ lib.optionals (atHome pkgs.syncplay) [
