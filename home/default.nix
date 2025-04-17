@@ -56,7 +56,7 @@
         oama
 
         # Tencent Meeting
-        stra.wemeet
+        wemeet
         # Zoom-us video conferencing
         zoom-us
 

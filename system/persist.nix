@@ -259,7 +259,7 @@ in
           "${dataHome}/PrismLauncher"
         ] ++ lib.optionals (atHome pkgs.vlc) [
           "${dataHome}/vlc"
-        ] ++ lib.optionals (atHome pkgs.stra.wemeet) [
+        ] ++ lib.optionals (atHome pkgs.wemeet) [
           "${dataHome}/wemeetapp"
         ] ++ lib.optionals (
           config.i18n.inputMethod.enable &&
