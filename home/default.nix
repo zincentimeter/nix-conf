@@ -81,7 +81,7 @@
       imports = [
         ./files.nix
         ./firefox.nix
-        ./thunderbird.nix
+        ./email.nix
         ./plasma
         ./terminal.nix
         ./neovim
