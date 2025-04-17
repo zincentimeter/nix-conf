@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, inputs, ... }:
 
 let
   flakeRepo = "/home/shinri/nix-conf";
@@ -19,6 +19,9 @@ in
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "shinri" ];
+    } // lib.optionalAttrs (inputs ? zincentimeter) {
+      extra-substituters = [ "https://zincentimeter-nur.cachix.org" ];
+      extra-trusted-public-keys = [ "zincentimeter-nur.cachix.org-1:lUnmYfaT5gswUYZOMBa7fFxSSLZb+aJGlTJFeCU7w5A=" ];
     };
     extraOptions = ''
       !include ${config.sops.templates."nix_access_token.conf".path}
