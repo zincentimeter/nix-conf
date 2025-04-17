@@ -1,6 +1,7 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
+  environment.systemPackages = [ pkgs.sops ];
   sops = {
     defaultSopsFile = ./secrets.json;
     defaultSopsFormat = "json";
