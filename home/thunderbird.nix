@@ -1,4 +1,4 @@
-{ config, sops, ... }:
+{ pkgs, ... }:
 
 {
   # Account settings
@@ -8,6 +8,7 @@
       address = "zincentimeter@outlook.com";
       userName = "zincentimeter@outlook.com";
       primary = true;
+      passwordCommand = "${pkgs.oama}/bin/oama access zincentimeter@outlook.com";
 
       # https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040
       imap = {
@@ -39,7 +40,15 @@
     };
   };
 
-  # Oama client_{id,secret} of Outlook is acquired from:
-  # https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade
-  # xdg.configFile."oama/config.yaml".source = config.lib.file.mkOutOfStoreSymlink sops.templates."oama_config.yaml".path;
+  # enable msmtp to bridge oauth to git send-email
+  programs.msmtp.enable = true;
+
+  xdg.configFile."oama/config.yaml".text = builtins.toJSON {
+    encryption.tag = "KEYRING";
+    services.microsoft = {
+      client_id = "9e5f94bc-e8a4-4e73-b8be-63364c29d753";
+      auth_endpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/devicecode";
+    };
+  };
+    
 }
