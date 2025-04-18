@@ -76,6 +76,9 @@
         # markdown
         typora
         obsidian
+
+        # bruh
+        wechat-uos
       ];
 
       imports = [
