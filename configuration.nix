@@ -69,6 +69,8 @@
         oama
       ;
     })
+    # all NUR repo collections are added by using this layer
+    inputs.nur-collection.overlays.default
   ]; # overlays
 
   # This option defines the first version of NixOS you have installed on this particular machine,
