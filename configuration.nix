@@ -42,6 +42,8 @@
   environment.systemPackages = with pkgs; [
     wget
   ];
+  # allow mouse in the `less` pager
+  programs.less.envVariables.LESS = "-R --mouse";
 
   # Patching nixpkgs with customized packages
   # e.g. apps from other sources or stable branch
