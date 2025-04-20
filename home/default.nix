@@ -87,6 +87,8 @@
         isd
         # graphical monitor
         nvitop
+        # strace alternative
+        lurk
       ];
 
       imports = [
@@ -101,6 +103,8 @@
         ./typeset.nix
         ./mime.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
+
+      programs.bat.enable = true;
 
       programs.obs-studio = {
         enable = true;
