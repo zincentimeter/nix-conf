@@ -72,6 +72,11 @@
       url = "git+https://git.sr.ht/~fubuki/stratosphere";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # all other nurs
+    nur-collection = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Apple Fonts Flake, including San Francisco etc.
     apple-fonts = {
