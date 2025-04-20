@@ -15,6 +15,24 @@ vim.opt.expandtab = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Create alias using neovim API
+local alias_table = {
+  { 'Q',  'quit'  },
+  { 'Qa', 'qall'  },
+  { 'QA', 'qall'  },
+  { 'W',  'write' },
+  { 'Wq', 'wq'    },
+  { 'WQ', 'wq'    },
+  { 'Wqa','wqall' },
+  { 'WQa','wqall' },
+  { 'WQA','wqall' },
+}
+-- iterate over the alias table, not using the index
+for _, pair in ipairs(alias_table) do
+  -- Create the alias with no configuration `{}`
+  vim.api.nvim_create_user_command(pair[1], pair[2], { bang = true })
+end
+
 --- WhichKey
 local which_key = require('which-key')
 which_key.add({
