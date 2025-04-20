@@ -79,6 +79,14 @@
 
         # bruh
         wechat-uos
+
+        # monitor
+        # top-like monitor
+        btop
+        # systemd tui
+        isd
+        # graphical monitor
+        nvitop
       ];
 
       imports = [
