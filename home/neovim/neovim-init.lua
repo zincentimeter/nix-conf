@@ -301,6 +301,7 @@ require('neo-tree').setup({
     },
   },
   -- source_selector provides clickable tabs to switch between sources.
+  --- @diagnostic disable-next-line: missing-fields
   source_selector = {
     winbar = true,
   },
