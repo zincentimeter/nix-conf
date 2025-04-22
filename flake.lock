@@ -520,11 +520,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744357750,
-        "narHash": "sha256-r/UEYQ6S57pcngJ8SRMokmYxX5FbdQ1R00gdZ+UxDss=",
+        "lastModified": 1745323148,
+        "narHash": "sha256-j/jFayGTot9KIv0gMz8uC7lvqE8umn1TmiAqz/Knd4A=",
         "owner": "zincentimeter",
         "repo": "nur",
-        "rev": "6eb42b85d73279b3fb30cad79366100a24fe3115",
+        "rev": "223a5f25d1dcdd4a284663e5cfdb80fca9b8828b",
         "type": "github"
       },
       "original": {

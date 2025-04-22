@@ -62,7 +62,7 @@
       ;
       # My NUR
       inherit (inputs.zincentimeter.packages."x86_64-linux")
-        rust4diva
+        rust4diva shtech-net-loginer
       ;
 
       # 2025/04/17

@@ -89,6 +89,9 @@
         nvitop
         # strace alternative
         lurk
+
+        # bruh
+        shtech-net-loginer
       ];
 
       imports = [
