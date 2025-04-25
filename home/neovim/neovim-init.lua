@@ -326,7 +326,8 @@ require('neo-tree').setup({
 -- https://github.com/MarvelousAlbattani/neovim/blob/ed88d34b703682c528e90ebdd988c9e9193bc972/init.lua#L37
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    if vim.bo.filetype ~= 'man' then
+    local filetype = vim.bo.filetype
+    if filetype ~= 'man' and filetype ~= 'gitcommit' then
       require("neo-tree.command").execute({})
       vim.cmd("wincmd p")
     end
