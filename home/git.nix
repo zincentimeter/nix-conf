@@ -11,6 +11,7 @@
         confirm = "auto";
       };
     };
+    lfs.enable = true;
   };
 
   # GitHub CLI
