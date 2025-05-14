@@ -54,6 +54,9 @@ which_key.add({
     end,
     desc='Toggle mouse'
   },
+  -- Yank/paste from/to system clipboard
+  { lhs='<Leader>y', rhs='"+y', desc='Yank (Copy) to system clipboard' },
+  { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard' }
 })
 
 --- LSP
