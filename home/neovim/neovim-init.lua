@@ -302,6 +302,19 @@ require('neo-tree').setup({
         ".git"
       },
     },
+    window = {
+      mappings = {
+        ["o"] = "system_open",
+      },
+    },
+  },
+  commands = {
+    system_open = function(state)
+      local node = state.tree:get_node()
+      local path = node:get_id()
+      -- Linux only
+      vim.fn.jobstart({"xdg-open", path}, {detach = true})
+    end,
   },
   -- source_selector provides clickable tabs to switch between sources.
   --- @diagnostic disable-next-line: missing-fields
