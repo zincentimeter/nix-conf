@@ -309,6 +309,7 @@ require('neo-tree').setup({
     },
   },
   commands = {
+    --- @diagnostic disable-next-line: redundant-parameter
     system_open = function(state)
       local node = state.tree:get_node()
       local path = node:get_id()
