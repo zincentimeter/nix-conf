@@ -374,6 +374,7 @@ local telescope_prefix = '<Leader>'
 which_key.add({
   mode = { 'n', 'v' }, -- NORMAL and VISUAL mode
   { lhs=telescope_prefix..'s', rhs=telescope_builtin.live_grep, desc='Live grep search' },
+  { lhs=telescope_prefix..'q', rhs=telescope_builtin.live_grep, desc='Live grep search' },
   { lhs=telescope_prefix..'b', rhs=telescope_builtin.buffers, desc='List buffers' },
   { lhs=telescope_prefix..'f', rhs=telescope_builtin.find_files, desc='Open files' },
 })
