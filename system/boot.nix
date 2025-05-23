@@ -19,6 +19,8 @@
   boot.kernel.sysctl = {
     # https://gist.github.com/manuelmazzuola/4ffa90f5f5d0ddacda96
     "kernel.sysrq" = 1;
+    # Disable NMI watchdog to save power
+    "kernel.nmi_watchdog" = 0;
   };
 
   boot.kernelParams = [
