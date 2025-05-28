@@ -19,7 +19,7 @@
         telegram-desktop
 
         # tldr, too long, don't read, cmd quick lookup
-        tldr
+        tlrc
 
         # remote desktop
         remmina
@@ -119,6 +119,11 @@
           # show keyboard on stream
           input-overlay
         ];
+      };
+
+      services.tldr-update = {
+        enable = true;
+        package = pkgs.tlrc;
       };
       # This value determines the home Manager release that your
       # configuration is compatible with. This helps avoid breakage

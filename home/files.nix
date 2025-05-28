@@ -16,7 +16,6 @@ in
     "Videos" = mkDirSymlink "${onedrive}/视频";
     "Music" = mkDirSymlink "${onedrive}/music";
     ".zotero" = mkDirSymlink "${config.xdg.configHome}/zotero";
-    ".tldrc" = mkDirSymlink "${config.xdg.dataHome}/tldrc";
     ".steam" = mkDirSymlink "${config.xdg.configHome}/Steam";
   };
 }

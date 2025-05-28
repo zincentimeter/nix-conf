@@ -205,9 +205,8 @@ in
           "${cacheHome}/filezilla"
         ] ++ lib.optionals config.virtualisation.waydroid.enable [
           "${dataHome}/waydroid"
-        ] ++ lib.optionals (atHome pkgs.tldr) [
-          "${dataHome}/tldrc" # then tldrc symlink -> ~/.tldrc
-          # symlink managed in home/files.nix
+        ] ++ lib.optionals (atHome pkgs.tlrc) [
+          "${cacheHome}/tlrc"
         ] ++ lib.optionals (
           config.programs.firefox.enable ||
           shinri.programs.firefox.enable
