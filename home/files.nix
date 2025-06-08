@@ -17,5 +17,8 @@ in
     "Music" = mkDirSymlink "${onedrive}/music";
     ".zotero" = mkDirSymlink "${config.xdg.configHome}/zotero";
     ".steam" = mkDirSymlink "${config.xdg.configHome}/Steam";
+    # wechat files are relocated to .local/share/wechat
+    "Documents/xwechat_files" = mkDirSymlink "${config.xdg.dataHome}/wechat";
   };
+
 }
