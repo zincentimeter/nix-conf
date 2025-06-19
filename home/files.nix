@@ -17,6 +17,7 @@ in
     "Music" = mkDirSymlink "${onedrive}/music";
     ".zotero" = mkDirSymlink "${config.xdg.configHome}/zotero";
     ".steam" = mkDirSymlink "${config.xdg.configHome}/Steam";
+    ".xwechat" = mkDirSymlink "${config.xdg.dataHome}/wechat";
   };
 
 }
