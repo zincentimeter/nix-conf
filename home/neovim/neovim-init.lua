@@ -392,6 +392,8 @@ which_key.add({
   { lhs=neogit_prefix..'g', rhs=neogit.open, desc='Neogit' }
 })
 
+require('gitsigns').setup({})
+
 --- Extra Functionalities
 -- image-nvim
 --- @diagnostic disable-next-line: missing-fields
