@@ -92,6 +92,9 @@
 
         # bruh
         shtech-net-loginer
+
+        # password manager
+        keepassxc
       ];
 
       imports = [
