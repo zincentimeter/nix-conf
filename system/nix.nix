@@ -1,14 +1,6 @@
 { config, lib, inputs, ... }:
 
-let
-  flakeRepo = "/home/shinri/nix-conf";
-in
 {
-
-  # A NixOS/nix helper
-  programs.nh.enable = true;
-  programs.nh.flake = flakeRepo;
-
   # can just call: , <app_name>
   # no longer require nix-shell -p mess
   programs.nix-index-database.comma.enable = true;

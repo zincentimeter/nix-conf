@@ -110,6 +110,13 @@
         ./mime.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
+
+      # A NixOS/nix helper
+      programs.nh = {
+        enable = true;
+        flake = "/home/shinri/nix-conf";
+      };
+
       programs.bat.enable = true;
 
       programs.obs-studio = {
