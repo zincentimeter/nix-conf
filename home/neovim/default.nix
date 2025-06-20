@@ -58,6 +58,7 @@
       # git
       neogit
       vim-fugitive
+      gitsigns-nvim
  
       # UI
       dropbar-nvim # breadcrumbs hierarchy lists
