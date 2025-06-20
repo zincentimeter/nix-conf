@@ -20,8 +20,6 @@
     '';
   };
   
-  # define the source of /etc/nixos
-  environment.etc.nixos.source = flakeRepo; 
   # Shell aliases related to NixOS
   environment.shellAliases = {
     nix-conf = "nvim --cmd 'cd ${config.users.users.shinri.home}/nix-conf'";
