@@ -152,6 +152,9 @@ require('clangd_extensions').setup({
   },
 })
 
+--- LSP:Python
+vim.lsp.enable('ruff')
+
 --- VimTeX
 
 vim.g.vimtex_view_general_viewer = 'okular'

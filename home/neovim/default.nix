@@ -19,6 +19,8 @@
     lua-language-server
     # an integrated language service for Typst
     tinymist
+    # Extremely fast Python linter and code formatter
+    ruff
     # dependency of typst-preview-nvim
     websocat
 
