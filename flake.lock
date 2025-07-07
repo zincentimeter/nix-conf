@@ -28,6 +28,26 @@
         "type": "github"
       }
     },
+    "clefru": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750821969,
+        "narHash": "sha256-wSwB5TP9Zp9dtZhHMalWqpE5rwVKNwW3wed/pEPVqxg=",
+        "owner": "clefru",
+        "repo": "nur-packages",
+        "rev": "83e79db4a226f153b8530e8fde09c1ec5e6f6dc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clefru",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -318,6 +338,7 @@
     "root": {
       "inputs": {
         "apple-fonts": "apple-fonts",
+        "clefru": "clefru",
         "crane": "crane",
         "disko": "disko",
         "home-manager": "home-manager",
