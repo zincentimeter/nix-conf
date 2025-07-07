@@ -70,6 +70,10 @@
       inherit (inputs.nixpkgs-master.legacyPackages."x86_64-linux")
         oama
       ;
+
+      inherit (inputs.clefru.packages."x86_64-linux")
+        ib-tws
+      ;
     })
     # all NUR repo collections are added by using this layer
     inputs.nur-collection.overlays.default
