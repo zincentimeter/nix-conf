@@ -300,7 +300,7 @@ require('neo-tree').setup({
     -- instead of relying on nvim autocmd events.
     use_libuv_file_watcher = true,
     follow_current_file = {
-      enabled = true,
+      enabled = false,
     },
     hijack_netrw_behavior = "open_default",
     filtered_items = {
