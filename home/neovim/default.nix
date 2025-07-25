@@ -20,7 +20,7 @@
     # an integrated language service for Typst
     tinymist
     # Extremely fast Python linter and code formatter
-    ruff
+    pyright
     # dependency of typst-preview-nvim
     websocat
 

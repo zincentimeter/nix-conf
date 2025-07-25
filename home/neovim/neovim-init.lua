@@ -153,7 +153,7 @@ require('clangd_extensions').setup({
 })
 
 --- LSP:Python
-vim.lsp.enable('ruff')
+vim.lsp.enable('pyright')
 
 --- VimTeX
 
