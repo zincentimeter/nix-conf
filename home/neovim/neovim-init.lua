@@ -286,9 +286,14 @@ require('trouble').setup({
 
 --- File Explorer
 require('neo-tree').setup({
+  sources = {
+    "filesystem",
+    "buffers",
+    "git_status",
+    "document_symbols",
+  },
   -- All config that is not default will be presented here.
   -- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
-  close_if_last_window = true,
   enable_cursor_hijack = true,
   filesystem = {
     -- This will use the OS level file watchers to detect changes
@@ -324,6 +329,11 @@ require('neo-tree').setup({
   --- @diagnostic disable-next-line: missing-fields
   source_selector = {
     winbar = true,
+    sources = {
+      { source = "filesystem" },
+      { source = "buffers" },
+      { source = "document_symbols" },
+    },
   },
   -- event handlers
   event_handlers = {
