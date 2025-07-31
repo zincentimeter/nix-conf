@@ -373,7 +373,6 @@ local vimgrep_args = { unpack(telescope_config.values.vimgrep_arguments) }
 -- want to search in hidden/dot files.
 table.insert(vimgrep_args, '--no-ignore')
 table.insert(vimgrep_args, '--hidden')
-table.insert(vimgrep_args, '--sort=path')
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_args, '--glob')
 table.insert(vimgrep_args, '!**/.git/*')
