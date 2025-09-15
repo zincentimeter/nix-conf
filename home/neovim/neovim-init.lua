@@ -55,8 +55,8 @@ which_key.add({
     desc='Toggle mouse'
   },
   -- Yank/paste from/to system clipboard
-  { lhs='<Leader>y', rhs='"+y', desc='Yank (Copy) to system clipboard' },
-  { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard' }
+  { lhs='<Leader>y', rhs='"+y', desc='Yank (Copy) to system clipboard', mode={ 'n', 'v' } },
+  { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard', mode={ 'n', 'v' } }
 })
 
 --- LSP
@@ -369,10 +369,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
 local telescope_config = require('telescope.config')
 local telescope_builtin = require('telescope.builtin')
+local lga_actions = require('telescope-live-grep-args.actions')
 local vimgrep_args = { unpack(telescope_config.values.vimgrep_arguments) }
 -- want to search in hidden/dot files.
 table.insert(vimgrep_args, '--no-ignore')
 table.insert(vimgrep_args, '--hidden')
+table.insert(vimgrep_args, '--sort=path')
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_args, '--glob')
 table.insert(vimgrep_args, '!**/.git/*')
@@ -381,11 +383,26 @@ require('telescope').setup({
   defaults = {
     vimgrep_arguments = vimgrep_args,
   },
+  extensions = {
+    live_grep_args = {
+      auto_quoting = true,
+      mappings = {
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          -- freeze the current list and start a fuzzy search in the frozen list
+          ["<C-space>"] = lga_actions.to_fuzzy_refine,
+        },
+      },
+    }
+  },
 })
+require('telescope').load_extension('live_grep_args')
 -- add telescope shortcut keymap on <Leader> to which-key.nvim
 local telescope_prefix = '<Leader>'
 which_key.add({
   mode = { 'n', 'v' }, -- NORMAL and VISUAL mode
+  { lhs=telescope_prefix..'a', rhs=require('telescope').extensions.live_grep_args.live_grep_args, desc='Live grep search' },
   { lhs=telescope_prefix..'s', rhs=telescope_builtin.live_grep, desc='Live grep search' },
   { lhs=telescope_prefix..'q', rhs=telescope_builtin.live_grep, desc='Live grep search' },
   { lhs=telescope_prefix..'b', rhs=telescope_builtin.buffers, desc='List buffers' },
@@ -395,9 +412,9 @@ which_key.add({
 --- Git
 local neogit = require('neogit')
 neogit.setup({
-  -- vsplit if window would have 80 cols, otherwise split
-  --- @diagnostic disable-next-line
-  kind = 'auto',
+  disable_hint = true,
+  kind = 'tab',
+  graph_style = 'kitty',
 })
 -- add neogit shortcut keymap on <Leader> to which-key.nvim
 local neogit_prefix = '<Leader>'

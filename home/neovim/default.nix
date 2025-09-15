@@ -61,6 +61,7 @@
       neogit
       vim-fugitive
       gitsigns-nvim
+      diffview-nvim
  
       # UI
       dropbar-nvim # breadcrumbs hierarchy lists
@@ -85,6 +86,7 @@
       # file explorer
       neo-tree-nvim
       telescope-nvim
+      telescope-live-grep-args-nvim
 
       # lang
       luasnip
