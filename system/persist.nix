@@ -198,7 +198,7 @@ in
         ##########################################################
         ] ++ lib.optionals (atHome pkgs.keepassxc) [
           "${configHome}/keepassxc"
-        ] ++ lib.optionals (atHome pkgs.wechat-uos) [
+        ] ++ lib.optionals (atHome pkgs.wechat-uos || atHome pkgs.wechat) [
           "${dataHome}/wechat"
         ] ++ lib.optionals (atHome pkgs.obsidian) [
           "${configHome}/obsidian"

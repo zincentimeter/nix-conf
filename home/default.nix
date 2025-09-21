@@ -79,7 +79,7 @@
         obsidian
 
         # bruh
-        wechat-uos
+        wechat
 
         # monitor
         # top-like monitor

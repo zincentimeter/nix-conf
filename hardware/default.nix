@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -12,9 +12,6 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [
-      pkgs.hplipWithPlugin
-    ];
   };
   # autodiscovery of network printers
   services.avahi = {
