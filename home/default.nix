@@ -6,7 +6,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     sharedModules = [
-      inputs.plasma-manager.homeManagerModules.plasma-manager
+      inputs.plasma-manager.homeModules.plasma-manager
     ];
 
     users.shinri = {
@@ -125,8 +125,6 @@
         plugins = with pkgs.obs-studio-plugins; [
           # screen capture on wlroots based wayland compositors
           wlrobs
-          # browser source, as official source does not work
-          obs-webkitgtk
           # show keyboard on stream
           input-overlay
         ];
