@@ -332,7 +332,7 @@ require('neo-tree').setup({
     sources = {
       { source = "filesystem" },
       { source = "buffers" },
-      { source = "document_symbols" },
+      { source = "git_status" },
     },
   },
   -- event handlers
