@@ -221,8 +221,6 @@ in
           shinri.programs.thunderbird.enable /* home  */
         ) [
           ".thunderbird"
-        ] ++ lib.optionals (atHome pkgs.nekoray) [
-          "${configHome}/nekoray"
         ] ++ lib.optionals (atHome pkgs.remmina) [
           "${configHome}/freerdp"
           "${configHome}/remmina"
