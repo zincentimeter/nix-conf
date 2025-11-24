@@ -18,7 +18,4 @@
   programs.gh.enable = true;
   # GitHub CLI Dashboard
   programs.gh-dash.enable = true;
-
-  # jujutsu (jj) version control system
-  programs.jujutsu.enable = true;
 }
