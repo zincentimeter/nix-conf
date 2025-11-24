@@ -6,12 +6,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
-    # dependency of lanzaboote
-    crane = {
-      url = "github:ipetkov/crane/v0.16.3";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # secrets management
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -20,9 +14,8 @@
 
     # secure boot
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.crane.follows = "crane"; 
       inputs.pre-commit-hooks-nix.follows = "";
     };
 
