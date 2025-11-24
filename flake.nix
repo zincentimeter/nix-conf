@@ -72,10 +72,6 @@
       url = "git+https://git.sr.ht/~fubuki/stratosphere";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    clefru = {
-      url = "github:clefru/nur-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # all other nurs
     nur-collection = {
       url = "github:nix-community/nur";

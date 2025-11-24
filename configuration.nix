@@ -71,10 +71,6 @@
         oama
       ;
 
-      inherit (inputs.clefru.packages."x86_64-linux")
-        ib-tws
-      ;
-
       halloy = prev.halloy.overrideAttrs (finalAttrs: prevAttrs: {
         version = "2025-11-11";
         src = prev.fetchFromGitHub {

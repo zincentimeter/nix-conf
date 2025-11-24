@@ -63,7 +63,6 @@
 
         # trading
         tradingview
-        ib-tws
 
         # player
         mpv
