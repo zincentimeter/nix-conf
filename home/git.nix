@@ -4,7 +4,7 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    extraConfig = {
+    settings = {
       sendemail = {
         identity = "outlook";
         thread = true;
