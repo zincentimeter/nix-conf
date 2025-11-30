@@ -67,6 +67,8 @@ in
         { directory = "/etc/NetworkManager/system-connections"; }
         { directory = "/var/lib/NetworkManager"; }
       # many borrowed from https://github.com/matthewpi/nixos-config
+      ] ++ lib.optionals config.services.yggdrasil.enable [
+        { directory = "/var/lib/yggdrasil"; }
       ] ++ lib.optionals config.services.printing.enable [
         # CUPS printing service profiles
         { directory = "/var/lib/cups"; }
