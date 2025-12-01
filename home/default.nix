@@ -90,9 +90,6 @@
         # strace alternative
         lurk
 
-        # bruh
-        shtech-net-loginer
-
         # password manager
         keepassxc
 
