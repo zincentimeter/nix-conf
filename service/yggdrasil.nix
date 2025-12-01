@@ -10,6 +10,7 @@
     enable = true;
     configFile = config.sops.secrets.yggdrasil-key.path;
     settings = {
+      IfName = "ygg0";
       Peers = [
         # public peers from nebula
         "tls://45.62.118.101:5563"
