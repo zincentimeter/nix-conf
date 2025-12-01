@@ -92,9 +92,6 @@
 
         # password manager
         keepassxc
-
-        # irc
-        halloy
       ];
 
       imports = [

@@ -66,21 +66,6 @@
       inherit (inputs.nixpkgs-master.legacyPackages."x86_64-linux")
         oama
       ;
-
-      halloy = prev.halloy.overrideAttrs (finalAttrs: prevAttrs: {
-        version = "2025-11-11";
-        src = prev.fetchFromGitHub {
-          owner = "squidowl";
-          repo = "halloy";
-          rev = "d702068bedd163ee5adecc350686fc5a1b030abe";
-          hash = "sha256-F9rJcqznU+4KfHP42nNxlbSrzrPL+Jz5UPRHmIWf81Y=";
-        };
-        cargoHash = "sha256-yj6fWcGYIz7P5CdW4ny5IuE1RaHgZ4NFM+ypqF2jxio=";
-        cargoDeps = final.rustPlatform.fetchCargoVendor {
-          inherit (finalAttrs) pname src version;
-          hash = finalAttrs.cargoHash;
-        };
-      });
     })
     # all NUR repo collections are added by using this layer
     inputs.nur-collection.overlays.default
