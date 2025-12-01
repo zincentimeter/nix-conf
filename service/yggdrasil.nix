@@ -1,9 +1,14 @@
-{ ... }:
+{ config, ... }:
 
 {
+  sops.secrets.yggdrasil-key = {
+    format = "binary";
+    sopsFile = ./yggdrasil.key;
+  };
+
   services.yggdrasil = {
     enable = true;
-    persistentKeys = true;
+    configFile = config.sops.secrets.yggdrasil-key.path;
     settings = {
       Peers = [
         # public peers from nebula

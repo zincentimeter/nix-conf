@@ -11,3 +11,7 @@ creation_rules:
     - age:
       - *thinkpad_nixos_ssh
       - *tm1701_nixos_ssh
+  - path_regex: yggdrasil.key
+    key_groups:
+    - age:
+      - *thinkpad_nixos_ssh
