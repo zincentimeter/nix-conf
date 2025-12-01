@@ -6,7 +6,7 @@
     defaultSopsFile = ./secrets.json;
     defaultSopsFormat = "json";
     age = {
-      sshKeyPaths = [ "${config.users.users.shinri.home}/.ssh/thinkpad_nixos" ];
+      sshKeyPaths = [ "/nix/persist/home/${config.users.users.shinri.name}/.ssh/thinkpad_nixos" ];
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
