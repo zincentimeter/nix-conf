@@ -15,6 +15,18 @@ vim.opt.expandtab = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- remapping
+--- terminal-mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<A-Left>',  [[<C-\><C-n><C-w>h]])
+vim.keymap.set('t', '<A-Down>',  [[<C-\><C-n><C-w>j]])
+vim.keymap.set('t', '<A-Up>',    [[<C-\><C-n><C-w>k]])
+vim.keymap.set('t', '<A-Right>', [[<C-\><C-n><C-w>l]])
+vim.keymap.set('n', '<A-Left>',  '<C-w>h')
+vim.keymap.set('n', '<A-Down>',  '<C-w>j')
+vim.keymap.set('n', '<A-Up>',    '<C-w>k')
+vim.keymap.set('n', '<A-Right>', '<C-w>l')
+
 -- Create alias using neovim API
 local alias_table = {
   { 'Q',  'quit'  },
