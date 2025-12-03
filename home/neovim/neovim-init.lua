@@ -451,3 +451,10 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     require('csvview').enable()
   end,
 })
+
+-- flatten-nvim
+require('flatten').setup({
+  window = {
+    open = "alternate",
+  },
+})

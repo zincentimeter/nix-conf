@@ -103,6 +103,8 @@
       image-nvim
       # preview tables in nvim
       csvview-nvim
+      # Open files and command output from `:term`, Wezterm and Kitty in current neovim instance
+      flatten-nvim
     ];
   };
 
