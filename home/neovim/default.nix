@@ -69,6 +69,7 @@
       lualine-nvim # status line
       edge # color theme
       trouble-nvim # show errors
+      nvim-web-devicons # font icon
 
       # auto-complete
       nvim-cmp
