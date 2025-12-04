@@ -16,6 +16,9 @@
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
+    settings = {
+      theme = "dark:Builtin Tango Dark,light:Builtin Tango Light";
+    };
   };
 
   xdg.configFile = {
