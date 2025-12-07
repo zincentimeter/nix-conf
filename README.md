@@ -35,7 +35,7 @@
   - Fixed git-send-email with Outlook.
   - This relates to git-send-email, crucial
     - git-send-email relates to submission to stratosphere (including one neovim plugin addition and a update for now)
-- [ ] ghostty cursor is so BIG in KDE...
+- [x] ghostty cursor is so BIG in KDE...
 
 ## Appendix A. Notes on public
 
