@@ -12,7 +12,6 @@
   # know when to trigger the change of shell
   dbus-monitor --session 'type=signal,interface=org.kde.KGlobalSettings,member=notifyChange'
   ```
-
 - [x] (deprecated) ~~vscode cannot input chinese (patched with `--enable-wayland-ime`)~~
 - [x] (fixed) ~~numlock and capslock (change to Keyboard(Chinese) fix this)~~
 - [x] (fixed) ~~chinese plasma 6~~ (logout to make it enable)
