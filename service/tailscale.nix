@@ -7,5 +7,6 @@
     enable = true;
     useRoutingFeatures = "client";
     openFirewall = true;
+    extraSetFlags = [ "--accept-dns=false" ];
   };
 }
