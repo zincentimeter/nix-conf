@@ -468,11 +468,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764004242,
-        "narHash": "sha256-AaPzNh6wT0zajbvhtHUx2a9ze+03Adm6usutHiJSdwA=",
+        "lastModified": 1765487336,
+        "narHash": "sha256-vqGSwyDXWq1+pgKblF6ELt9VhlGB3F3whPMqJpvpZ+4=",
         "owner": "zincentimeter",
         "repo": "nur",
-        "rev": "0ab447a03ab88c96b64e9415fd2d099a681880c6",
+        "rev": "3651935d1d1a9ac83b27d27c46363889fedd5f32",
         "type": "github"
       },
       "original": {
