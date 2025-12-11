@@ -100,10 +100,16 @@ require('typst-preview').setup({
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.typ",
+
+-- When the filetype is typst, enable the keymap to toggle preview
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'typst',
   callback = function()
-    vim.api.nvim_set_option_value("filetype", "typst", {})
+    which_key.add({
+      lhs='<Leader>v', rhs='<cmd>TypstPreviewToggle<cr>',
+      desc='Toggle TypstPreview', mode={ 'n', 'v' },
+      buffer = true,
+    })
   end,
 })
 
