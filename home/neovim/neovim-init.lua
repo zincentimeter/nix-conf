@@ -145,7 +145,6 @@ vim.lsp.config('lua_ls', {
 vim.lsp.enable('lua_ls')
 
 -- Lazily enhance lua_ls
---- @diagnostic disable-next-line: missing-fields
 require('lazydev').setup({
   library = {
     {
@@ -191,7 +190,6 @@ local has_words_before = function()
 end
 
 local cmp = require('cmp')
---- @diagnostic disable-next-line: redundant-parameter
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -332,8 +330,8 @@ require('neo-tree').setup({
     },
   },
   commands = {
-    --- @diagnostic disable-next-line: redundant-parameter
     system_open = function(state)
+      --- @diagnostic disable-next-line: undefined-field
       local node = state.tree:get_node()
       local path = node:get_id()
       -- Linux only
@@ -341,7 +339,6 @@ require('neo-tree').setup({
     end,
   },
   -- source_selector provides clickable tabs to switch between sources.
-  --- @diagnostic disable-next-line: missing-fields
   source_selector = {
     winbar = true,
     sources = {
@@ -349,6 +346,7 @@ require('neo-tree').setup({
       { source = "buffers" },
       { source = "git_status" },
     },
+    truncation_character = "…", -- character to use when truncating the tab label
   },
   -- event handlers
   event_handlers = {
@@ -455,6 +453,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 -- flatten-nvim
+--- @diagnostic disable-next-line: missing-fields
 require('flatten').setup({
   window = {
     open = "alternate",
