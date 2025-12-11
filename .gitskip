@@ -1,4 +1,0 @@
-# This file declares what is skipped but the earlier version is recorded
-# It is used to manually track what files was updated index with --skip-worktree
-home/ssh.nix
-service/syncthing.nix
