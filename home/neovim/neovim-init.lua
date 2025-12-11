@@ -114,13 +114,13 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 --- LSP:nix
-vim.lsp.config('nil_ls', {
+vim.lsp.config.nil_ls = {
   capabilities = capabilities,
-})
+}
 vim.lsp.enable('nil_ls')
 
 --- LSP:lua
-vim.lsp.config('lua_ls', {
+vim.lsp.config.lua_ls = {
   settings = {
     Lua = {
       --- Tell the language server which version of Lua you're using
@@ -143,7 +143,7 @@ vim.lsp.config('lua_ls', {
     },
   },
   capabilities = capabilities
-})
+}
 vim.lsp.enable('lua_ls')
 
 -- Lazily enhance lua_ls
@@ -157,9 +157,9 @@ require('lazydev').setup({
 })
 
 --- LSP:C/C++
-vim.lsp.config('clangd', {
+vim.lsp.config.clangd = {
   capabilities = capabilities
-})
+}
 vim.lsp.enable('clangd')
 
 require('clangd_extensions').setup({
