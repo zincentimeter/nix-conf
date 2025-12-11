@@ -248,12 +248,12 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
     { name = 'vimtex'   },
     { name = 'lazydev'  },
     { name = 'luasnip'  },
     { name = 'path'     },
     { name = 'buffer'   },
-    { name = 'nvim_lsp' },
   }),
 })
 
