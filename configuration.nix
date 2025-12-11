@@ -50,17 +50,18 @@
   nixpkgs.overlays = [
     inputs.stratosphere.overlays.default
     # Overlay function below
-    (final: prev:
-    {
-      # Apple Fonts
-      inherit (inputs.apple-fonts.packages."x86_64-linux")
-        sf-pro sf-compact sf-mono sf-arabic ny
-      ;
-      # My NUR
-      inherit (inputs.zincentimeter.packages."x86_64-linux")
-        rust4diva
-      ;
-    })
+    (
+      final: prev: {
+        # Apple Fonts
+        inherit (inputs.apple-fonts.packages."x86_64-linux")
+          sf-pro sf-compact sf-mono sf-arabic ny
+        ;
+        # My NUR
+        inherit (inputs.zincentimeter.packages."x86_64-linux")
+          rust4diva
+        ;
+      } # function arg attrset
+    ) # overlay function
     # all NUR repo collections are added by using this layer
     inputs.nur-collection.overlays.default
   ]; # overlays
