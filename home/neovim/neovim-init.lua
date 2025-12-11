@@ -73,12 +73,10 @@ which_key.add({
 })
 
 --- LSP
-
-local lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 --- LSP:typst
-lsp.tinymist.setup({
+vim.lsp.config('tinymist', {
   single_file_support = true,
   root_dir = function ()
     return vim.fn.getcwd()
@@ -93,6 +91,7 @@ lsp.tinymist.setup({
     formatterMode = "typstyle";
   },
 })
+vim.lsp.enable('tinymist')
 
 -- typst-preview.nvim
 require('typst-preview').setup({
@@ -113,12 +112,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 --- LSP:nix
-lsp.nil_ls.setup({
+vim.lsp.config('nil_ls', {
   capabilities = capabilities,
 })
+vim.lsp.enable('nil_ls')
 
 --- LSP:lua
-lsp.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       --- Tell the language server which version of Lua you're using
@@ -142,6 +142,7 @@ lsp.lua_ls.setup({
   },
   capabilities = capabilities
 })
+vim.lsp.enable('lua_ls')
 
 -- Lazily enhance lua_ls
 --- @diagnostic disable-next-line: missing-fields
@@ -155,9 +156,10 @@ require('lazydev').setup({
 })
 
 --- LSP:C/C++
-lsp.clangd.setup({
+vim.lsp.config('clangd', {
   capabilities = capabilities
 })
+vim.lsp.enable('clangd')
 
 require('clangd_extensions').setup({
   server = {
