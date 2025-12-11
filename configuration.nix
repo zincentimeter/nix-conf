@@ -60,12 +60,6 @@
       inherit (inputs.zincentimeter.packages."x86_64-linux")
         rust4diva
       ;
-
-      # 2025/04/17
-      # PR#399231 has been merged to master but not into unstable for now
-      inherit (inputs.nixpkgs-master.legacyPackages."x86_64-linux")
-        oama
-      ;
     })
     # all NUR repo collections are added by using this layer
     inputs.nur-collection.overlays.default
