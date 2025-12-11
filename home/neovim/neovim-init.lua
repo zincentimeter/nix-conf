@@ -76,21 +76,17 @@ which_key.add({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 --- LSP:typst
-vim.lsp.config('tinymist', {
-  single_file_support = true,
-  root_dir = function ()
-    return vim.fn.getcwd()
-  end,
+vim.lsp.config.tinymist = {
   settings = {
     -- Export PDFs when a document has a title (and save a file),
     -- which is useful to filter out template files.
-    exportPdf = "onDocumentHasTitle";
+    exportPdf = "onSave";
     -- set the rootPath to -,
     -- so that tinymist will always use parent directory of the file as the root path
     root_dir = "-";
     formatterMode = "typstyle";
   },
-})
+}
 vim.lsp.enable('tinymist')
 
 -- typst-preview.nvim
