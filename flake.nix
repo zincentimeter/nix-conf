@@ -5,6 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    # reduce duplicated dependency of some inputs
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     # secrets management
     sops-nix = {
@@ -16,6 +18,7 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks-nix.follows = "";
     };
 
@@ -69,6 +72,7 @@
     nur-collection = {
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     # Apple Fonts Flake, including San Francisco etc.
