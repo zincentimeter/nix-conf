@@ -169,6 +169,9 @@ require('clangd_extensions').setup({
 })
 
 --- LSP:Python
+vim.lsp.config.pyright = {
+  capabilities = capabilities,
+}
 vim.lsp.enable('pyright')
 
 --- VimTeX
