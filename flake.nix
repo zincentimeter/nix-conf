@@ -7,13 +7,11 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     # reduce duplicated dependency of some inputs
     flake-parts.url = "github:hercules-ci/flake-parts";
-
     # secrets management
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # secure boot
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.3";
@@ -21,43 +19,36 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.pre-commit-hooks-nix.follows = "";
     };
-
     # declarative disk partition
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # managing the /home folder
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # managing KDE plasma GUI profile declaratively
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
     # Lets you choose what files and directories you want to keep
     # between reboots - the rest are thrown away.
     impermanence = {
       url = "github:nix-community/impermanence";
     };
-
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     # Shinri's SSH public keys uploaded to sourcehut.
     sourcehut-keys = {
       url = "https://meta.sr.ht/~zincentimeter.keys";
       flake = false;
     };
-
     # Nix User Repository (NUR)
     zincentimeter = {
       url = "github:zincentimeter/nur";
@@ -74,13 +65,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-
     # Apple Fonts Flake, including San Francisco etc.
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
   };
 
   outputs = { ... } @ inputs:
