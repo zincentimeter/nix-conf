@@ -17,7 +17,7 @@ vim.opt.splitright = true
 
 -- remapping
 --- terminal-mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<A-Esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<A-Left>',  [[<C-\><C-n><C-w>h]])
 vim.keymap.set('t', '<A-Down>',  [[<C-\><C-n><C-w>j]])
 vim.keymap.set('t', '<A-Up>',    [[<C-\><C-n><C-w>k]])
