@@ -14,7 +14,7 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      theme = "dark:Builtin Tango Dark,light:Builtin Tango Light";
+      theme = "dark:Apple System Colors,light:Apple System Colors Light";
     };
   };
 
