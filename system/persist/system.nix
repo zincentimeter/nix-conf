@@ -42,6 +42,8 @@ in
         { directory = "/var/lib/systemd/timers"; }
         # logging
         { directory = "/var/log"; }
+      ] ++ lib.optionals (config.security.acme.certs != {}) [
+        { directory = "/var/lib/acme"; }
       ] ++ lib.optionals (
         # This rely on having lanzaboote loaded
         (builtins.hasAttr "lanzaboote" config.boot) &&
