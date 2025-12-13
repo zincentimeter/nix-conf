@@ -22,7 +22,7 @@
     ./network.nix
 
     # Persistent things
-    ./persist.nix
+    ./persist
 
     # Nix, Nixpkgs related
     ./nix.nix
