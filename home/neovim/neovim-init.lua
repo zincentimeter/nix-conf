@@ -71,11 +71,11 @@ vim.lsp.config.tinymist = {
   settings = {
     -- Export PDFs when a document has a title (and save a file),
     -- which is useful to filter out template files.
-    exportPdf = "onSave";
+    exportPdf = 'onSave',
     -- set the rootPath to -,
     -- so that tinymist will always use parent directory of the file as the root path
-    root_dir = "-";
-    formatterMode = "typstyle";
+    root_dir = '-',
+    formatterMode = 'typstyle',
   },
 }
 vim.lsp.enable('tinymist')
@@ -97,8 +97,10 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'typst',
   callback = function()
     which_key.add({
-      lhs='<Leader>v', rhs='<cmd>TypstPreviewToggle<cr>',
-      desc='Toggle TypstPreview', mode={ 'n', 'v' },
+      lhs = '<Leader>v',
+      rhs = '<cmd>TypstPreviewToggle<cr>',
+      desc = 'Toggle TypstPreview',
+      mode = { 'n', 'v' },
       buffer = true,
     })
   end,
@@ -116,24 +118,24 @@ vim.lsp.config.lua_ls = {
     Lua = {
       --- Tell the language server which version of Lua you're using
       --- (most likely LuaJIT in the case of Neovim)
-      runtime = { version = 'LuaJIT' };
+      runtime = { version = 'LuaJIT' },
 
       --- Get the language server to recognize the `vim` global
-      diagnostics = { globals = { 'vim' }, },
+      diagnostics = { globals = { 'vim' } },
 
       --- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = { enable = false, },
+      telemetry = { enable = false },
 
       --- Make the server aware of Neovim runtime files
       workspace = {
         checkThirdParty = false,
-	library = {
-	  vim.env.VIMRUNTIME
-	},
+        library = {
+          vim.env.VIMRUNTIME,
+        },
       },
     },
   },
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 vim.lsp.enable('lua_ls')
 
@@ -141,15 +143,15 @@ vim.lsp.enable('lua_ls')
 require('lazydev').setup({
   library = {
     {
-      path = "luvit-meta/library",
-      words = { "vim%.uv" },
+      path = 'luvit-meta/library',
+      words = { 'vim%.uv' },
     },
-  };
+  },
 })
 
 --- LSP:C/C++
 vim.lsp.config.clangd = {
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 vim.lsp.enable('clangd')
 
@@ -170,7 +172,7 @@ vim.lsp.enable('pyright')
 vim.g.vimtex_view_general_viewer = 'okular'
 vim.g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
 vim.api.nvim_create_user_command('ZoteroCite', function()
-  local format = vim.bo.filetype:match(".*tex") and "cite" or "pandoc"
+  local format = vim.bo.filetype:match('.*tex') and 'cite' or 'pandoc'
   local api_call = 'http://127.0.0.1:23119/better-bibtex/cayw?format=' .. format .. '&brackets'
   local ref = vim.fn.system('curl -s "' .. api_call .. '"')
   vim.cmd('normal! i' .. ref)
@@ -200,7 +202,6 @@ require('nvim-treesitter.configs').setup({
       enable = true,
     },
   },
-
 })
 
 --- Autocomplete
@@ -248,21 +249,21 @@ cmp.setup({
     end, { 'i', 's' }),
     --- Enter key
     ['<CR>'] = cmp.mapping({
-       i = function(fallback)
-         if cmp.visible() and cmp.get_active_entry() then
-           cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-         else
-           fallback()
-         end
-       end,
-       s = cmp.mapping.confirm({ select = true }),
-       c = function(fallback)
-	if cmp.visible() and cmp.get_active_entry() then
-	  cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+      i = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
         else
-	  fallback()
-	end
-       end,
+          fallback()
+        end
+      end,
+      s = cmp.mapping.confirm({ select = true }),
+      c = function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+        else
+          fallback()
+        end
+      end,
     }),
   },
   sources = cmp.config.sources({
@@ -279,17 +280,17 @@ cmp.setup({
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
-  }
+    { name = 'buffer' },
+  },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'cmdline' }
+    { name = 'cmdline' },
   }, {
-    { name = 'path' }
+    { name = 'path' },
   }),
 })
 
@@ -298,9 +299,9 @@ cmp.setup.cmdline(':', {
 require('noice').setup({
   lsp = {
     override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+      ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+      ['vim.lsp.util.stylize_markdown'] = true,
+      ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
     },
   },
 })
@@ -308,7 +309,7 @@ require('noice').setup({
 require('lualine').setup({
   extensions = {
     'trouble',
-    'neo-tree'
+    'neo-tree',
   },
 })
 
@@ -324,10 +325,10 @@ require('trouble').setup({
 --- File Explorer
 require('neo-tree').setup({
   sources = {
-    "filesystem",
-    "buffers",
-    "git_status",
-    "document_symbols",
+    'filesystem',
+    'buffers',
+    'git_status',
+    'document_symbols',
   },
   -- All config that is not default will be presented here.
   -- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua
@@ -339,17 +340,17 @@ require('neo-tree').setup({
     follow_current_file = {
       enabled = false,
     },
-    hijack_netrw_behavior = "open_default",
+    hijack_netrw_behavior = 'open_default',
     filtered_items = {
       hide_dotfiles = false,
       hide_gitignored = false,
       hide_by_name = {
-        ".git"
+        '.git',
       },
     },
     window = {
       mappings = {
-        ["o"] = "system_open",
+        ['o'] = 'system_open',
       },
     },
   },
@@ -359,44 +360,44 @@ require('neo-tree').setup({
       local node = state.tree:get_node()
       local path = node:get_id()
       -- Linux only
-      vim.fn.jobstart({"xdg-open", path}, {detach = true})
+      vim.fn.jobstart({ 'xdg-open', path }, { detach = true })
     end,
   },
   -- source_selector provides clickable tabs to switch between sources.
   source_selector = {
     winbar = true,
     sources = {
-      { source = "filesystem" },
-      { source = "buffers" },
-      { source = "git_status" },
+      { source = 'filesystem' },
+      { source = 'buffers'    },
+      { source = 'git_status' },
     },
-    truncation_character = "…", -- character to use when truncating the tab label
+    truncation_character = '…', -- character to use when truncating the tab label
   },
   -- event handlers
   event_handlers = {
     {
-      event = "neo_tree_window_after_open",
+      event = 'neo_tree_window_after_open',
       handler = function()
-        vim.cmd("wincmd =")
+        vim.cmd('wincmd =')
       end,
     },
     { -- Enforce Normal mode
-      event = "neo_tree_buffer_enter",
+      event = 'neo_tree_buffer_enter',
       handler = function()
-        vim.cmd("stopinsert")
-      end
-    }
+        vim.cmd('stopinsert')
+      end,
+    },
   },
 })
 
 -- Autostart Neotree on startup
 -- https://github.com/MarvelousAlbattani/neovim/blob/ed88d34b703682c528e90ebdd988c9e9193bc972/init.lua#L37
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     local filetype = vim.bo.filetype
     if filetype ~= 'man' and filetype ~= 'gitcommit' then
-      require("neo-tree.command").execute({})
-      vim.cmd("wincmd p")
+      require('neo-tree.command').execute({})
+      vim.cmd('wincmd p')
     end
   end,
 })
@@ -425,13 +426,13 @@ require('telescope').setup({
       auto_quoting = true,
       mappings = {
         i = {
-          ["<C-k>"] = lga_actions.quote_prompt(),
-          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          ['<C-k>'] = lga_actions.quote_prompt(),
+          ['<C-i>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
           -- freeze the current list and start a fuzzy search in the frozen list
-          ["<C-space>"] = lga_actions.to_fuzzy_refine,
+          ['<C-space>'] = lga_actions.to_fuzzy_refine,
         },
       },
-    }
+    },
   },
 })
 require('telescope').load_extension('live_grep_args')
@@ -439,10 +440,14 @@ require('telescope').load_extension('live_grep_args')
 local telescope_prefix = '<Leader>'
 which_key.add({
   mode = { 'n', 'v' }, -- NORMAL and VISUAL mode
-  { lhs=telescope_prefix..'a', rhs=require('telescope').extensions.live_grep_args.live_grep_args, desc='Live grep search' },
-  { lhs=telescope_prefix..'/', rhs=telescope_builtin.live_grep, desc='Live grep search' },
-  { lhs=telescope_prefix..'b', rhs=telescope_builtin.buffers, desc='List buffers' },
-  { lhs=telescope_prefix..'f', rhs=telescope_builtin.find_files, desc='Open files' },
+  {
+    lhs = telescope_prefix .. 'a',
+    rhs = require('telescope').extensions.live_grep_args.live_grep_args,
+    desc = 'Live grep search',
+  },
+  { lhs = telescope_prefix .. '/', rhs = telescope_builtin.live_grep, desc = 'Live grep search' },
+  { lhs = telescope_prefix .. 'b', rhs = telescope_builtin.buffers, desc = 'List buffers' },
+  { lhs = telescope_prefix .. 'f', rhs = telescope_builtin.find_files, desc = 'Open files' },
 })
 
 --- Git
@@ -455,7 +460,7 @@ neogit.setup({
 -- add neogit shortcut keymap on <Leader> to which-key.nvim
 local neogit_prefix = '<Leader>'
 which_key.add({
-  { lhs=neogit_prefix..'g', rhs=neogit.open, desc='Neogit' }
+  { lhs = neogit_prefix .. 'g', rhs = neogit.open, desc = 'Neogit' },
 })
 
 require('gitsigns').setup({})
@@ -468,8 +473,8 @@ require('image').setup({})
 -- csvview-nvim
 require('csvview').setup({})
 -- autostart on CSV open
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.csv",
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '*.csv',
   callback = function()
     require('csvview').enable()
   end,
@@ -479,7 +484,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 --- @diagnostic disable-next-line: missing-fields
 require('flatten').setup({
   window = {
-    open = "alternate",
+    open = 'alternate',
   },
 })
 
