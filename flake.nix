@@ -69,6 +69,11 @@
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # formatter
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { ... } @ inputs:
@@ -91,5 +96,10 @@
         inputs.nix-index-db.nixosModules.nix-index
       ];
     }; # nixosConfigurations
-  };
-}
+
+    formatter."x86_64-linux" = (inputs.treefmt-nix.lib.evalModule
+      (import inputs.nixpkgs { system = "x86_64-linux"; })
+      ./treefmt.nix
+    ).config.build.wrapper; # formatter."x86_64-linux"
+  }; # outputs
+} # flake.nix
