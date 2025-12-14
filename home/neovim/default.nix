@@ -108,6 +108,10 @@
       csvview-nvim
       # Open files and command output from `:term`, Wezterm and Kitty in current neovim instance
       flatten-nvim
+
+      # allow (project) dir-based config
+      direnv-vim
+      project-nvim
     ];
   };
 
