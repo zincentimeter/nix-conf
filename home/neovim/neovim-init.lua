@@ -70,6 +70,7 @@ which_key.add({
   { lhs='<Leader>y', rhs='"+y', desc='Yank (Copy) to system clipboard', mode={ 'n', 'v' } },
   { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard', mode={ 'n', 'v' } },
   { lhs='<Leader>n', rhs='<cmd>Neotree toggle<cr>', desc='Toggle Neotree', mode={ 'n', 'v' } },
+  { lhs='<Leader>e', rhs='<cmd>Trouble diagnostics toggle focus=false<cr>', desc='Toggle Trouble', mode={ 'n', 'v' } },
 })
 
 --- LSP
@@ -296,18 +297,11 @@ require('lualine').setup({
 
 --- @diagnostic disable-next-line: missing-fields
 require('trouble').setup({
-  auto_close = true,
+  auto_close = false,
+  auto_open = false,
   auto_refresh = true,
   multiline = true,
   focus = true,
-  -- Preview in a split to the right of the trouble list
-  -- https://github.com/folke/trouble.nvim/blob/main/docs/examples.md#preview-in-a-split-to-the-right-of-the-trouble-list
-  modes = {
-    default = {
-      mode = 'diagnostics',
-      auto_open = true,
-    },
-  },
 })
 
 --- File Explorer
