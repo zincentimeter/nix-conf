@@ -9,8 +9,7 @@ let
 in
 {
   # File Layout
-  home.file =
-  {
+  home.file = {
     "Documents" = mkDirSymlink "${onedrive}/Documents";
     "Pictures" = mkDirSymlink "${onedrive}/图片";
     "Videos" = mkDirSymlink "${onedrive}/视频";
