@@ -5,27 +5,26 @@
 { pkgs, inputs, ... }:
 
 {
-  imports =
-    [
-      # Home folder
-      # (./home/default.nix will be imported)
-      ./home
+  imports = [
+    # Home folder
+    # (./home/default.nix will be imported)
+    ./home
 
-      # Sound / Graphic cards / Printers / Peripherals / etc.
-      # Hardware scan (hardware-configuration.nix is also included in it)
-      # (./hardware/default.nix will be imported)
-      ./hardware
+    # Sound / Graphic cards / Printers / Peripherals / etc.
+    # Hardware scan (hardware-configuration.nix is also included in it)
+    # (./hardware/default.nix will be imported)
+    ./hardware
 
-      # Boot / Disk (Disko) / GUI / Locale / Environment (Shells) for all users
-      # (./system/default.nix will be imported)
-      ./system
+    # Boot / Disk (Disko) / GUI / Locale / Environment (Shells) for all users
+    # (./system/default.nix will be imported)
+    ./system
 
-      # Secret-related configure
-      ./secret
+    # Secret-related configure
+    ./secret
 
-      # Applications
-      ./service
-    ];
+    # Applications
+    ./service
+  ];
 
   # game: steam
   programs.steam = {
