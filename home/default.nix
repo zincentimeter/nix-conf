@@ -31,7 +31,7 @@
         foliate
 
         # If you use KDE (Plasma) then you'll be better off with libreoffice-qt package.
-        # Otherwise you may lack, e.g. main menu bar. 
+        # Otherwise you may lack, e.g. main menu bar.
         libreoffice-qt
 
         # BT downloading

@@ -48,14 +48,14 @@
     jruserf  = "journalctl --user --follow";
     jruserfu = "journalctl --user --follow --unit";
     jrsudo   = "sudo journalctl";
-    sc = "systemctl";
-    scuser = "systemctl --user";
-    scsudo = "sudo systemctl";
+    sc       = "systemctl";
+    scuser   = "systemctl --user";
+    scsudo   = "sudo systemctl";
     # semantic
-    unit = "journalctl --unit";
-    stat = "systemctl status";
-    restart = "sudo systemctl restart";
-    start = "sudo systemctl start";
-    stop = "sudo systemctl stop";
+    unit     = "journalctl --unit";
+    stat     = "systemctl status";
+    restart  = "sudo systemctl restart";
+    start    = "sudo systemctl start";
+    stop     = "sudo systemctl stop";
   };
 }

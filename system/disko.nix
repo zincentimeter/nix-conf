@@ -50,4 +50,3 @@
 
   }; # disko.devices
 }
-

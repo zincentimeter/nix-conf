@@ -36,14 +36,14 @@
     # Opening files from within :terminal without starting a nested nvim process
     neovim-remote
   ];
-  
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
     viAlias = true;
-    # must be enabled with shell configuration in home-manager 
+    # must be enabled with shell configuration in home-manager
     defaultEditor = true;
-    
+
     extraLuaConfig = builtins.readFile ./neovim-init.lua;
 
     plugins = with pkgs.vimPlugins; [
@@ -52,7 +52,7 @@
 
       # language server protocol
       nvim-lspconfig
-	
+
       # Tree-sitter
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
@@ -62,7 +62,7 @@
       vim-fugitive
       gitsigns-nvim
       diffview-nvim
- 
+
       # UI
       dropbar-nvim # breadcrumbs hierarchy lists
       noice-nvim # overall beautify

@@ -18,7 +18,7 @@
     input = {
       keyboard = {
         numlockOnStartup = "on";
-        layouts = [{ layout = "us"; }];
+        layouts = [ { layout = "us"; } ];
       };
       touchpads = [{
         vendorId = "06cb";
@@ -73,7 +73,7 @@
           "org.kde.plasma.marginsseparator" # widgets[3]
           {
             systemTray = {
-              items  = {
+              items = {
                 extra = [
                   "org.kde.plasma.mediacontroller"
                   "org.kde.plasma.devicenotifier"
@@ -132,7 +132,7 @@
         widgets = [
           {
             iconTasks = {
-              launchers = [];
+              launchers = [ ];
               behavior.showTasks.onlyInCurrentScreen = true;
             }; # iconTasks
           }

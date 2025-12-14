@@ -19,7 +19,7 @@
       !include ${config.sops.templates."nix_access_token.conf".path}
     '';
   };
-  
+
   # Shell aliases related to NixOS
   environment.shellAliases = {
     nix-conf = "nvim --cmd 'cd ${config.users.users.shinri.home}/nix-conf'";

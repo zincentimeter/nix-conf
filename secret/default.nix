@@ -10,7 +10,7 @@
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
-    
+
     secrets =
       builtins.mapAttrs (_: v: v // {
           mode = "0440";
@@ -22,7 +22,7 @@
         "campus_password" = {};
       } // {
         # Secrets listed here requires elevated permission.
-        "github_access_token" = {};
+        "github_access_token" = { };
       };
 
     templates."nix_access_token.conf".content = ''

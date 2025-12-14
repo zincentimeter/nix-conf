@@ -63,7 +63,7 @@
       };
       GuiConfig.captureMode = 0;
     };
-    
+
     # Used for Ark to fallback codepages
     klanguageoverridesrc.Language = {
       ark = "@ByteArray(en_US:ja)";
