@@ -186,6 +186,33 @@ vim.api.nvim_create_user_command('ZoteroCite', function()
   vim.cmd('normal! i' .. ref)
 end, { nargs = 0 })
 
+--TreeSitter
+--- @diagnostic disable-next-line: missing-fields
+require('nvim-treesitter.configs').setup({
+  parser_install_dir = vim.fn.stdpath('data') .. '/parser',
+  auto_install = false,
+  sync_install = false,
+  ensure_installed = {},
+  -- modules
+  highlight = {
+    enable = true, -- false disables the whole extension
+    disable = {}, -- nothing disabled
+  },
+  incremental_selection = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+    },
+    lsp_interop = {
+      enable = true,
+    },
+  },
+
+})
+
 --- Autocomplete
 
 local luasnip = require('luasnip')
