@@ -69,7 +69,7 @@ which_key.add({
   -- Yank/paste from/to system clipboard
   { lhs='<Leader>y', rhs='"+y', desc='Yank (Copy) to system clipboard', mode={ 'n', 'v' } },
   { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard', mode={ 'n', 'v' } },
-  { lhs='<Leader>n', rhs='<cmd>Neotree toggle<cr>', desc='Toggle Neotree', mode={ 'n', 'v' } }
+  { lhs='<Leader>n', rhs='<cmd>Neotree toggle<cr>', desc='Toggle Neotree', mode={ 'n', 'v' } },
 })
 
 --- LSP
