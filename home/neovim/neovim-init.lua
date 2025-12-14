@@ -56,22 +56,6 @@ local which_key = require('which-key')
 which_key.add({
   -- Open new terminal in new window and set the mode to terminal insert mode with 'i'
   { lhs='<Leader>t', rhs='<cmd>split +term<cr>i', desc='Open terminal in a new window', mode='n' },
-  -- Toggle mouse support with `m`
-  -- useful when the mouse is used by an app inside a terminal (like less)
-  {
-    lhs='<Leader>m',
-    rhs=function()
-      local current_mouse = vim.o.mouse
-      if current_mouse == '' then
-        vim.o.mouse = 'a'
-        vim.notify('Mouse enabled', vim.log.levels.INFO)
-      else
-        vim.o.mouse = ''
-        vim.notify('Mouse disabled', vim.log.levels.INFO)
-      end
-    end,
-    desc='Toggle mouse'
-  },
   -- Yank/paste from/to system clipboard
   { lhs='<Leader>y', rhs='"+y', desc='Yank (Copy) to system clipboard', mode={ 'n', 'v' } },
   { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard', mode={ 'n', 'v' } },
