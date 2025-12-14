@@ -114,7 +114,8 @@
         flake = "/home/shinri/nix-conf";
       };
 
-      programs.bat.enable = true;
+      programs.bat.enable = true; # cat alternative
+      programs.fd.enable = true; # find alternative
 
       programs.obs-studio = {
         enable = true;

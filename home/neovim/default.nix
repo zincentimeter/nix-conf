@@ -70,6 +70,8 @@
       edge # color theme
       trouble-nvim # show errors
       nvim-web-devicons # font icon
+      mini-icons # icon used by which-key
+      nvim-notify # notification manager, dependency of noice
 
       # auto-complete
       nvim-cmp
