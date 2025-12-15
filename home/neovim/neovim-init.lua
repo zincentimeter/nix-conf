@@ -14,12 +14,14 @@ vim.opt.expandtab = true
 -- Split to right/down
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+-- accept project-based config
+vim.opt.exrc = true
 
 -- direnv-vim
 -- Why put it here?
 -- > All configuration variables must be set before loading the plugin
 -- > (typically in your `.vimrc` or `init.vim`).
-vim.g.direnv_auto = 0
+vim.g.direnv_auto = 1
 
 -- remapping
 --- terminal-mode
@@ -487,9 +489,3 @@ require('flatten').setup({
     open = 'alternate',
   },
 })
-
--- project-nvim
-require('project').setup({
-  manual_mode = true,
-})
-require('telescope').load_extension('projects')

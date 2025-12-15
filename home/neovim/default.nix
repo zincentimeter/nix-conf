@@ -111,7 +111,6 @@
 
       # allow (project) dir-based config
       direnv-vim
-      project-nvim
     ];
   };
 
