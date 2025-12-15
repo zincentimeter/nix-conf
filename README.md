@@ -66,7 +66,7 @@ but most arise from the combination of various requirements.
    (e.g., from `/persist` to `/nix/persist`),
    the mounts managed by impermanence will fail since enter uses your existing system build.
    > Necessary files during the rebuild process must be manually copied or mounted.
-6. When configuring secure boot during the `rebuild` process, 
+6. When configuring secure boot during the `rebuild` process,
    due to the issue mentioned in point 5,
    the lanzaboote module fails to load the files required to sign the target kernel,
    leading to a failed build that cannot be installed into the bootloader.

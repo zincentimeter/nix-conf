@@ -53,7 +53,7 @@ in
         # ++ lib.optionals {config,shinri}.programs.*.enable [
         # 2. with packages written in home/:
         # ++ lib.optionals (atHome pkgs.*) [
-        # 
+        #
         ##########################################################
         ] ++ lib.optionals (atHome pkgs.keepassxc) [
           "${configHome}/keepassxc"
@@ -90,7 +90,7 @@ in
           "${configHome}/onedrive"
         ] ++ lib.optionals (atHome pkgs.qbittorrent) [
           "${configHome}/qBittorrent"
-          "${dataHome}/qBittorrent" 
+          "${dataHome}/qBittorrent"
         ] ++ lib.optionals (config.services.syncthing.enable) [
           "${configHome}/syncthing"
         ] ++ lib.optionals (
@@ -141,7 +141,7 @@ in
           "${stateHome}/nvim"
         ] ++ [
           # KDE (not governed by plasma-manager)
-          # - kdeconnect 
+          # - kdeconnect
           "${configHome}/kdeconnect"
           # - baloo file index
           "${dataHome}/baloo"

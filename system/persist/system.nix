@@ -50,7 +50,7 @@ in
         (config.boot.lanzaboote.enable)
       ) [
         { directory = "/etc/secureboot"; }
-      ] ++ lib.optionals config.networking.networkmanager.enable [ 
+      ] ++ lib.optionals config.networking.networkmanager.enable [
         { directory = "/etc/NetworkManager/system-connections"; }
         { directory = "/var/lib/NetworkManager"; }
       # many borrowed from https://github.com/matthewpi/nixos-config
@@ -61,7 +61,7 @@ in
           directory = "/var/spool/cups";
           group = "lp"; mode = "u=rwx,g=x,o=";
         }
-      ] ++ lib.optionals config.services.v2raya.enable [ 
+      ] ++ lib.optionals config.services.v2raya.enable [
         # V2RayA default files:
         # https://v2raya.org/en/docs/prologue/installation/linux/
         { directory = "/etc/v2raya"; }
@@ -70,7 +70,7 @@ in
       ] ++ lib.optionals config.services.pipewire.alsa.enable [
         { directory = "/var/lib/alsa"; }
       ] ++ lib.optionals config.hardware.bluetooth.enable [
-        { 
+        {
           directory = "/var/lib/bluetooth";
           mode = user_full_only;
         }

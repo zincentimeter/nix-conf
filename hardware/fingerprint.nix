@@ -3,7 +3,7 @@
 {
   # Fingerprint
   services.fprintd.enable = true;
-  security.pam.services = 
+  security.pam.services =
     builtins.mapAttrs (_: v: v // {
         nodelay = true;
         fprintAuth = config.services.fprintd.enable;
