@@ -5,7 +5,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ./fingerprint.nix
+    ./security.nix
     ./graphic.nix
   ];
 
