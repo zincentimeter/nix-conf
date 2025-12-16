@@ -43,7 +43,6 @@ in
       SHA1=$3
 
       cat >> "$COMMIT_MSG_FILE" << EOF
-
       # <类型>[可选 范围]: <描述>
       #
       # [可选 正文]
