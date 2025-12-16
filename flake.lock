@@ -433,7 +433,7 @@
     "sourcehut-keys": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-p36kFNAsiTwRnhLXouTuUXvP73AdSxv4QefozRpSgs0=",
+        "narHash": "sha256-Wo33hA8pdyB9m3dV+B7AjOuzx6N/lUmhKJ9FBUvoYH4=",
         "type": "file",
         "url": "https://meta.sr.ht/~zincentimeter.keys"
       },
