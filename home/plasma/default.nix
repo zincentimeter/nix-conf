@@ -8,7 +8,12 @@
   programs.plasma = {
     enable = true;
 
-    workspace.lookAndFeel = "org.kde.breezedark.desktop";
+    workspace = {
+      lookAndFeel = "org.kde.breezedark.desktop";
+      # This is actually for Dolphin
+      # Don't know why it's here
+      clickItemTo = "select";
+    };
 
     windows.allowWindowsToRememberPositions = true;
 

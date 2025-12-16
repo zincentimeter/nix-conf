@@ -23,7 +23,6 @@
       KDE = {
         # This is actually for Dolphin
         # Don't know why it's here
-        SingleClick = false;
         ShowDeleteCommand = false;
       };
     };
