@@ -22,8 +22,15 @@
 ## 2. Improvements
 
 - [x] Git default configure signing key
-- [ ] Use TPM 2.0, `security.*` and `sops.*` may relate
+- [ ] Use TPM 2.0, `security.*` and `sops.*` may relate, to enable...
+  - [ ] Passkey
+  - [ ] SSH login
 - [ ] LUKS for Full Disk Encryption
+- [ ] declarative fcitx5-pinyin
+- [ ] declarative mozilla
+  - [ ] Firefox
+  - [ ] Thunderbird
+  - [ ] Zotero (?)
 - [x] Declarative Plasma 6
   - [x] declare plasmashell and default theme (`plasma-org.kde.plasma.desktop-appletsrc` and `kwinoutputconfig.json`)
   - [ ] persist dolphin explorer initial setup
