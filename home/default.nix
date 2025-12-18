@@ -40,7 +40,7 @@
         # Game
         osu-lazer-bin
         # An Project Diva Modding Manager
-        rust4diva
+        zince.rust4diva
         # minecraft
         prismlauncher
 

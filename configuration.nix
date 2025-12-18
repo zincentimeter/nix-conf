@@ -47,6 +47,7 @@
   # Patching nixpkgs with customized packages
   # e.g. apps from other sources or stable branch
   nixpkgs.overlays = [
+    inputs.zincentimeter.overlays.default
     inputs.stratosphere.overlays.default
     # Overlay function below
     (
@@ -54,10 +55,6 @@
         # Apple Fonts
         inherit (inputs.apple-fonts.packages."x86_64-linux")
           sf-pro sf-compact sf-mono sf-arabic ny
-        ;
-        # My NUR
-        inherit (inputs.zincentimeter.packages."x86_64-linux")
-          rust4diva
         ;
       } # function arg attrset
     ) # overlay function
