@@ -1,8 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./files.nix
+  ];
+
+  # add plugins of kde plasma here
+  home.packages = with pkgs.zince.kdePlugins; [
+    colorschemeswapper
+    shutdown-or-switch
   ];
 
   programs.plasma = {
