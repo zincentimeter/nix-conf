@@ -49,7 +49,7 @@ in
         (builtins.hasAttr "lanzaboote" config.boot) &&
         (config.boot.lanzaboote.enable)
       ) [
-        { directory = "/etc/secureboot"; }
+        { directory = "/var/lib/sbctl"; }
       ] ++ lib.optionals config.networking.networkmanager.enable [
         { directory = "/etc/NetworkManager/system-connections"; }
         { directory = "/var/lib/NetworkManager"; }

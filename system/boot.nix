@@ -13,7 +13,8 @@
 
   boot.lanzaboote = {
     enable = true;
-    pkiBundle = "/etc/secureboot";
+    # https://github.com/nix-community/lanzaboote/issues/413#issuecomment-2618089667
+    pkiBundle = "/var/lib/sbctl";
   };
 
   boot.kernel.sysctl = {
