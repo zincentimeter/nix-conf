@@ -82,7 +82,7 @@
 
         # monitor
         # top-like monitor
-        btop
+        btop-cuda
         # systemd tui
         isd
         # graphical monitor
