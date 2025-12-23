@@ -29,7 +29,7 @@
 
     serif = [
       "New York Medium"
-      "DejaVu Sans"
+      "DejaVu Serif"
       "Noto Serif CJK TC"
       "Noto Serif CJK SC"
     ];
