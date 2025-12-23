@@ -1,8 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  outlook = with config.accounts.email.accounts.outlook; {
-    inherit address name;
+  outlook = {
+    name = "outlook";
+    address = "zincentimeter@outlook.com";
+  };
+  thinkpad_nixos = {
     # https://meta.sr.ht/~zincentimeter.keys
     ssh = {
       publicKey = ''
@@ -26,7 +29,7 @@ in
       gpg.ssh.allowedSignersFile = builtins.toString ( # package path to string
         pkgs.writeText "allowed_signers" (
           lib.concatLines (
-            [ "${outlook.address} ${outlook.ssh.publicKey}" ]
+            [ "${outlook.address} ${thinkpad_nixos.ssh.publicKey}" ]
           )
         )
       );
@@ -34,7 +37,7 @@ in
     signing = {
       signByDefault = true;
       format = "ssh";
-      key = outlook.ssh.privateKeyPath;
+      key = thinkpad_nixos.ssh.privateKeyPath;
     };
     lfs.enable = true;
   };
