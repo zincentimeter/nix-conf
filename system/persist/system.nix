@@ -42,6 +42,9 @@ in
         { directory = "/var/lib/systemd/timers"; }
         # logging
         { directory = "/var/log"; }
+        # enable logrotate unconditionally
+        # https://github.com/nix-community/impermanence/issues/270
+        { directory = "/var/log/logrotate/"; }
       ] ++ lib.optionals (config.security.acme.certs != {}) [
         { directory = "/var/lib/acme"; }
       ] ++ lib.optionals (
@@ -140,8 +143,6 @@ in
         { file = "/etc/adjtime"; }
         # man 5 machine-id
         { file = "/etc/machine-id"; }
-      ] ++ lib.optionals config.services.logrotate.enable [
-        { file = "/var/lib/logrotate.status"; }
       ] ++ lib.optionals config.services.printing.enable [
         { file = "/etc/printcap"; }
       ] ++ lib.optionals (builtins.pathExists config.sops.age.keyFile) [
