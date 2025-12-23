@@ -9,8 +9,16 @@
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "shinri" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "auto-allocate-uids"
+        "ca-derivations"
+      ];
+      accept-flake-config = true;
+      auto-allocate-uids = true;
+      auto-optimise-store = true;
+      use-xdg-base-directories = true;
     } // lib.optionalAttrs (inputs ? zincentimeter) {
       extra-substituters = [ "https://zincentimeter-nur.cachix.org" ];
       extra-trusted-public-keys = [ "zincentimeter-nur.cachix.org-1:lUnmYfaT5gswUYZOMBa7fFxSSLZb+aJGlTJFeCU7w5A=" ];
