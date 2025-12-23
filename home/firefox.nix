@@ -14,6 +14,7 @@
   # https://discourse.nixos.org/t/combining-best-of-system-firefox-and-home-manager-firefox-settings/37721
   programs.firefox = {
     enable = true;
+    languagePacks = [ "zh-CN" "en-US" ];
     policies = {
       Preferences = {
         # instruct Firefox to use the file picker offered by the
