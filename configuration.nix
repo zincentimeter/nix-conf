@@ -26,6 +26,8 @@
     ./service
   ];
 
+  services.logrotate.extraArgs = [ "--state" "/var/lib/logrotate/logrotate.status" ];
+
   # game: steam
   programs.steam = {
     enable = true;
