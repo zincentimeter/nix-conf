@@ -84,7 +84,11 @@ in
           "${configHome}/freerdp"
           "${configHome}/remmina"
           "${dataHome}/remmina"
-        ] ++ lib.optionals (atHome pkgs.obs-studio) [
+        ] ++ lib.optionals (
+          atHome pkgs.obs-studio ||
+          config.programs.obs-studio.enable /* NixOS */ ||
+          user.programs.obs-studio.enable /* home */
+        ) [
           "${configHome}/obs-studio"
         ] ++ lib.optionals (config.services.onedrive.enable) [
           "${configHome}/onedrive"

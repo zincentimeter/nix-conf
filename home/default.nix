@@ -119,6 +119,7 @@
 
       programs.obs-studio = {
         enable = true;
+        package = pkgs.obs-studio.override { cudaSupport = true; };
         plugins = with pkgs.obs-studio-plugins; [
           # screen capture on wlroots based wayland compositors
           wlrobs
