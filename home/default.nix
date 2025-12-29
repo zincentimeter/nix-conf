@@ -92,6 +92,9 @@
 
         # password manager
         keepassxc
+
+        # movie editing
+        kdePackages.kdenlive
       ];
 
       imports = [
