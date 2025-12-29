@@ -48,6 +48,7 @@
         LC_TELEPHONE = cn;
         LC_TIME = cn;
       }; # Formats
+      # I don't know why but this line actually changes KDE's display language
       Translations.LANGUAGE = us;
     }; # plasma-localerc
 
@@ -65,7 +66,9 @@
 
     # Used for Ark to fallback codepages
     klanguageoverridesrc.Language = {
-      ark = "@ByteArray(en_US:ja)";
+      ark      = "@ByteArray(en_US:ja)";
+      kdenlive = "@ByteArray(zh_TW:en_US)";
+      dolphin  = "@ByteArray(zh_TW:en_US)";
     };
 
     # Widget showing chinese lunar year
