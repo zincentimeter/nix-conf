@@ -134,7 +134,7 @@ in
         ) [
           # Japanese IME
           "${configHome}/mozc"
-        ] ++ lib.optionals (atHome pkgs.zotero_7 || atHome pkgs.zotero) [
+        ] ++ lib.optionals (atHome pkgs.zotero) [
           "${configHome}/zotero"
           "${dataHome}/zotero"
         ] ++ lib.optionals (

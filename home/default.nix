@@ -25,7 +25,7 @@
         remmina
 
         # zotero
-        zotero_7
+        zotero
 
         # PDF / ePub reader
         foliate
