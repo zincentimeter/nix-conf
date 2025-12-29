@@ -1,6 +1,9 @@
 { config, ... }:
 
 {
+  # SUDO
+  security.sudo.extraConfig = "Defaults pwfeedback"; # Show asterisks when typing sudo password
+
   # Fingerprint
   services.fprintd.enable = false;
   security.pam.services =
