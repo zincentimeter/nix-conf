@@ -3,7 +3,6 @@
 {
   imports = [
     ./tailscale.nix
-    ./ollama.nix
     ./onedrive.nix
     ./yggdrasil.nix
   ];
