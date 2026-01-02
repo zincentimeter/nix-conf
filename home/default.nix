@@ -110,6 +110,11 @@
         ./mime.nix
       ] ++ lib.optional (builtins.pathExists ./ssh.nix) ./ssh.nix;
 
+      # digital wellbeing monitor
+      services.rsibreak = {
+        enable = true;
+        package = pkgs.zince.rsibreak;
+      };
 
       # A NixOS/nix helper
       programs.nh = {
