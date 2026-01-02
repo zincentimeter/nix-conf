@@ -106,6 +106,7 @@
                 hidden = [
                   "org.kde.plasma.clipboard"
                   "remmina-icon"
+                  "RSIBreak"
                 ];
               }; # items
             }; # systemTray

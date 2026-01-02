@@ -69,6 +69,7 @@
       ark      = "@ByteArray(en_US:ja)";
       kdenlive = "@ByteArray(zh_TW:en_US)";
       dolphin  = "@ByteArray(zh_TW:en_US)";
+      rsibreak = "@ByteArray(zh_TW)";
     };
 
     # Widget showing chinese lunar year
