@@ -6,6 +6,7 @@
     # See: https://sw.kovidgoyal.net/kitty/conf.html
     settings = {
       cursor_blink_interval = 0;
+      tab_bar_style = "powerline";
     };
     shellIntegration.enableFishIntegration = true;
   };
