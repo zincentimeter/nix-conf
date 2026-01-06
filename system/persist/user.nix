@@ -109,6 +109,9 @@ in
           "${configHome}/Steam"
           "${dataHome}/Steam"
           "${dataHome}/Euro Truck Simulator 2"
+          "${dataHome}/FBF" # 100% orange juice
+          "${dataHome}/freebirdgames" # to the moon
+          "${dataHome}/Baba_Is_You"
         ] ++ lib.optionals (atHome pkgs.telegram-desktop) [
           "${dataHome}/TelegramDesktop"
         ] ++ lib.optionals (atHome pkgs.osu-lazer-bin) [
