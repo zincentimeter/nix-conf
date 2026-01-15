@@ -104,7 +104,7 @@ in
           "${configHome}/fish"
           "${dataHome}/fish"
         ] ++ lib.optionals config.programs.steam.enable [
-          # (Some gave saves sit on it)
+          # (Some linux-native game saves sit on it)
           "${configHome}/unity3d"
           "${configHome}/Steam"
           "${dataHome}/Steam"
