@@ -36,6 +36,7 @@
     remotePlay.openFirewall = true;
     # Open ports in the firewall for Source Dedicated Server
     dedicatedServer.openFirewall = false;
+    protontricks.enable = true;
   };
 
   # List packages installed in system profile. To search, run:
