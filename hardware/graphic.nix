@@ -6,6 +6,8 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    # some winetricks shits sit on this
+    extraPackages32 = [ pkgs.pkgsi686Linux.freetype ];
     extraPackages = with pkgs; [
       intel-media-driver
       intel-vaapi-driver

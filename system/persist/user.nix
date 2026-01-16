@@ -55,6 +55,9 @@ in
         # ++ lib.optionals (atHome pkgs.*) [
         #
         ##########################################################
+        ] ++ lib.optionals (atHome pkgs.lutris) [
+          "${dataHome}/lutris"
+          "${configHome}/lutris"
         ] ++ lib.optionals (atHome pkgs.keepassxc) [
           "${configHome}/keepassxc"
         ] ++ lib.optionals (atHome pkgs.wechat-uos || atHome pkgs.wechat) [

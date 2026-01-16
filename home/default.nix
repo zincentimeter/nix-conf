@@ -43,6 +43,9 @@
         zince.rust4diva
         # minecraft
         prismlauncher
+        # proton-related
+        lutris
+        protonplus
 
         # Clipboard for Neovim to access system clipboard.
         wl-clipboard
