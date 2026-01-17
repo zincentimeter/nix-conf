@@ -55,6 +55,9 @@ in
         # ++ lib.optionals (atHome pkgs.*) [
         #
         ##########################################################
+        ] ++ lib.optionals (atHome pkgs.heroic) [
+          "${dataHome}/heroic"
+          "${configHome}/heroic"
         ] ++ lib.optionals (atHome pkgs.lutris) [
           "${dataHome}/lutris"
           "${configHome}/lutris"
