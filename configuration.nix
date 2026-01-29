@@ -59,6 +59,11 @@
         inherit (inputs.apple-fonts.packages."x86_64-linux")
           sf-pro sf-compact sf-mono sf-arabic ny
         ;
+        # Reason: https://github.com/NixOS/nixpkgs/issues/483540
+        # https://wiki.nixos.org/wiki/Overlays#Overriding_a_package_inside_a_scope
+        kdePackages = prev.kdePackages.overrideScope (kfinal: kprev: {
+          inherit (inputs.nixpkgs-stable.legacyPackages."x86_64-linux".kdePackages) kdenlive;
+        }); # kdePckages
       } # function arg attrset
     ) # overlay function
     # all NUR repo collections are added by using this layer
