@@ -38,6 +38,8 @@
     # between reboots - the rest are thrown away.
     impermanence = {
       url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
