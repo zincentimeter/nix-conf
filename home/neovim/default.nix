@@ -44,7 +44,7 @@
     # must be enabled with shell configuration in home-manager
     defaultEditor = true;
 
-    extraLuaConfig = builtins.readFile ./neovim-init.lua;
+    initLua = builtins.readFile ./neovim-init.lua;
 
     plugins = with pkgs.vimPlugins; [
       # base plugin libraries
