@@ -46,6 +46,10 @@
 
     initLua = builtins.readFile ./neovim-init.lua;
 
+    # For image-nvim
+    extraLuaPackages = (ps: [ ps.magick ]);
+    extraPackages = with pkgs; [ imagemagick ];
+
     plugins = with pkgs.vimPlugins; [
       # base plugin libraries
       plenary-nvim
