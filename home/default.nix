@@ -117,7 +117,7 @@
 
       # digital wellbeing monitor
       services.rsibreak = {
-        enable = true;
+        enable = false;
         package = pkgs.zince.rsibreak;
       };
 
