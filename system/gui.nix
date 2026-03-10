@@ -10,11 +10,7 @@
   # Enable the Plasma 6 Desktop Environment.
   # services.xserver.desktopManager.plasma5.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
-    wayland.enable = true;
-    enable = true;
-    autoNumlock = true;
-  };
+  services.displayManager.plasma-login-manager.enable = true;
 
   environment.systemPackages = with pkgs; [
     kdePackages.plasma-thunderbolt
