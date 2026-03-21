@@ -126,6 +126,9 @@
         enable = true;
         flake = "/home/shinri/nix-conf";
       };
+      xdg.configFile."nixpkgs/config.nix".text = ''
+        { allowUnfree = true; }
+      '';
 
       programs.bat.enable = true; # cat alternative
       programs.fd.enable = true; # find alternative
