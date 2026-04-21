@@ -45,6 +45,8 @@ in
         # enable logrotate unconditionally
         # https://github.com/nix-community/impermanence/issues/270
         { directory = "/var/log/logrotate/"; }
+      ] ++ lib.optionals config.services.matrix-tuwunel.enable [
+        { directory = "/var/lib/private/${config.services.matrix-tuwunel.stateDirectory}"; }
       ] ++ lib.optionals (config.security.acme.certs != {}) [
         { directory = "/var/lib/acme"; }
       ] ++ lib.optionals (
