@@ -19,7 +19,6 @@
       auto-allocate-uids = true;
       auto-optimise-store = true;
       use-xdg-base-directories = true;
-      substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
     } // lib.optionalAttrs (inputs ? zincentimeter) {
       extra-substituters = [ "https://zincentimeter-nur.cachix.org" ];
       extra-trusted-public-keys = [ "zincentimeter-nur.cachix.org-1:lUnmYfaT5gswUYZOMBa7fFxSSLZb+aJGlTJFeCU7w5A=" ];
