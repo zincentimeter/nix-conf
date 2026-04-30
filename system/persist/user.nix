@@ -80,7 +80,7 @@ in
           config.programs.firefox.enable ||
           user.programs.firefox.enable
         )[
-          ".mozilla"
+          "${configHome}/mozilla/firefox"
         ] ++ lib.optionals (
           config.programs.thunderbird.enable /* NixOS */ ||
           user.programs.thunderbird.enable /* home  */

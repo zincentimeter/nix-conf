@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   # make Firefox use xinput2 by setting the MOZ_USE_XINPUT2 environment variable.
@@ -23,5 +23,6 @@
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
     };
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 }

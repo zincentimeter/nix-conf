@@ -116,6 +116,10 @@
       # allow (project) dir-based config
       direnv-vim
     ];
+
+    # new behavior of neovim
+    withRuby = false;
+    withPython3 = false;
   };
 
   # use nvim as the manpager to view linux manual
