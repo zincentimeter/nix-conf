@@ -44,10 +44,7 @@
         # minecraft
         prismlauncher
         # proton-related
-        lutris
         protonplus
-        # gog games
-        heroic
 
         # Clipboard for Neovim to access system clipboard.
         wl-clipboard
