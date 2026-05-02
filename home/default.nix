@@ -130,17 +130,6 @@
       programs.bat.enable = true; # cat alternative
       programs.fd.enable = true; # find alternative
 
-      programs.obs-studio = {
-        enable = true;
-        package = pkgs.obs-studio.override { cudaSupport = true; };
-        plugins = with pkgs.obs-studio-plugins; [
-          # screen capture on wlroots based wayland compositors
-          wlrobs
-          # show keyboard on stream
-          input-overlay
-        ];
-      };
-
       services.tldr-update = {
         enable = true;
         package = pkgs.tlrc;
