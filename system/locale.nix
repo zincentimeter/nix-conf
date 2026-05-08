@@ -2,7 +2,7 @@
 
 {
   # Set your time zone.
-  time.timeZone = "Asia/Shanghai";
+  time.timeZone = "Asia/Taipei";
   time.hardwareClockInLocalTime = false;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
