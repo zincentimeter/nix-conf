@@ -97,6 +97,9 @@
 
         # movie editing
         kdePackages.kdenlive
+
+        # matrix
+        cinny
       ];
 
       imports = [
