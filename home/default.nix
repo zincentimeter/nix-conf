@@ -67,7 +67,7 @@
         tradingview
 
         # player
-        mpv
+        (mpv.override { youtubeSupport = false; })
 
         # ftp over ssl
         filezilla
