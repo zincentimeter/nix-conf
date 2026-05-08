@@ -99,7 +99,7 @@
         kdePackages.kdenlive
 
         # matrix
-        cinny
+        cinny-desktop
       ];
 
       imports = [
