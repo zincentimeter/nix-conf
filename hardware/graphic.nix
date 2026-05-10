@@ -56,7 +56,7 @@
       };
 
       # Optimus Option C: Reverse Sync Mode (Experimental)
-      reverseSync.enable = true;
+      reverseSync.enable = false;
       # Enable if using an external GPU
       allowExternalGpu = false;
 
