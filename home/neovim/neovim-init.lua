@@ -63,6 +63,7 @@ which_key.add({
   { lhs='<Leader>p', rhs='"+p', desc='Paste from system clipboard', mode={ 'n', 'v' } },
   { lhs='<Leader>n', rhs='<cmd>Neotree toggle<cr>', desc='Toggle Neotree', mode={ 'n', 'v' } },
   { lhs='<Leader>e', rhs='<cmd>Trouble diagnostics toggle focus=false<cr>', desc='Toggle Trouble', mode={ 'n', 'v' } },
+  { lhs='<Leader>w', rhs='<cmd>WhichKey<cr>', desc='Toggle WhichKey', mode={ 'n', 'v' } },
 })
 
 --- LSP
@@ -74,9 +75,6 @@ vim.lsp.config.tinymist = {
     -- Export PDFs when a document has a title (and save a file),
     -- which is useful to filter out template files.
     exportPdf = 'onSave',
-    -- set the rootPath to -,
-    -- so that tinymist will always use parent directory of the file as the root path
-    root_dir = '-',
     formatterMode = 'typstyle',
   },
 }
@@ -99,11 +97,13 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'typst',
   callback = function()
     which_key.add({
-      lhs = '<Leader>v',
-      rhs = '<cmd>TypstPreviewToggle<cr>',
-      desc = 'Toggle TypstPreview',
-      mode = { 'n', 'v' },
-      buffer = true,
+      {
+        lhs = '<Leader>v',
+        rhs = '<cmd>TypstPreviewToggle<cr>',
+        desc = 'Toggle TypstPreview',
+        mode = { 'n', 'v' },
+        buffer = true,
+      }
     })
   end,
 })
@@ -182,7 +182,7 @@ end, { nargs = 0 })
 
 --- TreeSitter
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype' },
+  pattern = { '<filetype>' },
   callback = function() vim.treesitter.start() end,
 })
 
@@ -204,7 +204,7 @@ cmp.setup({
   },
   mapping = {
     ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    -- ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-y>'] = cmp.mapping(cmp.mapping.confirm(),       { 'i', 'c' }),
     ['<C-q>'] = cmp.mapping(cmp.mapping.close(),         { 'i', 'c' }),
     --- smart tab
