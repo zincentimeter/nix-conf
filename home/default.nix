@@ -8,6 +8,9 @@
     sharedModules = [
       inputs.plasma-manager.homeModules.plasma-manager
     ];
+    # Overwrite files with backup
+    backupFileExtension = "backup";
+    overwriteBackup = true;
 
     users.shinri = {
       # Home Manager needs a bit of information about you and the
