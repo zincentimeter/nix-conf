@@ -98,8 +98,9 @@
         # movie editing
         kdePackages.kdenlive
 
-        # matrix
+        # instant messenger
         cinny-desktop
+        vesktop
       ];
 
       imports = [
