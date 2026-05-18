@@ -11,18 +11,10 @@
   # Pick only one of the below networking options.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
-  # Proxy
-  services.v2raya.enable = true;
-
-  environment.systemPackages = [ pkgs.dae ];
-  # To debug:
-  # systemd.services.v2raya.serviceConfig.ExecStart = lib.mkForce ''
-  #   ${lib.getExe pkgs.v2raya} --log-disable-timestamp --log-level=debug
-  # '';
-
   # Secure Shell Client behavior
   programs.ssh = {
     forwardX11 = null;
     setXAuthLocation = true;
   };
+  programs.nexttrace.enable = true;
 }
