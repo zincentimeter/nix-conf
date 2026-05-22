@@ -26,9 +26,15 @@
     type = "fcitx5";
     fcitx5 = {
       addons = with pkgs; [
-        fcitx5-mozc
+        # Enable IME in GTK apps
         fcitx5-gtk
-        fcitx5-rime
+        # Japanese
+        fcitx5-mozc
+        # Chinese
+        (fcitx5-rime.override {
+          rimeDataPkgs = [ rime-ice ];
+        })
+        # Legacy fallback when rime is broken
         qt6Packages.fcitx5-chinese-addons
       ];
       waylandFrontend = true;
