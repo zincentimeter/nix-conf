@@ -22,9 +22,9 @@
 ## 2. Improvements
 
 - [x] Git default configure signing key
-- [ ] Use TPM 2.0, `security.*` and `sops.*` may relate, to enable...
-  - [ ] Passkey
-  - [ ] SSH login
+- [x] (deprecated) ~~Use TPM 2.0, `security.*` and `sops.*` may relate, to enable...~~ TPM does not support WebAuthn, considered useless
+  - [x] ~~Passkey~~
+  - [x] ~~SSH login~~
 - [ ] LUKS for Full Disk Encryption
 - [ ] declarative fcitx5-pinyin
 - [ ] declarative mozilla
