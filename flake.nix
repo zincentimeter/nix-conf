@@ -14,10 +14,8 @@
     };
     # secure boot
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.3";
+      url = "github:nix-community/lanzaboote/v1.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks-nix.follows = "";
     };
     # declarative disk partition
     disko = {
