@@ -55,8 +55,6 @@ in
         # ++ lib.optionals (atHome pkgs.*) [
         #
         ##########################################################
-        ] ++ lib.optionals (atHome pkgs.vesktop) [
-          "${configHome}/vesktop"
         ] ++ lib.optionals (atHome pkgs.cinny-desktop) [
           "${dataHome}/cinny"
           "${dataHome}/in.cinny.app"
