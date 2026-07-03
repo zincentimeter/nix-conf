@@ -57,17 +57,9 @@
         # library for storing password (initally used by oama)
         libsecret
 
-        # Tencent Meeting
-        wemeet
-        # Zoom-us video conferencing
-        zoom-us
-
         # watchalong
         # syncplay
         stra.vlc-wayland
-
-        # trading
-        tradingview
 
         # player
         (mpv.override { youtubeSupport = false; })
@@ -75,15 +67,8 @@
         # ftp over ssl
         filezilla
 
-        # Notetaking
-        xournalpp
-
         # markdown
         typora
-        obsidian
-
-        # bruh
-        wechat
 
         # monitor
         # top-like monitor
