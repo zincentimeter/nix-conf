@@ -15,6 +15,8 @@
         latexmk
         # URW-base35, Times New Roman
         times
+        # chinese fonts
+        fandol
       ;
     };
   };
