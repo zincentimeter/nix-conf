@@ -8,7 +8,9 @@
   fonts.packages = with pkgs; [
     redhat-official-fonts
     noto-fonts-cjk-sans
+    noto-fonts-cjk-sans-static
     noto-fonts-cjk-serif
+    noto-fonts-cjk-serif-static
     sf-pro
     sf-compact
     sf-mono
