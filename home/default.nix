@@ -120,6 +120,7 @@
 
       programs.bat.enable = true; # cat alternative
       programs.fd.enable = true; # find alternative
+      programs.mangohud.enable = true;
 
       services.tldr-update = {
         enable = true;
