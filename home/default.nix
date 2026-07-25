@@ -88,6 +88,9 @@
 
         # matrix
         cinny-desktop
+
+        # git platform cli
+        hut
       ];
 
       imports = [
