@@ -37,6 +37,9 @@
     # Open ports in the firewall for Source Dedicated Server
     dedicatedServer.openFirewall = false;
     protontricks.enable = true;
+    extraCompatPackages = with pkgs; [
+      dwproton-bin
+    ];
   };
 
   # List packages installed in system profile. To search, run:
