@@ -6,6 +6,13 @@
   programs.nix-index-database.comma.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    # by zotero-10.0.6 due to firefox ESR 140 EOL
+    # Related:
+    # - https://github.com/NixOS/nixpkgs/pull/572466
+    # - https://github.com/NixOS/nixpkgs/issues/579749
+    "firefox-esr-140-bin-unwrapped-140.17.0esr"
+  ];
 
   nix = {
     settings = {
