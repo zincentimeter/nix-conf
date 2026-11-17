@@ -74,7 +74,6 @@
                 "preferred://filemanager"
                 "preferred://browser"
                 "applications:thunderbird.desktop"
-                "applications:zotero.desktop"
               ];
               behavior.showTasks.onlyInCurrentScreen = true;
             }; # iconTasks

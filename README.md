@@ -30,7 +30,6 @@
 - [ ] declarative mozilla
   - [ ] Firefox
   - [ ] Thunderbird
-  - [ ] Zotero (?)
 - [x] Declarative Plasma 6
   - [x] declare plasmashell and default theme (`plasma-org.kde.plasma.desktop-appletsrc` and `kwinoutputconfig.json`)
   - [ ] persist dolphin explorer initial setup

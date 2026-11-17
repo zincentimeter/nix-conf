@@ -27,9 +27,6 @@
         # remote desktop
         remmina
 
-        # zotero
-        zotero
-
         # PDF / ePub reader
         foliate
 
