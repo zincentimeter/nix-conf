@@ -5,7 +5,7 @@
     typst
   ];
   programs.texlive = {
-    enable = true;
+    enable = false;
     extraPackages = tpkgs: {
       inherit (tpkgs)
         scheme-full
